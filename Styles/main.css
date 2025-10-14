@@ -1,0 +1,18 @@
+.fredoka {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.brittany {
+  font-family: "Brittany Signature", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.h1 {
+  font-family: "Brittany Signature", sans-serif;
+  font-weight: 500;
+}
