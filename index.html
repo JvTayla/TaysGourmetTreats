@@ -10,7 +10,7 @@
       content="baking, sugar cookies, cakes, south africa"
     />
 
-    <link rel=" stylesheet" href="Styles/main.css" />
+    <link rel="stylesheet" href="styles/main.css" />
 
     <!-- Insert Nav Script  
      Insert Animation Script
@@ -30,6 +30,10 @@
       href="https://fonts.cdnfonts.com/css/brittany-signature"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.cdnfonts.com/css/glacial-indifference-2"
+      rel="stylesheet"
+    />
 
     <link
       rel="stylesheet"
@@ -41,32 +45,107 @@
     <title>Tay's Gourmet Treats Website</title>
   </head>
   <body>
-    <header>
+    <header class="landing_page">
       <img class="top_logo" />
       <h1>Tay's Gourmet Treats</h1>
-      <h6>EST 2024</h6>
+      <h6 class="establish">EST 2024</h6>
+      <div id="main-nav"></div>
     </header>
     <nav></nav>
 
-    <h2>Introduction</h2>
-    <img class="intro_logo" />
-    <p>Tays Treats resytfguihjopkl[oijhugytrxtyfugihojpk[</p>
-    <button class="learn_more" href="About-Us/about-us.html">Learn More</button>
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <img
+        class="intro_logo"
+        src="assets/intro-heart.png"
+        alt="Decorative Heart Treat"
+      />
+      <p>
+        Welcome to Tay's Gourmet Treats! We create delicious cakes and treats
+        for all ages and occasions. Explore our story, see our latest orders,
+        and find out how to order your own custom creation!
+      </p>
+      <a class="learn_more" href="./About-Us/about-us.html">Learn More</a>
+      <article class="review_card">
+        <h3>Review</h3>
+        <h4>Person Name</h4>
+        <p>“The cakes are always beautiful and taste amazing!”</p>
+      </article>
+    </section>
 
-    <h3>Review</h3>
-    <h4>Person Name</h4>
-    <p>"Review"</p>
+    <section id="recent-orders">
+      <h2>Recent Orders</h2>
+      <div class="recent_orders_slider">
+        <button class="prev_rec" aria-label="Previous order">&lt;</button>
+        <img
+          class="recent_orders"
+          src="assets/recent-order.jpg"
+          alt="Recent Order Preview"
+        />
+        <button class="next_rec" aria-label="Next order">&gt;</button>
+      </div>
+    </section>
 
-    <h2>Recent Orders</h2>
-    <img class="recent_orders" />
-    <button class="prev_rec"></button>
-    <button class="next_rec"></button>
+    <section id="current-events">
+      <h2>Current Events</h2>
+      <p>
+        Stay up to date with upcoming holidays! Never forget Mother’s Day,
+        Father’s Day, or other special events.
+      </p>
+      <div class="event_cards">
+        <figure>
+          <img src="assets/event1.jpg" alt="Mother's Day Special" />
+          <figcaption>Description</figcaption>
+          <a href="#" class="learn_more">Learn More</a>
+        </figure>
+        <figure>
+          <img src="assets/event2.jpg" alt="Father's Day Promo" />
+          <figcaption>Description</figcaption>
+          <a href="#" class="learn_more">Learn More</a>
+        </figure>
+        <figure>
+          <img src="assets/event3.jpg" alt="Holiday Sale" />
+          <figcaption>Description</figcaption>
+          <a href="#" class="learn_more">Learn More</a>
+        </figure>
+        <figure>
+          <img src="assets/event4.jpg" alt="Birthday Treats" />
+          <figcaption>Description</figcaption>
+          <a href="#" class="learn_more">Learn More</a>
+        </figure>
+      </div>
+    </section>
 
-    <h2>Current Events</h2>
-    <p>
-      Stay Up to date with upcomin gholidays so you never forget about important
-      dates ;)
-    </p>
-    <img />
+    <section id="kiddies-corner">
+      <h2>Kiddies Corner</h2>
+      <p>
+        A collection of blog posts with fun activities for families. A surefire
+        way to get your little one into baking!
+      </p>
+      <div class="kiddies_cards">
+        <figure>
+          <img src="assets/kid-activity1.jpg" alt="Baking Cupcakes" />
+          <figcaption>Description</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/kid-activity2.jpg" alt="Decorating Cookies" />
+          <figcaption>Description</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/kid-activity3.jpg" alt="Learning to Pipe Icing" />
+          <figcaption>Description</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/kid-activity4.jpg" alt="Family Baking Fun" />
+          <figcaption>Description</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/kid-activity5.jpg" alt="Baking Party" />
+          <figcaption>Description</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div id="site-footer"></div>
   </body>
 </html>
