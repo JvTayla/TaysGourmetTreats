@@ -66,7 +66,7 @@ const footerHTML = `
   </footer>
 `;
 
-// Insert navigation and footer when DOM is ready
+// Insert nav for header and footer when DOM is ready
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("main-nav").innerHTML = navHTML;
   document.getElementById("site-footer").innerHTML = footerHTML;
