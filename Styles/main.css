@@ -3,6 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  /* Main colours*/
+  --pink-dark: #d83d7f;
+  --pink-bright: #ff5da4;
+  --pink-medium: #ffa8ce;
+  --pink-light: #ffc0dc;
+  --pink-lighter: #ffe8f4;
+  --white: #ffffff;
+  --gray-medium: #868686;
+  --black: #000000;
+
+  /* Button colours */
+  --button-bg: #ff5da4; /* Vibrant Pink for default button background */
+  --button-hover-bg: #d83d7f; /* Darker Pink on hover */
+  --button-text: #ffffff; /* White text for contrast */
+  --button-border: #ffa8ce; /* Medium Pink for border */
+}
+
 .fredoka {
   font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
@@ -51,15 +69,11 @@ h5 {
 }
 
 h6 {
-  font-family: "Fredoka", sans-serif;
+  font-family: "Glacial Indifference", sans-serif;
   font-size: 1em;
+  text-transform: uppercase;
 }
 
-h6.establish {
-  font-family: "Glaial Indifference", sans-serif;
-  font-size: 1em;
-  text-align: center;
-}
 p {
   font-family: "Glacial Indifference", sans-serif;
   font-size: 1.5em;
