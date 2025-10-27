@@ -43,8 +43,10 @@ h1 {
   font-family: "Brittany Signature", sans-serif;
   font-weight: 500;
   font-size: 5em;
-
+  font-display: bold;
+  text-shadow: 1px 1px 0 #d83d7f;
   text-align: center;
+  color: #d83d7f;
 }
 
 h2 {

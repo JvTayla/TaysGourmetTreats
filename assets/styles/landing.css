@@ -1,5 +1,7 @@
 .landing_page {
   display: flex;
+  position: relative;
+  padding-top: 9em;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -12,8 +14,147 @@ h6.establish {
   text-decoration: none;
   font-weight: 200;
 }
+#introduction {
+  display: block;
+  background-color: #ffa8ce;
+  padding: 40px;
+  color: #000000;
+  font-family: "Glacial Indifference", sans-serif;
+}
+h2.intro {
+  color: white;
+}
 .top_logo {
   width: 10em;
+  position: absolute;
+  top: 1.5em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.landing_page h6 {
+  position: absolute;
+  top: 9em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Glacial Indifference", sans-serif;
+}
+.intro_logo {
+  width: 25em;
+  display: flexbox;
+  text-align: left;
+}
+
+#introduction {
+  background-color: #ffa8ce; /* pastel pink background */
+  max-width: 1920px;
+  margin: 0.5em auto;
+  color: #000000;
+  font-family: "Glacial Indifference", sans-serif;
+  line-height: 1.6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.intro-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3em;
+  flex-wrap: wrap;
+}
+
+#introduction em {
+  font-weight: bold;
+}
+#introduction p {
+  font-size: 2.5em;
+}
+
+.intro-image {
+  flex: 1 1 15%;
+  text-align: center;
+}
+
+.intro-image img {
+  width: 100%;
+  max-width: 500px;
+}
+
+.intro-text {
+  flex: 1 1 85%;
+  width: 100%;
+  max-width: 1100px;
+  padding-right: 10em;
+  padding-left: -2em;
+}
+
+.intro-text p {
+  margin-bottom: 0.5em;
+  font-size: 1.2rem;
+}
+
+.learn_more {
+  font-size: 2em;
   display: inline-block;
-  padding-top: 2em;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  padding: 0.9em 1.8em;
+  border-radius: 8px;
+  font-weight: 600;
+  margin: 2em auto 0;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn_more:hover {
+  background-color: #7b0052;
+  transform: translateY(-2px);
+}
+
+#introduction .learn_more {
+  display: block;
+  text-align: center;
+  width: fit-content;
+}
+.intro-text .review_card {
+  float: left;
+  width: 300px;
+  background-color: #ff2885;
+  border-radius: 10px;
+  padding: 1.5em 2em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  color: #5a0050;
+}
+.review-image {
+  float: left;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1em solid #d83d7f;
+  margin: 0 1.5em 1.5em 0;
+  shape-outside: circle();
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.review_card {
+  position: relative;
+  background-color: #ff5da4;
+  max-width: 30%;
+  border-radius: 5em;
+  padding: 1.5em 2em;
+  margin: 2em auto 0;
+  max-width: 500px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.review_card h3 {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.review_card p {
+  color: #000000;
 }
