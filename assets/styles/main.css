@@ -108,7 +108,7 @@ nav .nav-bg {
   width: 100%;
   background-color: #ffe8f4;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  padding: 1em 0;
+  padding: 0.75em 0;
   font-family: "Glacial Indifference", sans-serif;
 }
 
@@ -118,18 +118,25 @@ nav .nav-bg {
   margin: 0;
   display: flex;
   justify-content: center;
-  gap: 1.7em;
+  gap: 1em;
 }
 
 .nav-bar a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
+  padding: 0.25em 1.2em;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+.nav-bar a.active {
+  background-color: #ff5da4;
+  color: #000000;
+  font-weight: bold;
+}
 .nav-bar a:hover {
-  color: #ff69b4;
-  transition: color 0.2s ease-in-out;
+  background-color: #ff5da4;
+  color: #fff;
 }
 .hi {
   --pink-dark: #d83d7f;

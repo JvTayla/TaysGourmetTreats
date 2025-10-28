@@ -27,7 +27,7 @@ h2.intro {
 .top_logo {
   width: 10em;
   position: absolute;
-  top: 1.5em;
+  top: 2em;
   left: 50%;
   transform: translateX(-50%);
 }

@@ -66,8 +66,22 @@ const footerHTML = `
   </footer>
 `;
 
-// Insert nav for header and footer when DOM is ready
 window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("main-nav").innerHTML = navHTML;
+  const navContainer = document.getElementById("main-nav");
+
+  navContainer.innerHTML = `
+    <ul>
+      ${navLinks
+        .map((link) => {
+          // Check if current page matches link href
+          const isActive = window.location.pathname === link.href;
+          return `<li><a href="${link.href}" class="${
+            isActive ? "active" : ""
+          }">${link.name}</a></li>`;
+        })
+        .join("")}
+    </ul>
+  `;
+
   document.getElementById("site-footer").innerHTML = footerHTML;
 });
