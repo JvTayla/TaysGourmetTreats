@@ -1,3 +1,7 @@
+// Base path for GitHub Pages
+const basePath = "/TaysGourmetTreats/";
+
+// Navigation links (relative to repo)
 const navLinks = [
   { name: "Home", href: "index.html" },
   { name: "About Us", href: "About-Us/index.html" },
@@ -9,10 +13,11 @@ const navLinks = [
   { name: "Contact Us", href: "Contact-Us/index.html" },
 ];
 
+// Footer HTML
 const footerHTML = `
   <footer id="contact">
     <section class="footer-brand">
-      <img class="footer-logo" src="assets/logo.png" alt="Tay's Gourmet Treats Footer Logo">
+      <img class="footer-logo" src="${basePath}assets/logo.png" alt="Tay's Gourmet Treats Footer Logo">
       <h2>Tay's Gourmet Treats</h2>
     </section>
 
@@ -55,21 +60,24 @@ const footerHTML = `
 window.addEventListener("DOMContentLoaded", () => {
   const navContainer = document.getElementById("main-nav");
 
-  const currentPage = window.location.pathname.split("/").pop(); // "index.html"
-  navContainer.innerHTML = `
-  <ul>
-    ${navLinks
-      .map((link) => {
-        const linkPage = link.href.split("/").pop();
-        const isActive = currentPage === linkPage;
-        return `<li><a href="${link.href}" class="${
-          isActive ? "active" : ""
-        }">${link.name}</a></li>`;
-      })
-      .join("")}
-  </ul>
-`;
+  // Get current page filename (like "index.html")
+  const currentPage = window.location.pathname.split("/").pop();
 
- 
+  // Generate nav HTML with active class
+  navContainer.innerHTML = `
+    <ul>
+      ${navLinks
+        .map((link) => {
+          const linkPage = link.href.split("/").pop();
+          const isActive = currentPage === linkPage;
+          return `<li><a href="${basePath}${link.href}" class="${
+            isActive ? "active" : ""
+          }">${link.name}</a></li>`;
+        })
+        .join("")}
+    </ul>
+  `;
+
+  // Insert footer
   document.getElementById("site-footer").innerHTML = footerHTML;
 });
