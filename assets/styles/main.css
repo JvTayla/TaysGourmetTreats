@@ -80,6 +80,11 @@ p {
   font-family: "Glacial Indifference", sans-serif;
   font-size: 1.5em;
 }
+.nav-wrapper {
+  position: sticky; /* or fixed */
+  top: 0;
+  z-index: 1000; /* make sure it’s above other content */
+}
 .awning-top {
   margin-top: 1em;
   background-color: #ff5da4;
@@ -103,11 +108,14 @@ nav .nav-bg {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 .nav-bar {
+  position: sticky;
+  top: 0;
   z-index: 10;
-  font-size: 2.2em;
+  font-size: 2em;
   width: 100%;
+  margin: 0 auto;
   background-color: #ffe8f4;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.15em 0.2em rgba(0, 0, 0, 0.2);
   padding: 0.75em 0;
   font-family: "Glacial Indifference", sans-serif;
 }
@@ -118,7 +126,7 @@ nav .nav-bg {
   margin: 0;
   display: flex;
   justify-content: center;
-  gap: 1em;
+  gap: 0.1em;
 }
 
 .nav-bar a {
@@ -138,6 +146,24 @@ nav .nav-bg {
   background-color: #ff5da4;
   color: #fff;
 }
+.learn_more {
+  font-size: 2em;
+  display: inline-block;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  padding: 0.9em 1.8em;
+  border-radius: 8px;
+  font-weight: 600;
+  margin: 2em auto 0;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn_more:hover {
+  background-color: #d83d7f;
+  transform: translateY(-2px);
+}
 .hi {
   --pink-dark: #d83d7f;
   --pink-bright: #ff5da4;
@@ -147,4 +173,9 @@ nav .nav-bg {
   --white: #ffffff;
   --gray-medium: #868686;
   --black: #000000;
+  /* Button colours */
+  --button-bg: #ff5da4; /* Vibrant Pink for default button background */
+  --button-hover-bg: #d83d7f; /* Darker Pink on hover */
+  --button-text: #ffffff; /* White text for contrast */
+  --button-border: #ffa8ce; /* Medium Pink for border */
 }
