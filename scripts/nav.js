@@ -1,12 +1,12 @@
 const navLinks = [
-  { name: "Home", href: "./index.html" },
-  { name: "About Us", href: "./About-Us/index.html" },
-  { name: "Gallery", href: "./Cake-Gallery/index.html" },
-  { name: "Order", href: "./Order/index.html" },
-  { name: "Events", href: "./Events/index.html" },
-  { name: "Kiddies Corner", href: "./Kiddies-Corner/index.html" },
-  { name: "FAQ", href: "./FAQ/index.html" },
-  { name: "Contact Us", href: "./Contact-Us/index.html" },
+  { name: "Home", href: "index.html" },
+  { name: "About Us", href: "About-Us/index.html" },
+  { name: "Gallery", href: "Cake-Gallery/index.html" },
+  { name: "Order", href: "Order/index.html" },
+  { name: "Events", href: "Events/index.html" },
+  { name: "Kiddies Corner", href: "Kiddies-Corner/index.html" },
+  { name: "FAQ", href: "FAQ/index.html" },
+  { name: "Contact Us", href: "Contact-Us/index.html" },
 ];
 
 const navHTML = `
