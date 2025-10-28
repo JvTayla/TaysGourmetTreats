@@ -138,3 +138,70 @@ h2.intro {
 .review_card p {
   color: #000000;
 }
+
+.nav-wrapper {
+  position: sticky; /* or fixed */
+  top: 0;
+  z-index: 1000; /* make sure it’s above other content */
+}
+.awning-top {
+  margin-top: 1em;
+  background-color: #ff5da4;
+  height: clamp(20px, 4vw, 40px);
+  width: 100%;
+}
+
+.awning {
+  height: 1em;
+  background-color: #ffe8f4;
+  background-image: radial-gradient(
+    circle at 17.5px -6px,
+    #ff5da4 17.5px,
+    #ffe8f4 18px
+  );
+  background-size: 35px 35px;
+  background-repeat: repeat-x;
+}
+nav .nav-bg {
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-size: 2em;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffe8f4;
+  box-shadow: 0 0.15em 0.2em rgba(0, 0, 0, 0.2);
+  padding: 0.75em 0;
+  font-family: "Glacial Indifference", sans-serif;
+}
+
+.nav-bar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.1em;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 0.25em 1.2em;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-bar a.active {
+  background-color: #ff5da4;
+  color: #000000;
+  font-weight: bold;
+}
+.nav-bar a:hover {
+  background-color: #ff5da4;
+  color: #fff;
+}
