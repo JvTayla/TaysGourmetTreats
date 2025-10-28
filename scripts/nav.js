@@ -1,12 +1,12 @@
 const navLinks = [
-  { name: "Home", href: "/index.html" },
-  { name: "About Us", href: "/About-Us/index.html" },
-  { name: "Gallery", href: "/Cake-Gallery/index.html" },
-  { name: "Order", href: "/Order/index.html" },
-  { name: "Events", href: "/Events/index.html" },
-  { name: "Kiddies Corner", href: "/Kiddies-Corner/index.html" },
-  { name: "FAQ", href: "/FAQ/index.html" },
-  { name: "Contact Us", href: "/Contact-Us/index.html" },
+  { name: "Home", href: "index.html" },
+  { name: "About Us", href: "About-Us/index.html" },
+  { name: "Gallery", href: "Cake-Gallery/index.html" },
+  { name: "Order", href: "Order/index.html" },
+  { name: "Events", href: "Events/index.html" },
+  { name: "Kiddies Corner", href: "Kiddies-Corner/index.html" },
+  { name: "FAQ", href: "FAQ/index.html" },
+  { name: "Contact Us", href: "Contact-Us/index.html" },
 ];
 
 const footerHTML = `
@@ -55,20 +55,20 @@ const footerHTML = `
 window.addEventListener("DOMContentLoaded", () => {
   const navContainer = document.getElementById("main-nav");
 
-  // Generate nav HTML with active class for current page
+  const currentPage = window.location.pathname.split("/").pop(); // "index.html"
   navContainer.innerHTML = `
-    <ul>
-      ${navLinks
-        .map((link) => {
-          // Check if current page matches link href
-          const isActive = window.location.pathname === link.href;
-          return `<li><a href="${link.href}" class="${
-            isActive ? "active" : ""
-          }">${link.name}</a></li>`;
-        })
-        .join("")}
-    </ul>
-  `;
+  <ul>
+    ${navLinks
+      .map((link) => {
+        const linkPage = link.href.split("/").pop();
+        const isActive = currentPage === linkPage;
+        return `<li><a href="${link.href}" class="${
+          isActive ? "active" : ""
+        }">${link.name}</a></li>`;
+      })
+      .join("")}
+  </ul>
+`;
 
   // Insert footer (no changes needed)
   document.getElementById("site-footer").innerHTML = footerHTML;
