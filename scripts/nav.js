@@ -1,5 +1,3 @@
-const basePath = "/TaysGourmetTreats/";
-
 const navLinks = [
   { name: "Home", href: "index.html" },
   { name: "About Us", href: "About-Us/index.html" },
@@ -75,11 +73,9 @@ window.addEventListener("DOMContentLoaded", () => {
     <ul>
       ${navLinks
         .map((link) => {
-          const linkPage = link.href.split("/").pop();
-          const isActive =
-            currentPage === linkPage ||
-            (currentPage === "" && linkPage === "index.html");
-          return `<li><a href="${basePath}${link.href}" class="${
+          // Check if current page matches link href
+          const isActive = window.location.pathname === link.href;
+          return `<li><a href="${link.href}" class="${
             isActive ? "active" : ""
           }">${link.name}</a></li>`;
         })
