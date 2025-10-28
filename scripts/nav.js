@@ -70,6 +70,6 @@ window.addEventListener("DOMContentLoaded", () => {
   </ul>
 `;
 
-  // Insert footer (no changes needed)
+ 
   document.getElementById("site-footer").innerHTML = footerHTML;
 });
