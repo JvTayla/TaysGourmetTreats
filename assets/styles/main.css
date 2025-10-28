@@ -80,3 +80,64 @@ p {
   font-family: "Glacial Indifference", sans-serif;
   font-size: 1.5em;
 }
+.awning-top {
+  margin-top: 1em;
+  background-color: #ff5da4;
+  height: clamp(20px, 4vw, 40px);
+  width: 100%;
+}
+
+.awning {
+  height: 1em;
+  background-color: #ffe8f4;
+  background-image: radial-gradient(
+    circle at 17.5px -6px,
+    #ff5da4 17.5px,
+    #ffe8f4 18px
+  );
+  background-size: 35px 35px;
+  background-repeat: repeat-x;
+}
+nav .nav-bg {
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+.nav-bar {
+  z-index: 10;
+  font-size: 2.2em;
+  width: 100%;
+  background-color: #ffe8f4;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  padding: 1em 0;
+  font-family: "Glacial Indifference", sans-serif;
+}
+
+.nav-bar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.7em;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.nav-bar a:hover {
+  color: #ff69b4;
+  transition: color 0.2s ease-in-out;
+}
+.hi {
+  --pink-dark: #d83d7f;
+  --pink-bright: #ff5da4;
+  --pink-medium: #ffa8ce;
+  --pink-light: #ffc0dc;
+  --pink-lighter: #ffe8f4;
+  --white: #ffffff;
+  --gray-medium: #868686;
+  --black: #000000;
+}
