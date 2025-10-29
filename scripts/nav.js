@@ -23,12 +23,16 @@ window.addEventListener("DOMContentLoaded", () => {
     <ul>
       ${navLinks
         .map(
-          (link) =>
-            `<li><a href="${basePath}${link.href}" class="${
-              typeof currentPage !== "undefined" && link.name === currentPage
-                ? "active"
-                : ""
-            }">${link.name}</a></li>`
+          (link) => `
+          <li>
+            <a href="${basePath}${link.href}" class="${
+            typeof currentPage !== "undefined" && link.name === currentPage
+              ? "active"
+              : ""
+          }">
+              ${link.name}
+            </a>
+          </li>`
         )
         .join("")}
     </ul>
