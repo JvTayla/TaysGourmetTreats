@@ -51,6 +51,7 @@ h2.intro {
   font-family: "Glacial Indifference", sans-serif;
   line-height: 1.6;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
 }
 
 .intro-content {
@@ -206,3 +207,172 @@ nav .nav-bg {
   color: #fff;
 }
 
+#recent-orders {
+  display: block;
+  background-color: white;
+  color: #000000;
+  font-family: "Glacial Indifference", sans-serif;
+  margin: 0 auto;
+
+  perspective: 1000px;
+  position: relative; /* relative for pseudo-element and arrows */
+  padding: 2em 0;
+}
+
+/* Background pattern behind the cards */
+#recent-orders::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/images/RepeatingBackground.png") repeat;
+  background-size: 20em 20em;
+  opacity: 0.4; /* semi-transparent */
+  z-index: 0; /* behind all cards */
+}
+
+/* Section heading */
+#recent-orders h2 {
+  color: #d83d7f;
+  text-align: center;
+  padding-top: 0.5em;
+  position: relative;
+  z-index: 2; /* above background */
+}
+
+/* Carousel container */
+.recent_orders_slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2.5em;
+  position: relative;
+  z-index: 2; /* above background */
+}
+
+/* Wrapper for images */
+.order_image_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Main card */
+.recent_orders.main_card {
+  width: 40em;
+  height: 40em;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  transform: scale(1.1);
+  cursor: pointer;
+  position: relative;
+  z-index: 3; /* above background and side cards */
+}
+
+/* Side cards */
+.recent_orders.side_card {
+  width: 35em;
+  height: 35em;
+  border-radius: 8px;
+  object-fit: cover;
+  opacity: 0.6;
+  filter: brightness(0.9);
+  position: absolute;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  z-index: 2; /* above background, below main card */
+}
+
+/* Left / right positions */
+.left_card {
+  left: 0;
+  transform: translateX(-25em) scale(1);
+}
+
+.right_card {
+  right: 0;
+  transform: translateX(25em) scale(1);
+}
+.card {
+  position: absolute; /* for side cards */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 2; /* above background */
+  cursor: pointer;
+}
+
+.main_card {
+  position: relative; /* center card */
+  width: 40em;
+  height: 40em;
+  z-index: 3;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.left_card {
+  width: 35em;
+  height: 35em;
+  left: 0;
+  transform: translateX(-25em) scale(0.9);
+}
+.right_card img,
+.left_card img {
+  opacity: 0.5;
+}
+
+.right_card {
+  width: 35em;
+  height: 35em;
+  right: 0;
+  transform: translateX(25em) scale(0.9);
+}
+
+/* Image inside card */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Carousel arrows */
+.prev_rec,
+.next_rec {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  padding: 0;
+  outline: none;
+  z-index: 10; /* above everything */
+}
+
+.prev_rec {
+  border-width: 30px 40px 30px 0;
+  border-color: transparent #d83d7f transparent transparent;
+  left: 1em; /* inside container */
+}
+
+.next_rec {
+  border-width: 30px 0 30px 40px;
+  border-color: transparent transparent transparent #d83d7f;
+  right: 1em; /* inside container */
+}
