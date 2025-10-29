@@ -227,7 +227,7 @@ nav .nav-bg {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("./assets/images/RepeatingBackground.png") repeat;
+  background: url("../assets/images/RepeatingBackground.png") repeat;
   background-size: 20em 20em;
   opacity: 0.4; /* semi-transparent */
   z-index: 0; /* behind all cards */
