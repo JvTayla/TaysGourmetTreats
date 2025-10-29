@@ -292,11 +292,13 @@ nav .nav-bg {
 .left_card {
   left: 0;
   transform: translateX(-25em) scale(1);
+  cursor: pointer;
 }
 
 .right_card {
   right: 0;
   transform: translateX(25em) scale(1);
+  cursor: pointer;
 }
 .card {
   position: absolute; /* for side cards */
@@ -308,7 +310,6 @@ nav .nav-bg {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 2; /* above background */
-  cursor: pointer;
 }
 
 .main_card {
