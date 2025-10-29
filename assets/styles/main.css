@@ -228,3 +228,23 @@ nav .nav-bg {
   --button-text: #ffffff; /* White text for contrast */
   --button-border: #ffa8ce; /* Medium Pink for border */
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:active {
+  outline: none;
+}
