@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tays Gourmet Treats Contact Us</title>
+    <title>Tay’s Gourmet Treats | Contact Us</title>
 
     <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/contact.css" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,10 +24,13 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <script>
       const currentPage = "Contact Us";
     </script>
+
+   
     <div class="nav-wrapper">
       <div class="awning-top"></div>
       <div class="awning"></div>
@@ -35,7 +40,7 @@
           <img
             class="nav-logo"
             src="../assets/images/TaysTreats Logo.png"
-            alt="Tay's Logo"
+            alt="Tay's Gourmet Treats logo"
           />
         </a>
       </div>
@@ -44,7 +49,129 @@
         <ul id="main-nav"></ul>
       </nav>
     </div>
-    <div id="site-footer"></div>
+
+ 
+    <main id="contact-page">
+      <header class="contact-header">
+        <h1>Let’s make something sweet.</h1>
+        <p>
+          Questions, custom requests, or press? Fill the form or pop us an email
+          and we’ll reply within one business day. Prefer to talk? Book a quick
+          call via the Order page scheduling tool.
+        </p>
+      </header>
+
+      <section class="contact-section">
+        <div class="contact-form-container">
+          <h2>Contact Us</h2>
+
+          <form id="contactForm" enctype="multipart/form-data">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Phone (optional)</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="e.g. +27 82 123 4567"
+            />
+
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <label for="file">Attach a file (optional)</label>
+            <input type="file" id="file" name="file" accept="image/*, .pdf" />
+
+            <div class="consent">
+              <input type="checkbox" id="consent" name="consent" required />
+              <label for="consent">
+                I consent to my information being processed for this inquiry.
+              </label>
+            </div>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+
+        <div class="contact-media">
+          <iframe
+            class="contact-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.3042206421577!2d18.4241!3d-33.9249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0000000000000000!2sTay’s%20Gourmet%20Treats!5e0!3m2!1sen!2sza!4v1698692920000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
+          <img
+            src="../assets/images/bakery-exterior.jpg"
+            alt="Tay’s bakery storefront illustration"
+            class="contact-image"
+          />
+        </div>
+      </section>
+
+    
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq">
+          <div class="faq-item">
+            <button class="faq-question">How does delivery work?</button>
+            <div class="faq-answer">
+              We offer delivery within a 25km radius of our bakery. Deliveries
+              take place between 9am–4pm, Monday to Saturday.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Can I transport my cake myself?
+            </button>
+            <div class="faq-answer">
+              Yes! We carefully box your cake and share tips to ensure it
+              arrives perfectly. Avoid hot cars or uneven roads when possible.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Do you make vegan or allergy-friendly cakes?
+            </button>
+            <div class="faq-answer">
+              Absolutely! We offer vegan, gluten-free, and nut-free options upon
+              request. Please note all cakes are made in the same kitchen.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              How far in advance should I order?
+            </button>
+            <div class="faq-answer">
+              For regular cakes, please order 3–5 days in advance. For custom or
+              tiered cakes, 1–2 weeks’ notice ensures we can craft it perfectly.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Can I request a specific delivery time?
+            </button>
+            <div class="faq-answer">
+              We’ll always try to accommodate preferred times. Let us know in
+              your message or order notes and we’ll confirm availability.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+   
     <script src="../scripts/nav.js"></script>
+    <script type="module" src="../scripts/contact.js"></script>
   </body>
 </html>
