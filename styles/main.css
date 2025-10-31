@@ -109,11 +109,13 @@ p {
   padding: 0;
 }
 .nav-logo-wrapper {
-  position: absolute;
+  position: fixed;
   top: 4.1em;
   left: 1em;
   width: 180px;
   height: 180px;
+  z-index: 200;
+  pointer-events: none;
 }
 
 .nav-logo-circle {
