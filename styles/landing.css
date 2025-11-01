@@ -70,26 +70,26 @@ h2.intro {
 }
 
 .intro-image {
-  flex: 1 1 15%;
+  flex: 1 1 10%;
   text-align: center;
 }
 
 .intro-image img {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 .intro-text {
-  flex: 1 1 85%;
+  flex: 1 1 100%;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1450px;
   padding-right: 10em;
   padding-left: -2em;
 }
 
 .intro-text p {
   margin-bottom: 0.5em;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 #introduction .learn_more {
@@ -285,10 +285,9 @@ nav .nav-bg {
   filter: brightness(0.9);
   position: absolute;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  z-index: 2; /* above background, below main card */
+  z-index: 2;
 }
 
-/* Left / right positions */
 .left_card {
   left: 0;
   transform: translateX(-25em) scale(1);
@@ -301,7 +300,7 @@ nav .nav-bg {
   cursor: pointer;
 }
 .card {
-  position: absolute; /* for side cards */
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,11 +308,11 @@ nav .nav-bg {
   background-color: white;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease, opacity 0.3s ease;
-  z-index: 2; /* above background */
+  z-index: 2;
 }
 
 .main_card {
-  position: relative; /* center card */
+  position: relative;
   width: 40em;
   height: 40em;
   z-index: 3;
@@ -339,7 +338,6 @@ nav .nav-bg {
   transform: translateX(25em) scale(0.9);
 }
 
-/* Image inside card */
 .card img {
   width: 100%;
   height: 100%;
@@ -348,7 +346,6 @@ nav .nav-bg {
   opacity: 1;
 }
 
-/* Carousel arrows */
 .prev_rec,
 .next_rec {
   width: 0;
@@ -362,17 +359,17 @@ nav .nav-bg {
   border: none;
   padding: 0;
   outline: none;
-  z-index: 10; /* above everything */
+  z-index: 10;
 }
 
 .prev_rec {
   border-width: 30px 40px 30px 0;
   border-color: transparent #d83d7f transparent transparent;
-  left: 1em; /* inside container */
+  left: 1em;
 }
 
 .next_rec {
   border-width: 30px 0 30px 40px;
   border-color: transparent transparent transparent #d83d7f;
-  right: 1em; /* inside container */
+  right: 1em;
 }

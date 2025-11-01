@@ -78,7 +78,7 @@ h6 {
 
 p {
   font-family: "Glacial Indifference", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 .nav-wrapper {
   position: sticky; /* or fixed */

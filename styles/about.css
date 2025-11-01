@@ -1,9 +1,20 @@
 .about-wrapper {
-  max-width: 85em;
-  margin: 4em auto;
-  padding: 1em;
-  font-family: "Glacial Indifference", sans-serif;
-  position: relative;
+  position: relative; /* needed for absolute children */
+
+  padding: 2em;
+}
+
+.about-bg-pattern {
+  position: absolute; /* relative to about-wrapper */
+  top: 0;
+  left: 0;
+
+  width: 100%; /* full width of wrapper */
+  height: 100%; /* full height of wrapper */
+  background: url("../assets/images/RepeatingBackground.png") repeat;
+  background-size: 20em 20em;
+  opacity: 0.4;
+  z-index: -1; /* behind everything */
 }
 
 .about-title {
@@ -17,58 +28,62 @@
 }
 
 .about-container {
+  max-width: 90em;
+  left: 20em;
   position: relative;
-  display: flex;
-  justify-content: flex-start; /* left align columns */
-  align-items: center;
-  flex-wrap: nowrap; /* keep columns side-by-side */
-  gap: 2rem;
-}
-
-.about-image {
-  position: relative;
-  flex: 0 0 25%;
-  width: 100%;
-  min-width: 30em;
-  min-height: 30em;
-  z-index: 3; /* sit above the text */
-  background-color: #e10086;
-  border-radius: 50%;
-  height: 0;
-  /* keep square shape relative to width */
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  /* overlap the text area — tune the X value to control overlap amount */
-  transform: translateX(10%);
+  gap: 3rem;
 }
 
-.about-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.about-image-wrapper {
+  position: absolute;
+  width: 30em;
+  aspect-ratio: 1 / 1; /* keeps it perfectly round */
+  left: 3.5%;
+  bottom: 37%;
+  transform: translateX(-50%);
   border-radius: 50%;
+
+  z-index: 0; /* sits BEHIND the other images */
+}
+
+/* The main image (on top of the circle) */
+.about-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  z-index: 2; /* sits above the circle */
+}
+
+/* Foreground image (topmost layer) */
+.about-image-fg {
+  position: absolute;
+  width: 60%;
+  bottom: -1em;
+  right: 16.35em;
+  z-index: 3; /* sits above both */
 }
 
 .about-text {
   background-color: #ffc0dc;
   border-radius: 20px;
   padding: 2em 3em;
-  /* add left padding so text doesn't sit exactly under the overlap */
-  padding-left: 4rem;
-  flex: 1 1 75%;
-  min-height: 250px;
-  margin-left: 0; /* remove previous fixed margin */
+  width: 70%;
+  text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   line-height: 1.6;
-  color: #000000;
+  color: #000;
   font-size: 1em;
 }
+
 .about-text p {
   margin-bottom: 1em;
+  font-size: 1.7rem;
+  text-align: left;
 }
 
 /* ===== Responsive Fix ===== */
@@ -83,6 +98,13 @@
     left: 0;
     top: 0;
     margin-bottom: -60px;
+  }
+  .about-image-fg {
+    position: absolute;
+
+    bottom: -20px;
+    right: -20px;
+    z-index: 4;
   }
 
   .about-text {
