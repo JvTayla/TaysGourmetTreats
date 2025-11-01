@@ -11,7 +11,6 @@
   width: 100%;
   height: 100%;
   background: url("../assets/images/RepeatingBackground.png") repeat;
-  background-size: 20em 20em;
   opacity: 0.4;
   z-index: -1;
 }
