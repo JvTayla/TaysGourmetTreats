@@ -141,9 +141,9 @@ h2.intro {
 }
 
 .nav-wrapper {
-  position: sticky; /* or fixed */
+  position: sticky;
   top: 0;
-  z-index: 1000; /* make sure it’s above other content */
+  z-index: 1000;
 }
 .awning-top {
   margin-top: 1em;
@@ -215,11 +215,10 @@ nav .nav-bg {
   margin: 0 auto;
 
   perspective: 1000px;
-  position: relative; /* relative for pseudo-element and arrows */
+  position: relative;
   padding: 2em 0em 5em 0em;
 }
 
-/* Background pattern behind the cards */
 #recent-orders::before {
   content: "";
   position: absolute;
@@ -233,26 +232,23 @@ nav .nav-bg {
   z-index: 0;
 }
 
-/* Section heading */
 #recent-orders h2 {
   color: #d83d7f;
   text-align: center;
   padding-top: 0.5em;
   position: relative;
-  z-index: 2; /* above background */
+  z-index: 2;
 }
 
-/* Carousel container */
 .recent_orders_slider {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 2.5em;
   position: relative;
-  z-index: 2; /* above background */
+  z-index: 2;
 }
 
-/* Wrapper for images */
 .order_image_wrapper {
   display: flex;
   justify-content: center;
@@ -261,7 +257,6 @@ nav .nav-bg {
   z-index: 2;
 }
 
-/* Main card */
 .recent_orders.main_card {
   width: 40em;
   height: 40em;
@@ -272,10 +267,9 @@ nav .nav-bg {
   transform: scale(1.1);
   cursor: pointer;
   position: relative;
-  z-index: 3; /* above background and side cards */
+  z-index: 3;
 }
 
-/* Side cards */
 .recent_orders.side_card {
   width: 35em;
   height: 35em;

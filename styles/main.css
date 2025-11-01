@@ -81,7 +81,7 @@ p {
   font-size: 1.5rem;
 }
 .nav-wrapper {
-  position: sticky; /* or fixed */
+  position: sticky;
   top: 0;
   z-index: 100;
 }
@@ -144,7 +144,7 @@ p {
   height: 150px;
   object-fit: cover;
   position: relative;
-  border-radius: 0; /* keep original shape */
+  border-radius: 0;
 }
 
 .nav-bar {

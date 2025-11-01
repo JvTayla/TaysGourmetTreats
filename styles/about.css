@@ -1,20 +1,20 @@
 .about-wrapper {
-  position: relative; /* needed for absolute children */
+  position: relative;
 
   padding: 2em;
 }
 
 .about-bg-pattern {
-  position: absolute; /* relative to about-wrapper */
+  position: absolute;
   top: 0;
   left: 0;
 
-  width: 100%; /* full width of wrapper */
-  height: 100%; /* full height of wrapper */
+  width: 100%;
+  height: 100%;
   background: url("../assets/images/RepeatingBackground.png") repeat;
   background-size: 20em 20em;
   opacity: 0.4;
-  z-index: -1; /* behind everything */
+  z-index: -1;
 }
 
 .about-title {
@@ -40,32 +40,30 @@
 .about-image-wrapper {
   position: absolute;
   width: 30em;
-  aspect-ratio: 1 / 1; /* keeps it perfectly round */
+  aspect-ratio: 1 / 1;
   left: 3.5%;
   bottom: 37%;
   transform: translateX(-50%);
   border-radius: 50%;
 
-  z-index: 0; /* sits BEHIND the other images */
+  z-index: 0;
 }
 
-/* The main image (on top of the circle) */
 .about-image {
   position: relative;
   width: 100%;
   height: auto;
   border-radius: 20px;
   object-fit: cover;
-  z-index: 2; /* sits above the circle */
+  z-index: 2;
 }
 
-/* Foreground image (topmost layer) */
 .about-image-fg {
   position: absolute;
   width: 60%;
   bottom: -1em;
   right: 16.35em;
-  z-index: 3; /* sits above both */
+  z-index: 3;
 }
 
 .about-text {
@@ -86,7 +84,6 @@
   text-align: left;
 }
 
-/* ===== Responsive Fix ===== */
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
@@ -114,7 +111,6 @@
   }
 }
 
-/* Wrapper & section layout */
 .team-wrapper {
   text-align: center;
   padding: 2em 0;
@@ -127,7 +123,6 @@
   overflow: hidden;
 }
 
-/* Carousel */
 .team-carousel {
   overflow: hidden;
   width: 100%;
@@ -142,7 +137,7 @@
   color: #ac1b57;
   padding-bottom: 0.1em;
 }
-/* Team members in carousel */
+
 .team-member {
   flex: 0 0 calc(25% - 1em);
   background-color: #ac1b57;
@@ -164,7 +159,6 @@ h4 {
   transform: translateY(-5px);
 }
 
-/* Buttons */
 .team-prev,
 .team-next {
   position: absolute;
@@ -195,7 +189,6 @@ h4 {
   right: -2em;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .team-member {
     flex: 0 0 calc(50% - 1em);
@@ -208,15 +201,14 @@ h4 {
   }
 }
 
-/* Manifesto Section */
 .manifesto-wrapper {
-  background-color: #ff5da4; /* pink background */
+  background-color: #ff5da4;
   padding: 60px 20px;
   margin: 40px auto;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   font-family: "Glacial Indifference", sans-serif;
-  color: #fff; /* white text for contrast */
+  color: #fff;
 }
 
 .manifesto-title {
@@ -248,7 +240,7 @@ h4 {
 }
 
 .manifesto-text strong {
-  color: #ffd1e0; /* light pink accent for emphasis */
+  color: #ffd1e0;
 }
 
 @media (max-width: 768px) {
