@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 messageElement.className = "form-message";
               },
             });
-          }, 8000); // Longer timeout for file upload instructions
+          }, 8000);
         }
       }
     }
@@ -275,32 +275,33 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         showMessage("📤 Sending your message...", "success");
 
-        // Create new FormData without the file
-        const textFormData = new FormData();
-        textFormData.append("name", formData.get("name"));
-        textFormData.append("email", formData.get("email"));
-        textFormData.append("phone", formData.get("phone") || "");
-        textFormData.append("message", formData.get("message"));
-        textFormData.append("consent", "true");
-        textFormData.append(
+        // Create URLSearchParams instead of FormData to avoid file detection
+        const params = new URLSearchParams();
+        params.append("name", formData.get("name"));
+        params.append("email", formData.get("email"));
+        params.append("phone", formData.get("phone") || "");
+        params.append("message", formData.get("message"));
+        params.append("consent", "true");
+        params.append(
           "_subject",
           "New Contact Form Submission - Tay's Gourmet Treats"
         );
 
         // Add file info if exists
         if (fileName) {
-          textFormData.append(
+          params.append(
             "file_note",
             `The user uploaded a file: "${fileName}". Please check the Google Drive folder for this file.`
           );
-          textFormData.append("google_drive_folder", googleDriveFolderUrl);
+          params.append("google_drive_folder", googleDriveFolderUrl);
         }
 
         const response = await fetch(formspreeUrl, {
           method: "POST",
-          body: textFormData,
+          body: params, // Use URLSearchParams instead of FormData
           headers: {
             Accept: "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
           },
         });
 
@@ -341,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fileField.addEventListener("change", () => {
         if (fileField.files[0]) {
           const fileName = fileField.files[0].name;
-          const fileSize = (fileField.files[0].size / (1024 * 1024)).toFixed(2); // Size in MB
+          const fileSize = (fileField.files[0].size / (1024 * 1024)).toFixed(2);
           showMessage(
             `📎 File selected: ${fileName} (${fileSize} MB) - Will be uploaded to Google Drive`,
             "success"
@@ -427,7 +428,7 @@ document.addEventListener("DOMContentLoaded", function () {
           await new Promise((resolve) => setTimeout(resolve, 2000));
         }
 
-        // Submit form data to Formspree
+        // Submit form data to Formspree (using URLSearchParams to avoid file detection)
         const result = await submitToFormspree(formData, fileName);
 
         // Show appropriate success message

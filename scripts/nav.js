@@ -15,8 +15,7 @@ const navLinks = [
 const footerHTML = `
   <footer id="contact">
     <section class="footer-brand">
-      <img class="footer-logo" src="/assets/images/TaysTreats Logo.png" alt="Tay's Gourmet Treats Footer Logo" width="150" />
-      <h2>Tay's Gourmet Treats</h2>
+      <h2 class ="footer-title">Tay's Gourmet Treats</h2>
     </section>
 
     <section class="footer-social">

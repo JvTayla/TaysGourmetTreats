@@ -80,6 +80,8 @@ p {
   font-family: "Glacial Indifference", sans-serif;
   font-size: 1.5rem;
 }
+
+/* Navigation Bar Styling */
 .nav-wrapper {
   position: sticky;
   top: 0;
@@ -215,21 +217,6 @@ nav .nav-bg {
   background-color: #d83d7f;
   transform: translateY(-2px);
 }
-.hi {
-  --pink-dark: #d83d7f;
-  --pink-bright: #ff5da4;
-  --pink-medium: #ffa8ce;
-  --pink-light: #ffc0dc;
-  --pink-lighter: #ffe8f4;
-  --white: #ffffff;
-  --gray-medium: #868686;
-  --black: #000000;
-  /* Button colours */
-  --button-bg: #ff5da4; /* Vibrant Pink for default button background */
-  --button-hover-bg: #d83d7f; /* Darker Pink on hover */
-  --button-text: #ffffff; /* White text for contrast */
-  --button-border: #ffa8ce; /* Medium Pink for border */
-}
 
 a {
   text-decoration: none;
@@ -250,5 +237,14 @@ a:focus {
 a:active {
   outline: none;
 }
+/*Footer Styling */
 
-
+.footer-title {
+  text-transform: none;
+  font-family: "Brittany Signature", sans-serif;
+  font-size: 2.5em;
+  font-style: normal;
+  color: #d83d7f;
+  margin-bottom: 0.5em;
+  font-weight: 520;
+}
