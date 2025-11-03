@@ -1,6 +1,5 @@
 .about-wrapper {
   position: relative;
-
   padding: 2em;
 }
 
@@ -43,7 +42,6 @@
   bottom: 37%;
   transform: translateX(-50%);
   border-radius: 50%;
-
   z-index: 0;
 }
 
@@ -82,33 +80,6 @@
   text-align: left;
 }
 
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-image {
-    position: relative;
-    left: 0;
-    top: 0;
-    margin-bottom: -60px;
-  }
-  .about-image-fg {
-    position: absolute;
-
-    bottom: -20px;
-    right: -20px;
-    z-index: 4;
-  }
-
-  .about-text {
-    width: 95%;
-    margin-left: 0;
-    padding: 2em;
-  }
-}
-
 .team-wrapper {
   text-align: center;
   padding: 2em 0;
@@ -131,6 +102,7 @@
   transition: transform 0.5s ease;
   gap: 0.5em;
 }
+
 .meet-the-team {
   color: #ac1b57;
   padding-bottom: 0.1em;
@@ -145,9 +117,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
 }
+
 .team-member img {
   width: 25em;
 }
+
 .team-member h3,
 h4 {
   color: white;
@@ -185,18 +159,6 @@ h4 {
 
 .team-next {
   right: -2em;
-}
-
-@media (max-width: 900px) {
-  .team-member {
-    flex: 0 0 calc(50% - 1em);
-  }
-}
-
-@media (max-width: 600px) {
-  .team-member {
-    flex: 0 0 100%;
-  }
 }
 
 .manifesto-wrapper {
@@ -239,6 +201,227 @@ h4 {
 
 .manifesto-text strong {
   color: #ffd1e0;
+}
+
+/* Large Desktop */
+@media (min-width: 1441px) {
+  .about-container {
+    max-width: 100em;
+  }
+  .about-image-wrapper {
+    width: 35em;
+  }
+  .about-image-fg {
+    right: 18em;
+  }
+}
+
+/* Standard Desktop */
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .about-container {
+    max-width: 80em;
+    left: 15em;
+  }
+  .about-image-wrapper {
+    width: 28em;
+    left: 5%;
+  }
+  .about-image-fg {
+    width: 55%;
+    right: 12em;
+    bottom: -0.8em;
+  }
+  .about-text {
+    width: 75%;
+    padding: 2em 2.5em;
+  }
+  .about-text p {
+    font-size: 1.6rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .about-wrapper {
+    padding: 1.5em;
+  }
+  .about-container {
+    left: 10em;
+    gap: 2rem;
+  }
+  .about-image-wrapper {
+    width: 25em;
+    left: 7%;
+    bottom: 40%;
+  }
+  .about-image-fg {
+    width: 50%;
+    right: 8em;
+    bottom: -0.6em;
+  }
+  .about-text {
+    width: 80%;
+    padding: 1.5em 2em;
+  }
+  .about-text p {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  /* Team section tablet fixes */
+  .team-member {
+    flex: 0 0 calc(33.333% - 1em);
+    padding: 0.5em;
+  }
+  .team-member img {
+    width: 100%;
+  }
+
+  .manifesto-wrapper {
+    padding: 50px 15px;
+    margin: 30px auto;
+  }
+  .manifesto-text {
+    max-width: 90%;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about-wrapper {
+    padding: 1em;
+  }
+  .about-container {
+    position: static;
+    left: auto;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .about-image-wrapper {
+    position: relative;
+    width: 80%;
+    max-width: 300px;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin: 0 auto 2em;
+  }
+  .about-image-fg {
+    position: relative;
+    width: 50%;
+    bottom: auto;
+    right: auto;
+    margin: -2em auto 0;
+  }
+  .about-text {
+    width: 95%;
+    padding: 1.5em;
+    margin: 0 auto;
+  }
+  .about-text p {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 3.5em;
+    padding-top: 0.5em;
+  }
+
+  /* Team section mobile fixes */
+  .team-section {
+    max-width: 95%;
+  }
+  .team-member {
+    flex: 0 0 calc(100% - 1em);
+    padding: 0.5em;
+    margin-bottom: 1em;
+  }
+  .team-member img {
+    width: 100%;
+  }
+  .team-prev,
+  .team-next {
+    width: 35px;
+    height: 35px;
+    font-size: 1.4em;
+  }
+  .team-prev {
+    left: -1em;
+  }
+  .team-next {
+    right: -1em;
+  }
+
+  .meet-the-team {
+    font-size: 3em;
+  }
+
+  /* Manifesto mobile fixes */
+  .manifesto-wrapper {
+    padding: 40px 15px;
+    margin: 20px auto;
+  }
+  .manifesto-text {
+    max-width: 95%;
+    font-size: 1rem;
+  }
+  .manifesto-title {
+    font-size: 3em;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .about-wrapper {
+    padding: 0.5em;
+  }
+  .about-image-wrapper {
+    width: 90%;
+    max-width: 250px;
+  }
+  .about-text {
+    padding: 1em;
+  }
+  .about-text p {
+    font-size: 1.2rem;
+  }
+
+  .about-title {
+    font-size: 3em;
+  }
+
+  .team-member {
+    padding: 0.3em;
+  }
+
+  .team-prev,
+  .team-next {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+  }
+
+  .manifesto-wrapper {
+    padding: 30px 10px;
+  }
+
+  .manifesto-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .team-member {
+    flex: 0 0 calc(50% - 1em);
+  }
+}
+
+@media (max-width: 600px) {
+  .team-member {
+    flex: 0 0 100%;
+  }
 }
 
 @media (max-width: 768px) {

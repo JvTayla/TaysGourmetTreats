@@ -7,6 +7,7 @@
   justify-content: center;
   text-align: center;
 }
+
 h6.establish {
   font-family: "Glacial Indifference", sans-serif;
   font-size: 1.8em;
@@ -15,6 +16,7 @@ h6.establish {
   font-weight: 200;
   margin-top: -1em;
 }
+
 #introduction {
   display: block;
   background-color: #ffa8ce;
@@ -22,9 +24,11 @@ h6.establish {
   color: #000000;
   font-family: "Glacial Indifference", sans-serif;
 }
+
 h2.intro {
   color: white;
 }
+
 .top_logo {
   z-index: 20;
   width: 10em;
@@ -33,10 +37,12 @@ h2.intro {
   left: 50%;
   transform: translateX(-50%);
 }
+
 .landing_page h6 {
   position: static;
   text-align: center;
 }
+
 .intro_logo {
   width: 25em;
   display: flexbox;
@@ -50,14 +56,17 @@ h2.intro {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1.5em 4em;
 }
+
 #introduction em {
   font-weight: bold;
 }
+
 .welcome-text {
   font-family: "Glacial Indifference", sans-serif;
   font-size: 2.5em;
   padding: 0.5em 0;
 }
+
 #introduction p {
   font-size: 2rem;
   padding-bottom: 0.5em;
@@ -99,6 +108,7 @@ h2.intro {
   text-align: center;
   width: fit-content;
 }
+
 .intro-text .review_card {
   float: left;
   width: 240px;
@@ -108,22 +118,23 @@ h2.intro {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   color: #d83d7f;
 }
+
 #review-container {
-  position: absolute; /* or fixed if you want it to stay on screen when scrolling */
-  top: 1020px; /* change to wherever you want it */
-  left: 320px; /* centers horizontally */
-  transform: translateX(-50%); /* centers the container */
+  position: absolute;
+  top: 1020px;
+  left: 320px;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5em;
-  z-index: 1; /* ensure it’s above other elements */
+  z-index: 1;
 }
 
 .review_card {
-  display: none; /* hide by default */
-  position: relative; /* independent positioning within the container */
-  width: 420px; /* or whatever width you want */
+  display: none;
+  position: relative;
+  width: 420px;
   border-radius: 5em;
   padding: 1.5em 2em;
   text-align: center;
@@ -133,8 +144,9 @@ h2.intro {
 }
 
 .review_card.active {
-  display: block; /* only the active one shows */
+  display: block;
 }
+
 .review_card.active:hover {
   cursor: pointer;
   scale: 1.05;
@@ -148,6 +160,7 @@ h2.intro {
   font-weight: bold;
   font-size: 3.2em;
 }
+
 .review_card h4 {
   color: white;
   font-weight: bold;
@@ -178,6 +191,7 @@ h2.intro {
   top: 0;
   z-index: 1000;
 }
+
 .awning-top {
   margin-top: 1em;
   background-color: #ff5da4;
@@ -196,10 +210,12 @@ h2.intro {
   background-size: 35px 35px;
   background-repeat: repeat-x;
 }
+
 nav .nav-bg {
   z-index: 10;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
+
 .nav-bar {
   position: sticky;
   top: 0;
@@ -230,11 +246,13 @@ nav .nav-bg {
   border-radius: 50px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .nav-bar a.active {
   background-color: #ff5da4;
   color: #000000;
   font-weight: bold;
 }
+
 .nav-bar a:hover {
   background-color: #ff5da4;
   color: #fff;
@@ -258,7 +276,7 @@ nav .nav-bg {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Remove the margin and just use 100% */
+  height: 100%;
   background: url("../assets/images/RepeatingBackground.png") repeat;
   background-size: 20em 20em;
   opacity: 0.4;
@@ -268,7 +286,6 @@ nav .nav-bg {
 #recent-orders h2 {
   color: #d83d7f;
   text-align: center;
-
   position: relative;
   z-index: 2;
 }
@@ -326,6 +343,7 @@ nav .nav-bg {
   transform: translateX(25em) scale(1);
   cursor: pointer;
 }
+
 .card {
   position: absolute;
   display: flex;
@@ -353,6 +371,7 @@ nav .nav-bg {
   left: 0;
   transform: translateX(-25em) scale(0.9);
 }
+
 .right_card img,
 .left_card img {
   opacity: 0.5;
@@ -399,6 +418,7 @@ nav .nav-bg {
   border-color: transparent transparent transparent #d83d7f;
   right: 10em;
 }
+
 #current-events {
   position: relative;
   padding: 2em 0;
@@ -439,7 +459,6 @@ nav .nav-bg {
 .event-card {
   flex: 0 0 calc(25% - 1em);
   background-color: #ffffff;
-
   border-radius: 2em;
   padding: 1em;
   text-align: center;
@@ -466,9 +485,7 @@ nav .nav-bg {
   color: #d83d7f;
   justify-content: center;
   align-items: center;
-
   font-size: 1.2em;
-
   margin-bottom: 0.5em;
   font-weight: 600;
   min-height: 1.8em;
@@ -536,26 +553,6 @@ nav .nav-bg {
   right: -2em;
 }
 
-@media (max-width: 900px) {
-  .event-card {
-    flex: 0 0 calc(50% - 1em);
-  }
-}
-
-@media (max-width: 600px) {
-  .event-card {
-    flex: 0 0 100%;
-  }
-
-  .event-prev {
-    left: -1em;
-  }
-
-  .event-next {
-    right: -1em;
-  }
-}
-
 #kiddies-corner {
   position: relative;
   align-items: center;
@@ -572,9 +569,7 @@ nav .nav-bg {
 #kiddies-corner > p {
   align-items: center;
   justify-content: center;
-
   color: black;
-
   text-align: center;
 }
 
@@ -628,7 +623,6 @@ nav .nav-bg {
 .kiddies_cards a {
   font-family: "Glacial Indifference", sans-serif;
   font-size: 1.5rem;
-
   display: inline-block;
   background-color: #ffa8ce;
   color: #000000;
@@ -647,23 +641,293 @@ nav .nav-bg {
   transform: translateY(-2px);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
+/* Large Desktop */
+@media (min-width: 1441px) {
+  .landing_page {
+    padding-top: 8em;
+  }
+  .intro-logo img {
+    max-width: 420px;
+  }
+  .review_card {
+    width: 450px;
+  }
+  #review-container {
+    top: 1100px;
+    left: 350px;
+  }
+}
+
+/* Standard Desktop */
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .landing_page {
+    padding-top: 7em;
+  }
+  .intro-logo img {
+    max-width: 350px;
+  }
+  .review_card {
+    width: 400px;
+  }
+  #review-container {
+    top: 950px;
+    left: 300px;
+  }
+
+  .recent_orders.main_card,
+  .main_card {
+    width: 35em;
+    height: 35em;
+  }
+
+  .recent_orders.side_card,
+  .left_card,
+  .right_card {
+    width: 30em;
+    height: 30em;
+  }
+
+  .left_card {
+    transform: translateX(-22em) scale(0.9);
+  }
+  .right_card {
+    transform: translateX(22em) scale(0.9);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .landing_page {
+    padding-top: 6em;
+  }
+  .welcome-text {
+    font-size: 2.2em;
+  }
+
+  .intro-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2em;
+    padding: 0 2em;
+  }
+
+  .intro-logo img {
+    max-width: 300px;
+  }
+  .intro-text {
+    width: 100%;
+    padding: 1.5em 2em;
+  }
+
+  .review_card {
+    width: 350px;
+    padding: 1.2em 1.8em;
+  }
+
+  #review-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 2em auto;
+  }
+
+  .review-image {
+    width: 140px;
+    top: -30px;
+    left: -50px;
+  }
+
+  /* Recent orders slider adjustments */
+  .recent_orders_slider {
+    padding: 1em;
+  }
+
+  .recent_orders.main_card,
+  .main_card {
+    width: 30em;
+    height: 30em;
+  }
+
+  .recent_orders.side_card,
+  .left_card,
+  .right_card {
+    width: 25em;
+    height: 25em;
+  }
+
+  .left_card {
+    transform: translateX(-18em) scale(0.9);
+  }
+  .right_card {
+    transform: translateX(18em) scale(0.9);
+  }
+
+  .prev_rec {
+    left: 5em;
+  }
+  .next_rec {
+    right: 5em;
+  }
+
+  /* Events section */
+  .event-card {
+    flex: 0 0 calc(33.333% - 1em);
+  }
+
+  /* Kiddies corner */
   .kiddies_cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 2em;
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-  #kiddies-corner {
-    padding: 3em 1em;
+  .landing_page {
+    padding-top: 5em;
+  }
+  .welcome-text {
+    font-size: 2em;
+  }
+  .top_logo {
+    width: 8em;
   }
 
+  #introduction {
+    padding: 1.5em 1em;
+  }
+
+  .intro-content {
+    flex-direction: column;
+    gap: 1.5em;
+    padding: 0 1em;
+    text-align: center;
+  }
+
+  .intro-text {
+    padding: 1.5em;
+    width: 100%;
+  }
+
+  .intro-logo img {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  #review-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 2em auto;
+  }
+
+  .review_card {
+    width: 90%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 1.2em 1.5em;
+  }
+
+  .review-image {
+    width: 120px;
+    top: -30px;
+    left: -40px;
+    border: 0.8em solid #d83d7f;
+  }
+
+  .review_card h3 {
+    font-size: 2.8em;
+  }
+  .review_card h4 {
+    font-size: 2em;
+  }
+
+  /* Recent orders mobile fixes */
+  .recent_orders_slider {
+    padding: 1em;
+  }
+
+  .order_image_wrapper {
+    width: 100%;
+  }
+
+  .recent_orders.main_card,
+  .main_card {
+    width: 90vw;
+    height: 90vw;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .recent_orders.side_card,
+  .left_card,
+  .right_card {
+    display: none;
+  }
+
+  .prev_rec,
+  .next_rec {
+    position: static;
+    transform: none;
+    margin: 1em;
+    display: inline-block;
+  }
+
+  .prev_rec {
+    border-width: 20px 30px 20px 0;
+    left: auto;
+  }
+
+  .next_rec {
+    border-width: 20px 0 20px 30px;
+    right: auto;
+  }
+
+  /* Events section mobile fixes */
+  .events-grid {
+    gap: 0.8em;
+  }
+
+  .event-card {
+    flex: 0 0 calc(100% - 1em);
+    padding: 0.8em;
+  }
+
+  .event-prev,
+  .event-next {
+    width: 35px;
+    height: 35px;
+    font-size: 1.4em;
+  }
+
+  .event-prev {
+    left: -1em;
+  }
+  .event-next {
+    right: -1em;
+  }
+
+  .event-name {
+    font-size: 1.8em;
+  }
+  .event-date {
+    font-size: 1.1em;
+  }
+  .event-caption {
+    font-size: 1.3em;
+  }
+
+  /* Kiddies corner mobile fixes */
   .kiddies_cards {
     grid-template-columns: 1fr;
     gap: 1.5em;
-    max-width: 500px;
+    padding: 1em 0;
+  }
+
+  #kiddies-corner {
+    padding: 2em 1em;
   }
 
   #kiddies-corner h2 {
@@ -673,11 +937,48 @@ nav .nav-bg {
   #kiddies-corner > p {
     font-size: 1.6em;
   }
+
+  .kiddies_cards img {
+    height: 200px;
+  }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
-  .kiddies_cards {
-    padding: 0 0.5em;
+  .landing_page {
+    padding-top: 4em;
+  }
+  .welcome-text {
+    font-size: 1.8em;
+  }
+  .top_logo {
+    width: 6em;
+  }
+
+  #introduction p {
+    font-size: 1.6rem;
+  }
+
+  .intro-logo img {
+    max-width: 200px;
+  }
+
+  .review_card {
+    padding: 1em 1.2em;
+  }
+
+  .review-image {
+    width: 100px;
+    top: -25px;
+    left: -30px;
+    border: 0.6em solid #d83d7f;
+  }
+
+  .review_card h3 {
+    font-size: 2.4em;
+  }
+  .review_card h4 {
+    font-size: 1.8em;
   }
 
   .kiddies_cards figure {
@@ -685,15 +986,19 @@ nav .nav-bg {
   }
 
   .kiddies_cards img {
-    height: 200px;
+    height: 180px;
   }
 
   .kiddies_cards figcaption {
-    font-size: 1.6em;
+    font-size: 1.4em;
   }
 
   .kiddies_cards a {
-    font-size: 1.8em;
-    padding: 0.5em 1.2em;
+    font-size: 1.4em;
+    padding: 0.4em 0.8em;
+  }
+
+  .events-heading {
+    font-size: 2.5em;
   }
 }
