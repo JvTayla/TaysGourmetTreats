@@ -39,7 +39,7 @@ const footerHTML = `
       <!-- Right Column -->
       <div class="footer-right">
         <section class="footer-map">
-          <h6>Locate Us At:</h6>
+          <h6> Our Location:</h6>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7164.097573791654!2d28.103029046487393!3d-26.129952226144606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950d63396e8f4f%3A0x9e6c4b82750cfe7f!2sLyndhurst%2C%20Johannesburg%2C%202192!5e0!3m2!1sen!2sza!4v1760409528904!5m2!1sen!2sza"
             allowfullscreen=""
