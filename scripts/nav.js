@@ -20,8 +20,10 @@ const footerHTML = `
 
     <section class="footer-social">
       <a href="https://www.instagram.com/tays_gourmet_treats" target="_blank" aria-label="Instagram"><i class="fi fi-brands-instagram"></i></a>
-      <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fi fi-brands-linkedin"></i></a>
-      <a href="https://www.google.com/maps" target="_blank" aria-label="Google Maps"><i class="fi fi-brands-google"></i></a>
+      <a href="https://www.linkedin.com/company/tay-s-gourmet-treats/" target="_blank" aria-label="LinkedIn"><i class="fi fi-brands-linkedin"></i></a>
+      <a href="https://www.facebook.com/people/Tays-Treats/61555988728903/?_rdr" target="_blank" aria-label="Facebook"><i class="fi fi-brands-facebook"></i></a>
+      <a href="https://www.tiktok.com/@tays_gourmet_treats" target="_blank" aria-label="TikTok"><i class="fi fi-brands-tiktok"></i></a>
+      <a href="https://x.com/TreatsTay863015" target="_blank" aria-label="X"><i class="fi fi-brands-x-twitter"></i></a>
     </section>
 
     <section class="footer-links">
@@ -30,8 +32,6 @@ const footerHTML = `
           <li><a href="#order">Order</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#tc">T&C's & Privacy Policy</a></li>
         </ul>
       </nav>
     </section>
@@ -49,7 +49,8 @@ const footerHTML = `
     </section>
 
     <section class="footer-disclaimer">
-      <h6>Copyright 2025 | All Rights Reserved | POPI | BEE Certification</h6>
+      <h6>©2024 Tays Gourmet Treats | All rights reserved | </h6>
+      <h6> POPI | BEE Certification</h6>
     </section>
   </footer>
 `;
