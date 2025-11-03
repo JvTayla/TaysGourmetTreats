@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/contact.css" />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,6 +22,7 @@
       href="https://fonts.cdnfonts.com/css/glacial-indifference-2"
       rel="stylesheet"
     />
+
   </head>
 
   <body>
@@ -53,77 +53,29 @@
     </div>
 
     <main id="contact-page">
-      <header class="contact-header">
-        <h1>Let’s make something sweet!</h1>
-        <p>
-          Questions, custom requests, or press? Fill the form or pop us an email
-          and we’ll reply within one business day. Prefer to talk? Book a quick
-          call via the Order page scheduling tool.
-        </p>
-      </header>
-
-      <section class="contact-section">
-        <div class="contact-form-container">
-          <h2>Contact Us</h2>
-
-          <form id="contactForm" enctype="multipart/form-data">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required />
-
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required />
-
-            <label for="phone">Phone (optional)</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="e.g. +27 82 123 4567"
-            />
-
-            <label for="message">Message *</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-
-            <label for="file">Attach a file (optional)</label>
-            <input type="file" id="file" name="file" accept="image/*, .pdf" />
-
-            <div class="consent">
-              <input type="checkbox" id="consent" name="consent" required />
-              <label for="consent">
-                I consent to my information being processed for this inquiry.
-              </label>
-            </div>
-
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-
-        <div class="contact-media">
-          <iframe
-            class="contact-map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.3042206421577!2d18.4241!3d-33.9249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0000000000000000!2sTay’s%20Gourmet%20Treats!5e0!3m2!1sen!2sza!4v1698692920000"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-
-          <img
-            src="../assets/images/bakery-exterior.jpg"
-            alt="Tay’s bakery storefront illustration"
-            class="contact-image"
-          />
+      <!-- Hero / Intro -->
+      <section class="faq-hero">
+        <div class="faq-hero__content">
+          <h1 class="faq-hero__title">Frequently Asked Questions</h1>
+          <p class="faq-hero__text">
+            Wondering how delivery works, or how to order your dream cake? We’ve
+            answered our most common questions below. If you still need a hand,
+            scroll down to get in touch we’d love to help.
+          </p>
         </div>
       </section>
 
+      <!-- FAQ Section -->
       <section class="faq-section">
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq">
+        <div class="faq accordion">
           <div class="faq-item">
             <button class="faq-question">How does delivery work?</button>
             <div class="faq-answer">
-              We offer delivery within a 25km radius of our bakery. Deliveries
-              take place between 9am–4pm, Monday to Saturday.
+              We do not currently offer delivery services. However, we can
+              recommend trusted local couriers to ensure your cake arrives
+              safely and on time. We do have a Wits Delivery service that comes
+              at an extra delivery fee, but it is highly selective, and will
+              need to be arranged in advance.
             </div>
           </div>
 
@@ -132,8 +84,9 @@
               Can I transport my cake myself?
             </button>
             <div class="faq-answer">
-              Yes! We carefully box your cake and share tips to ensure it
-              arrives perfectly. Avoid hot cars or uneven roads when possible.
+              Yes! We carefully box your cake and recommend this option for our
+              clients as we only have UberDelivery set up by the client. Avoid
+              hot cars or uneven roads when possible.
             </div>
           </div>
 
@@ -142,8 +95,9 @@
               Do you make vegan or allergy-friendly cakes?
             </button>
             <div class="faq-answer">
-              Absolutely! We offer vegan, gluten-free, and nut-free options upon
-              request. Please note all cakes are made in the same kitchen.
+              No we do not currently offer vegan or allergy-friendly cakes. But
+              we are working on having other options for our more sensitive
+              clients in the future.
             </div>
           </div>
 
@@ -152,8 +106,11 @@
               How far in advance should I order?
             </button>
             <div class="faq-answer">
-              For regular cakes, please order 3–5 days in advance. For custom or
-              tiered cakes, 1–2 weeks’ notice ensures we can craft it perfectly.
+              We take Rush orders on a case-by-case basis, but need at least a
+              36 hour notice for these. For regular cakes, please order 3–5 days
+              in advance. For custom or tiered cakes, 1–2 weeks’ notice ensures
+              we can craft it perfectly. If you have a specific date in mind, we
+              recommend booking as early as possible to secure your spot.
             </div>
           </div>
 
@@ -168,9 +125,87 @@
           </div>
         </div>
       </section>
+
+      <!-- Contact Form Section -->
+      <section class="contact-section">
+        <div class="contact-header">
+          <h1>Let’s make something sweet!</h1>
+          <p>
+            Questions, custom requests, or press? Fill out the form or email us
+            directly, and we’ll reply within one business day. Prefer to chat?
+            Book a quick call via the Order page scheduling tool.
+          </p>
+        </div>
+
+        <div class="contact-form-container">
+         <form id="contactForm" action="https://formspree.io/f/mnnowkdp" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="e.g. John Doe"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="e.g. john.doe@gmail.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="e.g. 0123456789"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder="e.g. I would really like to get in touch about a possible brand collaboration..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="file">Attach a file (optional)</label>
+              <input type="file" id="file" name="file" accept="image/*, .pdf" />
+            </div>
+
+            <div class="consent">
+              <input type="checkbox" id="consent" name="consent" required />
+              <label for="consent">
+                I consent to my information being processed for this inquiry.
+              </label>
+            </div>
+
+            <button type="submit" class="form-submit">Send Message</button>
+          </form>
+        </div>
+
+        
+        </div>
+      </section>
+
+      <div id="site-footer"></div>
     </main>
 
     <script src="../scripts/nav.js"></script>
-    <script type="module" src="../scripts/contact.js"></script>
+    <script src="../scripts/contactValidation.js"></script>
   </body>
 </html>
