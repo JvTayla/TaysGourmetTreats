@@ -13,12 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = index;
   }
 
-  // Example navigation buttons (you should add to your page)
-  document.getElementById("nextReview").addEventListener("click", () => {
-    showReview(currentIndex + 1);
-  });
-
-  document.getElementById("prevReview").addEventListener("click", () => {
-    showReview(currentIndex - 1);
+  // Add click event to each review
+  reviews.forEach((review) => {
+    review.addEventListener("click", () => {
+      showReview(currentIndex + 1); // Go to next review
+    });
   });
 });
