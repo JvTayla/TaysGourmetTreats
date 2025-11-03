@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Formspree configuration
-  const formspreeUrl = "https://formspree.io/f/mnnowkdp";
-
-  // Your Google Drive folder
-  const googleDriveFolderUrl =
-    "https://drive.google.com/drive/folders/1DSzlLV3obA15b1s8SuLfMSeEdpjWK3hx?usp=sharing";
+  // Formspree configuration for main form data
+  const formspreeUrl = 'https://formspree.io/f/mnnowkdp';
+  
+  // Your Google Form for file uploads
+  const googleFormUrl = 'https://forms.gle/mhw3XsNdYy5cuDuXA';
 
   // Check if GSAP is available
   if (typeof gsap !== "undefined") {
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Form elements
   const form = document.getElementById("contactForm");
   if (!form) {
-    console.log("Contact form not found");
+    console.log('Contact form not found');
     return;
   }
 
@@ -33,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitBtn = document.querySelector(".form-submit");
 
     if (!nameField || !emailField || !messageField || !consentField) {
-      console.log("Required form fields not found");
+      console.log('Required form fields not found');
       return;
     }
 
@@ -132,8 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (field === nameField) {
             if (!validateName(field.value.trim())) {
               isValid = false;
-              errorMessage =
-                "Please enter a valid name starting with a capital letter.";
+              errorMessage = "Please enter a valid name starting with a capital letter.";
             }
           }
           break;
@@ -241,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show message function
     function showMessage(text, type) {
       if (!messageElement) return;
-
+      
       messageElement.textContent = text;
       messageElement.className = `form-message ${
         type === "success" ? "message-success" : "message-error"
@@ -274,35 +272,29 @@ document.addEventListener("DOMContentLoaded", function () {
     async function submitToFormspree(formData, fileName = null) {
       try {
         showMessage("📤 Sending your message...", "success");
-
+        
         // Create URLSearchParams instead of FormData to avoid file detection
         const params = new URLSearchParams();
-        params.append("name", formData.get("name"));
-        params.append("email", formData.get("email"));
-        params.append("phone", formData.get("phone") || "");
-        params.append("message", formData.get("message"));
-        params.append("consent", "true");
-        params.append(
-          "_subject",
-          "New Contact Form Submission - Tay's Gourmet Treats"
-        );
-
+        params.append('name', formData.get('name'));
+        params.append('email', formData.get('email'));
+        params.append('phone', formData.get('phone') || '');
+        params.append('message', formData.get('message'));
+        params.append('consent', 'true');
+        params.append('_subject', 'New Contact Form Submission - Tay\'s Gourmet Treats');
+        
         // Add file info if exists
         if (fileName) {
-          params.append(
-            "file_note",
-            `The user uploaded a file: "${fileName}". Please check the Google Drive folder for this file.`
-          );
-          params.append("google_drive_folder", googleDriveFolderUrl);
+          params.append('file_note', `The user uploaded a file: "${fileName}". Please check the Google Form submissions for this file.`);
+          params.append('google_form_link', googleFormUrl);
         }
 
         const response = await fetch(formspreeUrl, {
-          method: "POST",
-          body: params, // Use URLSearchParams instead of FormData
+          method: 'POST',
+          body: params,
           headers: {
-            Accept: "application/json",
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
         });
 
         const result = await response.json();
@@ -310,10 +302,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
           return { success: true, data: result };
         } else {
-          throw new Error(result.error || "Form submission failed");
+          throw new Error(result.error || 'Form submission failed');
         }
       } catch (error) {
-        console.error("Formspree submission error:", error);
+        console.error('Formspree submission error:', error);
         throw error;
       }
     }
@@ -343,12 +335,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (fileField.files[0]) {
           const fileName = fileField.files[0].name;
           const fileSize = (fileField.files[0].size / (1024 * 1024)).toFixed(2);
-          showMessage(
-            `📎 File selected: ${fileName} (${fileSize} MB) - Will be uploaded to Google Drive`,
-            "success"
-          );
+          showMessage(`📎 File selected: ${fileName} (${fileSize} MB) - You'll be able to upload it after submitting the form`, "success");
           setTimeout(() => {
-            if (messageElement.textContent.includes("File selected:")) {
+            if (messageElement.textContent.includes('File selected:')) {
               messageElement.textContent = "";
               messageElement.className = "form-message";
             }
@@ -371,11 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       // Validate optional phone field
-      if (
-        phoneField &&
-        phoneField.value.trim() !== "" &&
-        !validateField(phoneField)
-      ) {
+      if (phoneField && phoneField.value.trim() !== "" && !validateField(phoneField)) {
         allValid = false;
       }
 
@@ -414,34 +399,51 @@ document.addEventListener("DOMContentLoaded", function () {
           const file = fileField.files[0];
           fileName = file.name;
           hasFile = true;
-
-          // Show Google Drive upload instructions
-          showMessage(
-            "📎 Opening Google Drive for file upload... Please upload your file and then return to this page.",
-            "success"
-          );
-
-          // Open Google Drive in new tab
-          window.open(googleDriveFolderUrl, "_blank");
-
-          // Wait a moment for the user to see the message
-          await new Promise((resolve) => setTimeout(resolve, 2000));
         }
 
-        // Submit form data to Formspree (using URLSearchParams to avoid file detection)
+        // Submit form data to Formspree
         const result = await submitToFormspree(formData, fileName);
 
         // Show appropriate success message
         if (hasFile) {
-          showMessage(
-            "✅ Form submitted successfully! Don't forget to upload your file to the Google Drive folder that opened in a new tab. We'll match your file with your submission.",
-            "success"
-          );
+          showMessage("✅ Form submitted successfully! Please click the button below to upload your file to our secure Google Form.", "success");
+          
+          // Create and show Google Form button
+          const googleFormButton = document.createElement('a');
+          googleFormButton.href = googleFormUrl;
+          googleFormButton.target = '_blank';
+          googleFormButton.className = 'google-form-button';
+          googleFormButton.textContent = '📎 Upload Your File Here';
+          googleFormButton.style.cssText = `
+            display: block;
+            margin: 1rem auto;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+          `;
+          
+          googleFormButton.addEventListener('mouseenter', () => {
+            googleFormButton.style.transform = 'scale(1.05)';
+          });
+          
+          googleFormButton.addEventListener('mouseleave', () => {
+            googleFormButton.style.transform = 'scale(1)';
+          });
+
+          // Add button after the message
+          messageElement.appendChild(googleFormButton);
+          
         } else {
-          showMessage(
-            "✅ Your message has been sent successfully! We'll get back to you soon.",
-            "success"
-          );
+          showMessage("✅ Your message has been sent successfully! We'll get back to you soon.", "success");
         }
 
         if (typeof gsap !== "undefined" && submitBtn) {
@@ -465,6 +467,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const errorEl = group.querySelector(".error-message");
           if (errorEl) errorEl.textContent = "";
         });
+
       } catch (error) {
         console.error("Form submission error:", error);
         showMessage(
