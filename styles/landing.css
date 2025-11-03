@@ -45,51 +45,55 @@ h2.intro {
 
 #introduction {
   background-color: #ffa8ce;
-  max-width: 1920px;
-  z-index: 1;
-  color: #000000;
+  color: #000;
   font-family: "Glacial Indifference", sans-serif;
-  line-height: 1.6;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 0.5em;
+  padding: 3em 4em;
+}
+#introduction em {
+  font-weight: bold;
+}
+.welcome-text {
+  font-family: "Glacial Indifference", sans-serif;
+  font-size: 2.5em;
+  padding: 0.5em 0;
+}
+#introduction p {
+  margin-bottom: 1em;
+  font-size: 2rem;
+  text-align: left;
 }
 
 .intro-content {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
   gap: 3em;
-  flex-wrap: wrap;
-}
-
-#introduction em {
-  font-weight: bold;
-}
-#introduction p {
-  font-size: 2.5em;
+  text-align: left;
 }
 
 .intro-image {
-  flex: 1 1 10%;
-  text-align: center;
+  flex: 1 1 25%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 2.5em;
 }
 
 .intro-image img {
   width: 100%;
-  max-width: 400px;
+  max-width: 380px;
+  border-radius: 1.2em;
 }
 
 .intro-text {
-  flex: 1 1 100%;
-  width: 100%;
-  max-width: 1450px;
-  padding-right: 10em;
-  padding-left: -2em;
-}
+  flex: 1 1 75%;
 
-.intro-text p {
-  margin-bottom: 0.5em;
-  font-size: 1rem;
+  border-radius: 1.2em;
+  padding: 2em 3em;
+
+  font-family: "Glacial Indifference", sans-serif;
 }
 
 #introduction .learn_more {
@@ -106,6 +110,13 @@ h2.intro {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   color: #d83d7f;
 }
+#review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+  margin-top: 1em;
+}
 .review-image {
   float: left;
   width: 150px;
@@ -118,6 +129,7 @@ h2.intro {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .review_card {
+  display: none;
   position: relative;
   background-color: #ff5da4;
   max-width: 30%;
@@ -129,7 +141,19 @@ h2.intro {
   color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
-
+.review_card.active {
+  display: block;
+  position: relative;
+  background-color: #ff5da4;
+  max-width: 30%;
+  border-radius: 5em;
+  padding: 1.5em 2em;
+  margin: 2em auto 0;
+  max-width: 500px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 .review_card h3 {
   color: white;
   font-weight: bold;
@@ -140,6 +164,7 @@ h2.intro {
   color: #000000;
 }
 
+/* Navigation Bar Styling */
 .nav-wrapper {
   position: sticky;
   top: 0;
