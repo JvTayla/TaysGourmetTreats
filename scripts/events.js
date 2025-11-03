@@ -2,7 +2,8 @@ const eventsTemplate = [
   // South African Public Holidays
   {
     name: "New Year's Day",
-    description: "Celebrate the start of the year",
+    description:
+      "Celebrate the start of the year with something sweet before we lock in for those summer bodies",
     image: "assets/images/events/NewYearsDay.jpg",
     month: 0,
     day: 1,
@@ -23,70 +24,74 @@ const eventsTemplate = [
   },
   {
     name: "Family Day",
-    description: "Day to spend with family",
-    image: "assets images/events/FamilyDay.jpg",
+    description:
+      "A day to spend with family, nothing brings people together like sweet treats",
+    image: "assets/images/events/FamilyDay.jpg",
     month: 3,
     day: 21,
   },
   {
     name: "Freedom Day",
-    description: "Commemorates democracy",
+    description: "A day that commemorates democracy",
     image: "assets/images/events/FreedomDay.png",
     month: 3,
     day: 27,
   },
   {
     name: "Freedom Day (observed)",
-    description: "Extended long weekend",
+    description:
+      "A great time for an extended long weekend to celebrate freedom and democracy",
     image: "assets/images/events/FreedomDayO.jpeg",
     month: 3,
     day: 28,
   },
   {
     name: "Workers’ Day",
-    description: "Honoring workers",
+    description: "A great time to honor workers",
     image: "assets/images/WorkersDay.jpeg",
     month: 4,
     day: 1,
   },
   {
     name: "Youth Day",
-    description: "Celebrating youth",
+    description: "A great time to celebrate youth",
     image: "assets/images/events/YouthDay.png",
     month: 5,
     day: 16,
   },
   {
     name: "National Women’s Day",
-    description: "Celebrating women",
+    description: "A great time to celebrate women",
     image: "assets/images/events/WomensDay.jpg",
     month: 7,
     day: 9,
   },
   {
     name: "Heritage Day",
-    description: "Celebrating South African heritage",
+    description: "A great time to celebrate South African heritage",
     image: "assets/images/events/HeritageDay.jpeg",
     month: 8,
     day: 24,
   },
   {
     name: "Day of Reconciliation",
-    description: "Promoting unity",
+    description:
+      "A day to promote unity, nothing better than a sweet treat to bring people together",
     image: "assets/images/events/DayOfReconciliation.jpg",
     month: 11,
     day: 16,
   },
   {
     name: "Christmas Day",
-    description: "Festive Christmas celebration",
+    description:
+      "A great time for a festive Christmas celebration with the best matching Treats",
     image: "assets/images/events/Christmas.jpeg",
     month: 11,
     day: 25,
   },
   {
     name: "Day of Goodwill",
-    description: "Day after Christmas for goodwill",
+    description: "The day after Christmas for goodwill",
     image: "assets/images/events/Goodwill.jpeg",
     month: 11,
     day: 26,
@@ -95,35 +100,36 @@ const eventsTemplate = [
   // Gift & Relationship Days
   {
     name: "Valentine’s Day",
-    description: "Celebrate love and romance",
+    description: "The perfect time to celebrate love and romance",
     image: "assets/imagesValentinesDay.jpeg",
     month: 1,
     day: 14,
   },
   {
     name: "Mother’s Day",
-    description: "Honoring mothers",
+    description:
+      "A day to celebrate your mother with something as sweet as her",
     image: "assets/images/events/MothersDay.jpeg",
     month: 4,
     day: 11,
   },
   {
     name: "Father’s Day",
-    description: "Honoring fathers",
+    description: "A day to honor your father with something delicious",
     image: "assets/images/events/FathersDay.jpeg",
     month: 5,
     day: 15,
   },
   {
     name: "National Girlfriend Day",
-    description: "Celebrate girlfriends with sweet treats",
+    description: "Celebrate your girlfriend with a sweet treat",
     image: "assets/images/events/GirlfriendsDay.jpeg",
     month: 7,
     day: 1,
   },
   {
     name: "National Boyfriend Day",
-    description: "Celebrate boyfriends with custom cakes",
+    description: "Celebrate your boyfriend with a sweet treat!",
     image: "assets/images/events/BoyfriendsDay.jpeg",
     month: 9,
     day: 3,
@@ -132,29 +138,29 @@ const eventsTemplate = [
   // Exam Seasons
   {
     name: "Mid-year Exams Start",
-    description: "Good luck care packages",
-    image: "assets/images/events/Exam.jpeg",
+    description: "A great time for good luck care packages",
+    image: "assets/images/events/Exam.jpg",
     month: 5,
     day: 1,
   },
   {
     name: "Mid-year Exams End",
-    description: "End of mid-year exams",
-    image: "assets/images/events/ExamOver.jpeg",
+    description: "A great time to celebrate the end of mid-year exams",
+    image: "assets/images/events/ExamOver.jpg",
     month: 6,
     day: 31,
   },
   {
-    name: "Final/Matric Exams Start",
-    description: "Good luck care packages for final exams",
-    image: "assets/images/events/Exam.jpeg",
+    name: "Final Exams Start",
+    description: "A great time to gift good luck care packages for final exams",
+    image: "assets/images/events/Exam.jpg",
     month: 10,
     day: 15,
   },
   {
-    name: "Final/Matric Exams End",
-    description: "End of final exams",
-    image: "assets/images/events/ExamOver.jpeg",
+    name: "Final Exams End",
+    description: "A great time to celebrate the end of final exams",
+    image: "assets/images/events/ExamOver.jpg",
     month: 11,
     day: 5,
   },
@@ -162,7 +168,7 @@ const eventsTemplate = [
   // Fun Dates
   {
     name: "Halloween",
-    description: "Spooky sweet treats",
+    description: "A great time for some spooky sweet treats",
     image: "assets/images/events/Halloween.jpeg",
     month: 9,
     day: 31,
@@ -226,24 +232,62 @@ function renderEvents() {
     const card = document.createElement("div");
     card.className = "event-card";
 
-    const figure = document.createElement("figure");
+    // Create event name heading
+    const eventName = document.createElement("h3");
+    eventName.className = "event-name";
+    eventName.textContent = event.name;
+
+    // Create event date
+    const eventDate = document.createElement("p");
+    eventDate.className = "event-date";
+    eventDate.textContent = formatDate(event.date);
+
+    // Create image container
+    const imageContainer = document.createElement("div");
+    imageContainer.className = "event-image-container";
 
     const img = document.createElement("img");
     img.src = event.image;
     img.alt = `${event.name} - ${event.description}`;
+    img.className = "event-image";
 
-    img.style.width = "25em";
-    img.style.height = "25em";
-    img.style.objectFit = "contain";
     const caption = document.createElement("figcaption");
     caption.textContent = event.description;
+    caption.className = "event-caption";
 
-    figure.appendChild(img);
-    figure.appendChild(caption);
-    card.appendChild(figure);
+    // Append elements in correct order
+    imageContainer.appendChild(img);
+    card.appendChild(eventName);
+    card.appendChild(eventDate);
+    card.appendChild(imageContainer);
+    card.appendChild(caption);
 
     container.appendChild(card);
   });
+}
+
+// Helper function to format date as "Date Month Year"
+function formatDate(date) {
+  const day = date.getDate();
+  const month = date.toLocaleDateString("en-US", { month: "long" });
+  const year = date.getFullYear();
+
+  // Add ordinal suffix to day (1st, 2nd, 3rd, 4th, etc.)
+  const getOrdinalSuffix = (day) => {
+    if (day > 3 && day < 21) return "th";
+    switch (day % 10) {
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
+    }
+  };
+
+  return `${day}${getOrdinalSuffix(day)} ${month} ${year}`;
 }
 
 window.onload = renderEvents;

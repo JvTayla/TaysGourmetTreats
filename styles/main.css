@@ -20,6 +20,9 @@
   --button-text: #ffffff; /* White text for contrast */
   --button-border: #ffa8ce; /* Medium Pink for border */
 }
+body {
+  margin: 0;
+}
 
 .fredoka {
   font-family: "Fredoka", sans-serif;
@@ -78,7 +81,7 @@ h6 {
 
 p {
   font-family: "Glacial Indifference", sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 /* Navigation Bar Styling */
