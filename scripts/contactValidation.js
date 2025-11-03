@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Formspree configuration
   const formspreeUrl = "https://formspree.io/f/mnnowkdp";
 
+  // Your Google Drive folder
+  const googleDriveFolderUrl =
+    "https://drive.google.com/drive/folders/1DSzlLV3obA15b1s8SuLfMSeEdpjWK3hx?usp=sharing";
+
   // Check if GSAP is available
   if (typeof gsap !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -13,10 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Contact form not found");
     return;
   }
-
-  // Update form action attribute
-  form.setAttribute("action", formspreeUrl);
-  form.setAttribute("method", "POST");
 
   // Wait a bit for nav.js to load
   setTimeout(() => {
@@ -265,19 +265,40 @@ document.addEventListener("DOMContentLoaded", function () {
                 messageElement.className = "form-message";
               },
             });
-          }, 5000);
+          }, 8000); // Longer timeout for file upload instructions
         }
       }
     }
 
-    // Submit to Formspree
-    async function submitToFormspree(formData) {
+    // Submit to Formspree with file reference
+    async function submitToFormspree(formData, fileName = null) {
       try {
-        showMessage("📤 Sending your message to Formspree...", "success");
+        showMessage("📤 Sending your message...", "success");
+
+        // Create new FormData without the file
+        const textFormData = new FormData();
+        textFormData.append("name", formData.get("name"));
+        textFormData.append("email", formData.get("email"));
+        textFormData.append("phone", formData.get("phone") || "");
+        textFormData.append("message", formData.get("message"));
+        textFormData.append("consent", "true");
+        textFormData.append(
+          "_subject",
+          "New Contact Form Submission - Tay's Gourmet Treats"
+        );
+
+        // Add file info if exists
+        if (fileName) {
+          textFormData.append(
+            "file_note",
+            `The user uploaded a file: "${fileName}". Please check the Google Drive folder for this file.`
+          );
+          textFormData.append("google_drive_folder", googleDriveFolderUrl);
+        }
 
         const response = await fetch(formspreeUrl, {
           method: "POST",
-          body: formData,
+          body: textFormData,
           headers: {
             Accept: "application/json",
           },
@@ -320,13 +341,17 @@ document.addEventListener("DOMContentLoaded", function () {
       fileField.addEventListener("change", () => {
         if (fileField.files[0]) {
           const fileName = fileField.files[0].name;
-          showMessage(`📎 File selected: ${fileName}`, "success");
+          const fileSize = (fileField.files[0].size / (1024 * 1024)).toFixed(2); // Size in MB
+          showMessage(
+            `📎 File selected: ${fileName} (${fileSize} MB) - Will be uploaded to Google Drive`,
+            "success"
+          );
           setTimeout(() => {
             if (messageElement.textContent.includes("File selected:")) {
               messageElement.textContent = "";
               messageElement.className = "form-message";
             }
-          }, 3000);
+          }, 5000);
         }
       });
     }
@@ -372,7 +397,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Submit form to Formspree
+      // Submit form
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Sending...";
@@ -380,21 +405,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
       try {
         const formData = new FormData(form);
+        let fileName = null;
+        let hasFile = false;
 
-        // Add the consent value explicitly for Formspree
-        formData.append(
-          "_subject",
-          "New Contact Form Submission from Tay's Gourmet Treats"
-        );
-        formData.append("_replyto", emailField.value);
-        formData.append("_cc", emailField.value); // Optional: CC the user
+        // Check if file exists
+        if (fileField && fileField.files[0]) {
+          const file = fileField.files[0];
+          fileName = file.name;
+          hasFile = true;
 
-        const result = await submitToFormspree(formData);
+          // Show Google Drive upload instructions
+          showMessage(
+            "📎 Opening Google Drive for file upload... Please upload your file and then return to this page.",
+            "success"
+          );
 
-        showMessage(
-          "✅ Your message has been sent successfully! We'll get back to you soon.",
-          "success"
-        );
+          // Open Google Drive in new tab
+          window.open(googleDriveFolderUrl, "_blank");
+
+          // Wait a moment for the user to see the message
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+        }
+
+        // Submit form data to Formspree
+        const result = await submitToFormspree(formData, fileName);
+
+        // Show appropriate success message
+        if (hasFile) {
+          showMessage(
+            "✅ Form submitted successfully! Don't forget to upload your file to the Google Drive folder that opened in a new tab. We'll match your file with your submission.",
+            "success"
+          );
+        } else {
+          showMessage(
+            "✅ Your message has been sent successfully! We'll get back to you soon.",
+            "success"
+          );
+        }
 
         if (typeof gsap !== "undefined" && submitBtn) {
           gsap.to(submitBtn, {
