@@ -135,6 +135,13 @@ h2.intro {
 .review_card.active {
   display: block; /* only the active one shows */
 }
+.review_card.active:hover {
+  cursor: pointer;
+  scale: 1.05;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: #d83d7f;
+  transform: translateY(-2px);
+}
 
 .review_card h3 {
   color: white;
