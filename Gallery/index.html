@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tays Gourmet Treats Cake Gallery</title>
-    <link rel="icon" href="../assets/images/TaysTreats Logo.png" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="../assets/images/TaysTreats Logo.png"
+      type="image/x-icon"
+    />
 
     <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/gallery.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +27,7 @@
       href="https://fonts.cdnfonts.com/css/glacial-indifference-2"
       rel="stylesheet"
     />
-     <link
+    <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css"
     />
@@ -31,7 +36,7 @@
     <script>
       const currentPage = "Gallery";
     </script>
-     <div class="nav-wrapper">
+    <div class="nav-wrapper">
       <div class="awning-top"></div>
       <div class="awning"></div>
 
@@ -53,8 +58,97 @@
       </div>
     </div>
 
-    </div>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        <h2>Our Cake Gallery</h2>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search cakes by name, description..."
+            class="search-input"
+          />
+          <button id="searchBtn" class="search-btn">Search</button>
+          <button id="clearSearch" class="clear-btn">Clear</button>
+        </div>
+
+        <!-- Board Filter Buttons -->
+        <div class="board-filters">
+          <button class="filter-btn active" data-board="all">All Cakes</button>
+          <button class="filter-btn" data-board="traditional">
+            Traditional Cakes
+          </button>
+          <button class="filter-btn" data-board="custom">Custom Cakes</button>
+          <button class="filter-btn" data-board="bento">Bento Cakes</button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading">Loading cakes from Pinterest...</div>
+
+        <!-- Gallery Grid -->
+        <div id="galleryGrid" class="gallery-grid">
+          <!-- Pinterest pins will be dynamically inserted here -->
+        </div>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="no-results" style="display: none">
+          No cakes found matching your search.
+        </div>
+
+        <!-- Pinterest Board Embeds (Backup/Additional Display) -->
+        <div class="pinterest-boards">
+          <div class="pinterest-board-section">
+            <h3>Traditional Cakes</h3>
+            <a
+              data-pin-do="embedBoard"
+              data-pin-board-width="400"
+              data-pin-scale-height="240"
+              data-pin-scale-width="80"
+              href="https://za.pinterest.com/taysgourmettreats/traditional-cakes/"
+            >
+            </a>
+          </div>
+
+          <div class="pinterest-board-section">
+            <h3>Custom Cakes</h3>
+            <a
+              data-pin-do="embedBoard"
+              data-pin-board-width="400"
+              data-pin-scale-height="240"
+              data-pin-scale-width="80"
+              href="https://za.pinterest.com/taysgourmettreats/custom-cakes/"
+            >
+            </a>
+          </div>
+
+          <div class="pinterest-board-section">
+            <h3>Bento Cakes</h3>
+            <a
+              data-pin-do="embedBoard"
+              data-pin-board-width="400"
+              data-pin-scale-height="240"
+              data-pin-scale-width="80"
+              href="https://za.pinterest.com/taysgourmettreats/bento-cakes/"
+            >
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div id="site-footer"></div>
+
+    <!-- Scripts -->
     <script src="../scripts/nav.js"></script>
+    <!-- Add GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Pinterest Script -->
+    <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+    <!-- Add your gallery JavaScript -->
+    <script src="../scripts/gallery.js"></script>
   </body>
 </html>
