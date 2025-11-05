@@ -68,8 +68,7 @@ class PinterestGallery {
         title: "Classic Chocolate Cake",
         description:
           "Rich traditional chocolate cake with buttercream frosting - perfect for birthdays and special occasions",
-        image:
-          "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop",
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
         category: "traditional",
         boardType: "traditional",
         boardName: "Traditional Cakes",
@@ -81,8 +80,7 @@ class PinterestGallery {
         title: "Red Velvet Luxury",
         description:
           "Classic red velvet cake with cream cheese frosting and decorative elements",
-        image:
-          "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=300&h=300&fit=crop",
+        image: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f",
         category: "traditional",
         boardType: "traditional",
         boardName: "Traditional Cakes",
@@ -94,8 +92,7 @@ class PinterestGallery {
         title: "Custom Wedding Masterpiece",
         description:
           "Elegant three-tier wedding cake with fresh floral accents and gold detailing",
-        image:
-          "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=300&h=300&fit=crop",
+        image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc",
         category: "custom",
         boardType: "custom",
         boardName: "Custom Cakes",
@@ -107,8 +104,7 @@ class PinterestGallery {
         title: "Birthday Celebration Cake",
         description:
           "Custom birthday cake with personalized decorations and colorful design",
-        image:
-          "https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=300&h=300&fit=crop",
+        image: "https://images.unsplash.com/photo-1559620192-032c4bc4674e",
         category: "custom",
         boardType: "custom",
         boardName: "Custom Cakes",
@@ -120,8 +116,7 @@ class PinterestGallery {
         title: "Mini Bento Cake",
         description:
           "Adorable individual-sized decorated cake perfect for personal treats",
-        image:
-          "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&h=300&fit=crop",
+        image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e",
         category: "bento",
         boardType: "bento",
         boardName: "Bento Cakes",
@@ -134,7 +129,7 @@ class PinterestGallery {
         description:
           "Fun character-themed bento cake that brings smiles to all ages",
         image:
-          "https://images.unsplash.com/photo-1710912247355-4675bde57920?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735",
+          "https://images.unsplash.com/photo-1710912247355-4675bde57920?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&",
         category: "bento",
         boardType: "bento",
         boardName: "Custom Cakes",
