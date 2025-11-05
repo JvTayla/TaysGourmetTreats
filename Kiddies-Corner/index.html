@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tays Gourmet Treats Kiddies Corner</title>
-    <link rel="icon" href="../assets/images/TaysTreats Logo.png" type="image/x-icon" />
-
+    <link
+      rel="icon"
+      href="../assets/images/TaysTreats Logo.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/kiddies.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,39 +26,285 @@
       href="https://fonts.cdnfonts.com/css/glacial-indifference-2"
       rel="stylesheet"
     />
-     <link
+    <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css"
     />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
   <body>
     <script>
       const currentPage = "Kiddies Corner";
     </script>
-      <div class="nav-wrapper">
-  <div class="awning-top"></div>
-  <div class="awning"></div>
 
-  <div class="nav-sticky">
-    <div class="nav-logo-wrapper">
-      <div class="nav-logo-circle"></div>
-      <a href="/TaysGourmetTreats/index.html">
-        <img
-          class="nav-logo"
-          src="../assets/images/TaysTreats Logo.png"
-          alt="Tay's Logo"
+    <div class="nav-wrapper">
+      <div class="awning-top"></div>
+      <div class="awning"></div>
+      <div class="nav-sticky">
+        <div class="nav-logo-wrapper">
+          <div class="nav-logo-circle"></div>
+          <a href="/TaysGourmetTreats/index.html">
+            <img
+              class="nav-logo"
+              src="../assets/images/TaysTreats Logo.png"
+              alt="Tay's Logo"
+            />
+          </a>
+        </div>
+        <nav class="nav-bar">
+          <ul id="main-nav"></ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="kiddies-hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to the Kiddies Corner</h1>
+        <div class="hero-text">
+          <p>
+            Growing up with my little sisters taught me something magical - kids
+            learn best when they're having fun! Watching their eyes light up as
+            they created their first cookies made me realize how important it is
+            to include children in the activities we love.
+          </p>
+          <p>
+            Baking isn't just about making treats; it's about creating memories,
+            building confidence, and teaching valuable skills in the sweetest
+            way possible. This corner is dedicated to all the mini bakers out
+            there ready to start their delicious journey!
+          </p>
+        </div>
+      </div>
+      <div class="hero-decoration">
+        <div class="floating-sprinkle"></div>
+        <div class="floating-sprinkle"></div>
+        <div class="floating-sprinkle"></div>
+      </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-grid-section">
+      <h2 class="section-title">Lets Start Baking</h2>
+      <p class="section-subtitle">
+        Follow these fun activities in order - each one builds new skills
+      </p>
+
+      <div class="blog-grid">
+        <!-- Blog 1: Coloring Tasks (Easiest - No Baking Required) -->
+        <article class="blog-card" data-difficulty="beginner">
+          <div class="blog-badge beginner-badge">Start Here</div>
+          <img
+            src="../assets/images/coloring-pages.jpg"
+            alt="Baking themed coloring pages"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <h3>Blog 1: Baking Coloring Adventure</h3>
+            <p class="blog-meta">Perfect for ages 2-5 - No baking required</p>
+            <p>
+              Before we touch any ingredients, lets get creative with colors!
+              Download our special baking-themed coloring pages featuring
+              cupcakes, cookies, and happy kitchen tools.
+            </p>
+            <ul class="blog-features">
+              <li>5 Printable coloring pages</li>
+              <li>Learn kitchen tool names</li>
+              <li>Build excitement for baking</li>
+            </ul>
+            <button class="blog-button" onclick="openBlog(1)">
+              Color With Me
+            </button>
+          </div>
+        </article>
+
+        <!-- Blog 2: Simple Brownie Recipe (Easy - Minimal Steps) -->
+        <article class="blog-card" data-difficulty="easy">
+          <div class="blog-badge easy-badge">First Bake</div>
+          <img
+            src="../assets/images/kid-brownies.jpg"
+            alt="Kids making brownies"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <h3>Blog 2: Magical One-Bowl Brownies</h3>
+            <p class="blog-meta">Ages 4+ - 30 minutes - Minimal mess</p>
+            <p>
+              Our super easy brownie recipe uses just one bowl and simple
+              ingredients. Perfect for little hands to mix and taste-test!
+            </p>
+            <ul class="blog-features">
+              <li>Only 6 ingredients</li>
+              <li>Great for mixing practice</li>
+              <li>Guaranteed happy faces</li>
+            </ul>
+            <button class="blog-button" onclick="openBlog(2)">
+              Bake Brownies
+            </button>
+          </div>
+        </article>
+
+        <!-- Blog 3: Simple Cookie Recipe (Building Skills) -->
+        <article class="blog-card" data-difficulty="easy">
+          <div class="blog-badge easy-badge">Cookie Time</div>
+          <img
+            src="../assets/images/simple-cookies.jpg"
+            alt="Basic sugar cookies"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <h3>Blog 3: Easy Peasy Sugar Cookies</h3>
+            <p class="blog-meta">Ages 5+ - 45 minutes - Cookie cutters fun</p>
+            <p>
+              Learn to make classic sugar cookies that are perfect for
+              decorating. We'll practice rolling, cutting, and the magic of the
+              oven!
+            </p>
+            <ul class="blog-features">
+              <li>Safe cutting practice</li>
+              <li>Shape recognition</li>
+              <li>Patience with baking time</li>
+            </ul>
+            <button class="blog-button" onclick="openBlog(3)">
+              Make Cookies
+            </button>
+          </div>
+        </article>
+
+        <!-- Blog 4: Cookie Decorating (Creative Expression) -->
+        <article class="blog-card" data-difficulty="medium">
+          <div class="blog-badge medium-badge">Get Creative</div>
+          <img
+            src="../assets/images/cookie-decorating.jpg"
+            alt="Kids decorating cookies"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <h3>Blog 4: Cookie Decorating Party</h3>
+            <p class="blog-meta">Ages 4+ - 20 minutes - Unlimited creativity</p>
+            <p>
+              Transform plain cookies into edible art! Learn simple icing
+              techniques and create your own cookie masterpieces.
+            </p>
+            <ul class="blog-features">
+              <li>3 Easy icing recipes</li>
+              <li>Sprinkles and decorations</li>
+              <li>Perfect for playdates</li>
+            </ul>
+            <button class="blog-button" onclick="openBlog(4)">
+              Decorate Cookies
+            </button>
+          </div>
+        </article>
+
+        <!-- Blog 5: Cupcake Decoration (Advanced Creativity) -->
+        <article class="blog-card" data-difficulty="medium">
+          <div class="blog-badge medium-badge">Cupcake Fun</div>
+          <img
+            src="../assets/images/cupcake-decorating.jpg"
+            alt="Decorating cupcakes"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <h3>Blog 5: Cupcake Decorating Workshop</h3>
+            <p class="blog-meta">Ages 6+ - 40 minutes - Piping practice</p>
+            <p>
+              Level up your skills with cupcake decorating! Learn simple piping
+              techniques and create beautiful edible designs.
+            </p>
+            <ul class="blog-features">
+              <li>Easy piping bag techniques</li>
+              <li>Color mixing fun</li>
+              <li>Builds fine motor skills</li>
+            </ul>
+            <button class="blog-button" onclick="openBlog(5)">
+              Create Cupcakes
+            </button>
+          </div>
+        </article>
+
+        <!-- Blog 6: Gingerbread Cookies (Seasonal/Holiday) -->
+        <article class="blog-card" data-difficulty="advanced">
+          <div class="blog-badge advanced-badge">Holiday Special</div>
+          <img
+            src="../assets/images/gingerbread-kids.jpg"
+            alt="Making gingerbread cookies"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <h3>Blog 6: Gingerbread House Adventure</h3>
+            <p class="blog-meta">Ages 7+ - 2 hours - Ultimate baking project</p>
+            <p>
+              Our grand finale! Create an entire gingerbread village from
+              scratch. This project teaches planning, patience, and
+              architectural skills!
+            </p>
+            <ul class="blog-features">
+              <li>Full house construction</li>
+              <li>Math and planning skills</li>
+              <li>Amazing final result</li>
+            </ul>
+            <button class="blog-button" onclick="openBlog(6)">
+              Build Gingerbread
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Spoonacular API Section -->
+    <section class="recipe-finder-section">
+      <h2 class="section-title">Find More Recipe Ideas</h2>
+
+      <!-- Search Suggestions -->
+      <div class="search-suggestions">
+        <p>
+          Try:
+          <span class="suggestion-tag" onclick="searchSuggestion('cookies')"
+            >cookies</span
+          >
+          <span class="suggestion-tag" onclick="searchSuggestion('cupcakes')"
+            >cupcakes</span
+          >
+          <span class="suggestion-tag" onclick="searchSuggestion('brownies')"
+            >brownies</span
+          >
+          <span class="suggestion-tag" onclick="searchSuggestion('muffins')"
+            >muffins</span
+          >
+        </p>
+      </div>
+
+      <div class="recipe-search">
+        <input
+          type="text"
+          id="recipeSearch"
+          placeholder="Search for kid-friendly recipes..."
+          class="search-input"
         />
-      </a>
-    </div>
+        <button onclick="searchRecipes()" class="search-button">Search</button>
+      </div>
 
-    <nav class="nav-bar">
-      <ul id="main-nav"></ul>
-    </nav>
-  </div>
-</div>
+      <div id="recipeResults" class="recipe-results"></div>
+    </section>
 
-    </div>
+    <!-- Saved Recipes Section -->
+    <section class="saved-recipes-section">
+      <h2 class="section-title">Your Saved Recipes</h2>
+      <div id="savedRecipesList" class="saved-recipes-list">
+        <p class="no-saved">
+          No saved recipes yet. Search above and save your favorites!
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <div id="site-footer"></div>
+
     <script src="../scripts/nav.js"></script>
+    <script src="../scripts/kiddiesCorner.js"></script>
   </body>
 </html>
