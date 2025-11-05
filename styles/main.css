@@ -91,7 +91,6 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #ffe8f4;
 }
 
 .awning-top {
@@ -112,60 +111,65 @@ p {
   background-repeat: repeat-x;
 }
 
-/* NEW: Main container for logo + navigation */
+/* Main container for logo + navigation */
 .nav-sticky {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.5em 2em;
+  position: relative;
   background-color: #ffe8f4;
   box-shadow: 0 0.15em 0.2em rgba(0, 0, 0, 0.2);
-  position: relative;
+  min-height: 100px; /* Ensure nav bar has enough height for overhang */
 }
 
-/* UPDATED: Logo container - now part of flex layout */
+/* Logo container - positioned absolutely to overhang */
 .nav-logo-wrapper {
-  flex-shrink: 0; /* Prevents logo from shrinking */
-  position: relative;
-  width: 140px;
-  height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  left: 2em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 180px;
+  z-index: 200;
+  pointer-events: auto; /* Ensure logo is clickable */
 }
 
 .nav-logo-circle {
   position: absolute;
-  width: 160px;
-  height: 160px;
+  top: 50%;
+  left: 50%;
+  width: 230px;
+  height: 230px;
   background-color: #ffe8f4;
   border-radius: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 149;
 }
 
 .nav-logo {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   position: relative;
   z-index: 150;
 }
 
 .nav-logo img {
-  width: 120px; /* Updated to match container */
-  height: 120px; /* Updated to match container */
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   position: relative;
   border-radius: 0;
 }
 
-/* UPDATED: Navigation bar - takes remaining space */
+/* Navigation bar - pushed right to account for logo space */
 .nav-bar {
-  flex: 1.5;
+  flex: 1;
+  margin-left: 200px; /* Push nav content right to avoid logo overlap */
   display: flex;
-  justify-content: center; /* Centers navigation items */
+  justify-content: center;
   font-family: "Glacial Indifference", sans-serif;
+  padding: 0.75em 0;
 }
 
 .nav-bar ul {
@@ -173,7 +177,7 @@ p {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 0.5em;
+  gap: 0.1em;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -182,11 +186,11 @@ p {
   text-decoration: none;
   color: #000;
   font-weight: 500;
-  padding: 0.5em 1.2em;
+  padding: 0.25em 1.2em;
   border-radius: 50px;
   transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 1.2em;
-  white-space: nowrap; /* Prevents text wrapping */
+  white-space: nowrap;
 }
 
 .nav-bar a.active {
@@ -363,24 +367,24 @@ a:active {
   h2 {
     font-size: 5.5em;
   }
-  .nav-sticky {
-    padding: 0.5em 3em;
+  .nav-bar {
+    font-size: 1.3em;
   }
   .nav-logo-wrapper {
+    width: 200px;
+    height: 200px;
+    left: 2.5em;
+  }
+  .nav-logo-circle {
+    width: 250px;
+    height: 250px;
+  }
+  .nav-logo img {
     width: 160px;
     height: 160px;
   }
-  .nav-logo-circle {
-    width: 180px;
-    height: 180px;
-  }
-  .nav-logo {
-    width: 140px;
-    height: 140px;
-  }
-  .nav-bar a {
-    font-size: 1.4em;
-    padding: 0.5em 1.5em;
+  .nav-bar {
+    margin-left: 220px;
   }
 }
 
@@ -392,23 +396,24 @@ a:active {
   h2 {
     font-size: 4.5em;
   }
-  .nav-sticky {
-    padding: 0.5em 2em;
+  .nav-bar {
+    font-size: 1.1em;
   }
   .nav-logo-wrapper {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
+    left: 1.5em;
   }
   .nav-logo-circle {
-    width: 170px;
-    height: 170px;
+    width: 200px;
+    height: 200px;
   }
-  .nav-logo {
+  .nav-logo img {
     width: 130px;
     height: 130px;
   }
-  .nav-bar a {
-    font-size: 1.3em;
+  .nav-bar {
+    margin-left: 180px;
   }
 }
 
@@ -427,30 +432,32 @@ a:active {
     font-size: 1.8rem;
   }
   .nav-sticky {
-    padding: 0.5em 1.5em;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1em;
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 80px; /* Make space for overhanging logo */
   }
   .nav-logo-wrapper {
-    width: 130px;
-    height: 130px;
+    top: -40px; /* Pull logo up to overhang */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 140px;
   }
   .nav-logo-circle {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
   }
-  .nav-logo {
+  .nav-logo img {
     width: 110px;
     height: 110px;
   }
   .nav-bar {
+    margin-left: 0;
     width: 100%;
-    order: 2; /* Moves nav below logo on tablet */
+    padding: 0.5em 0;
   }
-  .nav-bar a {
-    font-size: 1.2em;
-    padding: 0.4em 1em;
+  .nav-bar ul {
+    gap: 0.5em;
   }
 }
 
@@ -472,31 +479,38 @@ a:active {
     font-size: 1.6rem;
   }
   .nav-sticky {
-    padding: 0.5em 1em;
-    flex-direction: column; /* Stack logo above nav */
-    gap: 0.5em;
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 70px; /* Make space for overhanging logo */
   }
   .nav-logo-wrapper {
+    top: -35px; /* Pull logo up to overhang */
+    left: 50%;
+    transform: translateX(-50%);
     width: 120px;
     height: 120px;
   }
   .nav-logo-circle {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
   }
-  .nav-logo {
-    width: 100px;
-    height: 100px;
+  .nav-logo img {
+    width: 90px;
+    height: 90px;
   }
   .nav-bar {
+    margin-left: 0;
     width: 100%;
+    padding: 0.5em 0;
+    font-size: 1em;
   }
   .nav-bar ul {
-    gap: 0.3em;
+    flex-wrap: wrap;
+    gap: 0.5em;
   }
   .nav-bar a {
+    padding: 0.2em 0.8em;
     font-size: 1em;
-    padding: 0.3em 0.8em;
   }
   .footer-columns {
     flex-direction: column;
@@ -529,9 +543,10 @@ a:active {
     font-size: 1.4rem;
   }
   .nav-sticky {
-    padding: 0.5em;
+    padding-top: 60px;
   }
   .nav-logo-wrapper {
+    top: -30px;
     width: 100px;
     height: 100px;
   }
@@ -539,13 +554,16 @@ a:active {
     width: 120px;
     height: 120px;
   }
-  .nav-logo {
+  .nav-logo img {
     width: 80px;
     height: 80px;
   }
-  .nav-bar a {
+  .nav-bar {
     font-size: 0.9em;
-    padding: 0.3em 0.6em;
+  }
+  .nav-bar a {
+    padding: 0.2em 0.6em;
+    font-size: 0.9em;
   }
   .footer-title {
     font-size: 2em;
