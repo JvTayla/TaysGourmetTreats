@@ -12,14 +12,14 @@ h1 {
   min-height: 80vh;
 }
 
-#recent-orders h2 {
+#gallery .recent-orders h2 {
   text-align: center;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
 }
 
-.prev_rec,
+#gallery.prev_rec,
 .next_rec {
   width: 0;
   height: 0;
@@ -34,18 +34,18 @@ h1 {
   z-index: 10;
 }
 
-.prev_rec {
+#gallery.prev_rec {
   border-width: 30px 40px 30px 0;
   border-color: transparent #ffffff transparent transparent;
   left: 10em;
 }
 
-.next_rec {
+#gallery.next_rec {
   border-width: 30px 0 30px 40px;
   border-color: transparent transparent transparent #ffffff;
   right: 10em;
 }
-#recent-orders::before {
+#gallery .recent-orders::before {
   content: "";
   position: absolute;
   top: 1;
