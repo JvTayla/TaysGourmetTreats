@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/gallery.css" />
+    <link rel="stylesheet" href="../styles/landing.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -62,7 +63,25 @@
     <section id="gallery" class="gallery-section">
       <div class="container">
         <h2>Our Cake Gallery</h2>
-
+ <section id="recent-orders">
+  <h2>Recent Orders</h2>
+  <button class="prev_rec" aria-label="Previous order"></button>
+  <div class="recent_orders_slider">
+   <div class="order_image_wrapper">
+  <div class="card left_card">
+    <img class="side_card" src="../assets/images/orders/recent-order1.jpg" alt="Previous order preview left" />
+  </div>
+  <div class="card main_card">
+    <img class="main_card_img" src="../assets/images/orders/recent-order2.jpg" alt="Current main order preview" />
+  </div>
+  <div class="card right_card">
+    <img class="side_card" src="../assets/images/orders/recent-order3.jpg" alt="Next order preview right" />
+  </div>
+</div>
+   <button class="next_rec" aria-label="Next order"></button>
+</section>
+<section id="Inspiration-board">
+  <h2>Inspiration Board</h2>
         <!-- Gallery Grid -->
         <div id="galleryGrid" class="gallery-grid">
           <!-- Pinterest pins will be dynamically inserted here -->
