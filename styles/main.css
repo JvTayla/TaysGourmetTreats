@@ -135,13 +135,12 @@ p {
 
 .nav-logo-circle {
   position: absolute;
-  top: 50%;
-  left: 50%;
+
   width: 230px;
   height: 230px;
   background-color: #ffe8f4;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 149;
 }
@@ -536,7 +535,17 @@ a:active {
     height: 200px;
     left: 2.5em;
   }
+  .nav-logo {
+    position: absolute;
+    top: 40%;
+    left: -10%;
+    width: 200px;
+    height: 200px;
+  }
   .nav-logo-circle {
+    position: absolute;
+    top: 25%;
+    right: 0%;
     width: 250px;
     height: 250px;
   }
@@ -557,8 +566,15 @@ a:active {
   h2 {
     font-size: 4.5em;
   }
-  .nav-bar {
+  .nav .nav-bar {
     font-size: 1.1em;
+  }
+  .nav-logo {
+    position: absolute;
+    top: 28%;
+    left: -12%;
+    width: 180px;
+    height: 180px;
   }
   .nav-logo-wrapper {
     width: 160px;
@@ -566,15 +582,21 @@ a:active {
     left: 1.5em;
   }
   .nav-logo-circle {
+    position: absolute;
+    left: -20%;
+    top: 25%;
     width: 200px;
     height: 200px;
   }
   .nav-logo img {
-    width: 130px;
-    height: 130px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
   }
   .nav-bar {
-    margin-left: 180px;
+    margin-left: 80px;
   }
 }
 
@@ -595,22 +617,31 @@ a:active {
   .nav-sticky {
     flex-direction: column;
     min-height: auto;
-    padding-top: 80px; /* Make space for overhanging logo */
+    padding-top: 100px;
   }
   .nav-logo-wrapper {
-    top: -40px; /* Pull logo up to overhang */
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
+  }
+  .nav-logo {
+    position: absolute;
+    top: -9%;
+    left: -8%;
+    width: 120px;
+    height: 120px;
   }
   .nav-logo-circle {
-    width: 180px;
-    height: 180px;
+    display: none;
+    width: 150px;
+    height: 150px;
   }
   .nav-logo img {
-    width: 110px;
-    height: 110px;
+    padding: 10px, 5px;
+    width: 80px;
+    height: 80px;
   }
   .nav-bar {
     margin-left: 0;
@@ -645,15 +676,24 @@ a:active {
     padding-top: 70px; /* Make space for overhanging logo */
   }
   .nav-logo-wrapper {
-    top: -35px; /* Pull logo up to overhang */
+    top: -40px; /* Pull logo up to overhang */
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
     height: 120px;
   }
+  .nav-logo {
+    position: absolute;
+    top: 30%;
+    left: 16%;
+    width: 80px;
+    height: 80px;
+  }
   .nav-logo-circle {
-    width: 150px;
-    height: 150px;
+    display: none;
+    top: 60%;
+    width: 90px;
+    height: 90px;
   }
   .nav-logo img {
     width: 90px;

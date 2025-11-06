@@ -38,8 +38,8 @@
   position: absolute;
   width: 30em;
   aspect-ratio: 1 / 1;
-  left: 3.5%;
-  bottom: 37%;
+  left: 0%;
+  bottom: 10%;
   transform: translateX(-50%);
   border-radius: 50%;
   z-index: 0;
@@ -224,7 +224,8 @@ h4 {
   }
   .about-image-wrapper {
     width: 28em;
-    left: 5%;
+    bottom: 20%;
+    left: -5%;
   }
   .about-image-fg {
     width: 55%;
@@ -246,18 +247,28 @@ h4 {
     padding: 1.5em;
   }
   .about-container {
-    left: 10em;
+    position: static;
+    left: auto;
+    flex-direction: column;
     gap: 2rem;
   }
   .about-image-wrapper {
-    width: 25em;
-    left: 7%;
-    bottom: 40%;
+    position: relative;
+    width: 80%;
+    max-width: 300px;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin: 0 auto 2em;
   }
+  .about-image {
+    width: 100%;
+  }
+
   .about-image-fg {
     width: 50%;
-    right: 8em;
-    bottom: -0.6em;
+    left: -10%;
+    bottom: -10%;
   }
   .about-text {
     width: 80%;
