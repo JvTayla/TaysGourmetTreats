@@ -12,14 +12,175 @@ h1 {
   min-height: 80vh;
 }
 
-#gallery .recent-orders h2 {
-  text-align: center;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
+#recent-orders {
+  display: block;
+  background-color: white;
+  color: #000000;
+  font-family: "Glacial Indifference", sans-serif;
+  margin: 0 auto;
+  padding-bottom: 8em;
+  perspective: 1000px;
+  position: relative;
+  padding: 2em 0em 7em 0em;
 }
 
-#gallery.prev_rec,
+#recent-orders::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/images/RepeatingBackground.png") repeat;
+  background-size: 20em 20em;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+#recent-orders h2 {
+  color: #d83d7f;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+#recent-orders {
+  display: block;
+  background-color: white;
+  color: #000000;
+  font-family: "Glacial Indifference", sans-serif;
+  margin: 0 auto;
+  padding-bottom: 8em;
+  perspective: 1000px;
+  position: relative;
+  padding: 2em 0em 7em 0em;
+}
+
+#recent-orders::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/images/RepeatingBackground1.png") repeat;
+  background-color: #ffc0dc;
+  background-size: 20em 20em;
+  opacity: 1;
+  z-index: 0;
+}
+
+#recent-orders h2 {
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.recent_orders_slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2.5em;
+  position: relative;
+  z-index: 2;
+}
+
+.order_image_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.recent_orders.main_card {
+  width: 40em;
+  height: 40em;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  transform: scale(1.1);
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+}
+
+.recent_orders.side_card {
+  width: 35em;
+  height: 35em;
+  border-radius: 8px;
+  object-fit: cover;
+  opacity: 0.6;
+  filter: brightness(0.9);
+  position: absolute;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.left_card {
+  left: 0;
+  transform: translateX(-25em) scale(1);
+  cursor: pointer;
+}
+
+.right_card {
+  right: 0;
+  transform: translateX(25em) scale(1);
+  cursor: pointer;
+}
+
+.card {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 2;
+}
+
+.main_card {
+  position: relative;
+  width: 40em;
+  height: 40em;
+  z-index: 3;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.left_card {
+  width: 35em;
+  height: 35em;
+  left: 0;
+  transform: translateX(-25em) scale(0.9);
+}
+
+.right_card img,
+.left_card img {
+  opacity: 0.5;
+}
+
+.right_card {
+  width: 35em;
+  height: 35em;
+  right: 0;
+  transform: translateX(25em) scale(0.9);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.prev_rec,
 .next_rec {
   width: 0;
   height: 0;
@@ -34,31 +195,18 @@ h1 {
   z-index: 10;
 }
 
-#gallery.prev_rec {
+.prev_rec {
   border-width: 30px 40px 30px 0;
   border-color: transparent #ffffff transparent transparent;
   left: 10em;
 }
 
-#gallery.next_rec {
+.next_rec {
   border-width: 30px 0 30px 40px;
   border-color: transparent transparent transparent #ffffff;
   right: 10em;
 }
-#gallery .recent-orders::before {
-  content: "";
-  position: absolute;
-  top: 1;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../assets/images/RepeatingBackground.png") repeat;
-  background-size: 20em 20em;
-  background-color: #d83d7f;
-  opacity: 1;
 
-  z-index: 0;
-}
 .search-container {
   display: flex;
   justify-content: center;
