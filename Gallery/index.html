@@ -63,39 +63,9 @@
       <div class="container">
         <h2>Our Cake Gallery</h2>
 
-        <!-- Search Bar -->
-        <div class="search-container">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search cakes by name, description..."
-            class="search-input"
-          />
-          <button id="searchBtn" class="search-btn">Search</button>
-          <button id="clearSearch" class="clear-btn">Clear</button>
-        </div>
-
-        <!-- Board Filter Buttons -->
-        <div class="board-filters">
-          <button class="filter-btn active" data-board="all">All Cakes</button>
-          <button class="filter-btn" data-board="traditional">
-            Traditional Cakes
-          </button>
-          <button class="filter-btn" data-board="custom">Custom Cakes</button>
-          <button class="filter-btn" data-board="bento">Bento Cakes</button>
-        </div>
-
-        <!-- Loading Indicator -->
-        <div id="loading" class="loading">Loading cakes from Pinterest...</div>
-
         <!-- Gallery Grid -->
         <div id="galleryGrid" class="gallery-grid">
           <!-- Pinterest pins will be dynamically inserted here -->
-        </div>
-
-        <!-- No Results Message -->
-        <div id="noResults" class="no-results" style="display: none">
-          No cakes found matching your search.
         </div>
 
         <!-- Pinterest Board Embeds (Backup/Additional Display) -->
@@ -116,9 +86,9 @@
             <h3>Custom Cakes</h3>
             <a
               data-pin-do="embedBoard"
-              data-pin-board-width="400"
-              data-pin-scale-height="240"
-              data-pin-scale-width="80"
+              data-pin-board-width="190"
+              data-pin-scale-height="1200"
+              data-pin-scale-width="265"
               href="https://za.pinterest.com/taysgourmettreats/custom-cakes/"
             >
             </a>
@@ -128,9 +98,9 @@
             <h3>Bento Cakes</h3>
             <a
               data-pin-do="embedBoard"
-              data-pin-board-width="400"
-              data-pin-scale-height="240"
-              data-pin-scale-width="80"
+              data-pin-board-width="1920"
+              data-pin-scale-height="1200"
+              data-pin-scale-width="265"
               href="https://za.pinterest.com/taysgourmettreats/bento-cakes/"
             >
             </a>
