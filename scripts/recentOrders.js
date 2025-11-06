@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const recentOrders = [
     {
-      src: "../assets/images/orders/recent-order1.jpg",
+      src: "/assets/images/orders/recent-order1.jpg",
       alt: "Birthday Classical Chocolate Cake with Purple Butterflies 7 Inch Cake",
     },
     {
-      src: "../assets/images/orders/recent-order2.jpg",
+      src: "/assets/images/orders/recent-order2.jpg",
       alt: "22nd Classical Chocolate Bento Cake with Champagne and Gold accents 4 Inch Cake",
     },
     {
-      src: "../assets/images/orders/recent-order3.jpg",
+      src: "/assets/images/orders/recent-order3.jpg",
       alt: "Baby Shower Chocolate cake with Barbie font and pink and black",
     },
   ];
