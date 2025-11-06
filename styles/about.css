@@ -26,7 +26,7 @@
 
 .about-container {
   max-width: 80%;
-  left: 0%;
+  left: 20%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -34,7 +34,8 @@
   gap: 3rem;
 }
 .about-text {
-  max-width: 80%;
+  max-width: 60%;
+  left: -5%;
 
   position: relative;
 }
@@ -257,11 +258,12 @@ h4 {
     flex-direction: column;
     gap: 2rem;
   }
+
   .about-image-wrapper {
     position: relative;
-    width: 80%;
-    max-width: 300px;
-    left: auto;
+    width: 100%;
+    max-width: 80%;
+    left: 12%;
     bottom: auto;
     transform: none;
     margin: 0 auto 2em;
@@ -276,7 +278,9 @@ h4 {
     bottom: -10%;
   }
   .about-text {
-    width: 80%;
+    position: relative;
+    left: 12%;
+    width: 800px;
     padding: 1.5em 2em;
   }
   .about-text p {
@@ -318,7 +322,7 @@ h4 {
     position: relative;
     width: 100%;
     max-width: 300px;
-    left: auto;
+    left: 12%;
     bottom: auto;
     transform: none;
     margin: 0 auto 2em;
@@ -331,8 +335,9 @@ h4 {
     margin: -2em auto 0;
   }
   .about-text {
-    width: 95%;
-    padding: 1.5em;
+    width: 150%;
+    left: 12%;
+    padding: 0.5em;
     margin: 0 auto;
   }
   .about-text p {
@@ -398,6 +403,7 @@ h4 {
     max-width: 250px;
   }
   .about-text {
+    left: 0;
     padding: 1em;
   }
   .about-text p {
