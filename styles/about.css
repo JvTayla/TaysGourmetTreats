@@ -25,13 +25,18 @@
 }
 
 .about-container {
-  max-width: 90em;
-  left: 20em;
+  max-width: 80%;
+  left: 0%;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 3rem;
+}
+.about-text {
+  max-width: 80%;
+
+  position: relative;
 }
 
 .about-image-wrapper {
@@ -206,7 +211,7 @@ h4 {
 /* Large Desktop */
 @media (min-width: 1441px) {
   .about-container {
-    max-width: 100em;
+    max-width: 100%;
   }
   .about-image-wrapper {
     width: 35em;
@@ -219,7 +224,7 @@ h4 {
 /* Standard Desktop */
 @media (max-width: 1440px) and (min-width: 1025px) {
   .about-container {
-    max-width: 80em;
+    max-width: 100%;
     left: 15em;
   }
   .about-image-wrapper {
@@ -311,7 +316,7 @@ h4 {
   }
   .about-image-wrapper {
     position: relative;
-    width: 80%;
+    width: 100%;
     max-width: 300px;
     left: auto;
     bottom: auto;
@@ -321,8 +326,8 @@ h4 {
   .about-image-fg {
     position: relative;
     width: 50%;
-    bottom: auto;
-    right: auto;
+    bottom: 30%;
+    right: 20%;
     margin: -2em auto 0;
   }
   .about-text {
