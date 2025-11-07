@@ -450,28 +450,6 @@ body {
   flex-wrap: wrap;
 }
 
-.inspiration-tab {
-  background: white;
-  border: 2px solid var(--pink-medium);
-  color: var(--pink-dark);
-  padding: 10px 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 600;
-}
-
-.inspiration-tab:hover {
-  background: var(--pink-light);
-  transform: translateY(-2px);
-}
-
-.inspiration-tab.active {
-  background: var(--pink-bright);
-  color: white;
-  border-color: var(--pink-bright);
-}
-
 .inspiration-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -560,42 +538,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* Responsive Design for Inspiration Section */
-@media (max-width: 768px) {
-  .inspiration-tabs {
-    gap: 5px;
-  }
-
-  .inspiration-tab {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-  }
-
-  .inspiration-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-
-  .inspiration-header h2 {
-    font-size: 1.7rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .inspiration-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .inspiration-tabs {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .inspiration-tab {
-    width: 200px;
-  }
-}
-
 /* Pricing & Packages Section */
 .pricing-section {
   background: var(--pink-lighter);
@@ -606,7 +548,7 @@ body {
 
 .pricing-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .pricing-header h2 {
@@ -617,7 +559,7 @@ body {
 }
 
 .pricing-header p {
-  color: var(--gray-medium);
+  color: #000;
   max-width: 600px;
   margin: 0 auto;
   font-size: 1.1rem;
