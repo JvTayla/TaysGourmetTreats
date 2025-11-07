@@ -3,11 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tay's Gourmet Treats Order Page</title>
-    <link rel="icon" href="../assets/images/TaysTreats Logo.png" type="image/x-icon" />
-
+    <title>Tay's Gourmet Treats - Order Form</title>
+    <link rel="stylesheet" href="../styles/order.css" />
     <link rel="stylesheet" href="../styles/main.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,47 +13,1262 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.cdnfonts.com/css/brittany-signature"
+      href="https://fonts.cdnfonts.com/css/glacial-indifference"
       rel="stylesheet"
-    />
-    <link
-      href="https://fonts.cdnfonts.com/css/glacial-indifference-2"
-      rel="stylesheet"
-    />
-     <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css"
-
     />
   </head>
   <body>
     <script>
       const currentPage = "Order";
     </script>
+
     <div class="nav-wrapper">
-  <div class="awning-top"></div>
-  <div class="awning"></div>
+      <div class="awning-top"></div>
+      <div class="awning"></div>
 
-  <div class="nav-sticky">
-    <div class="nav-logo-wrapper">
-      <div class="nav-logo-circle"></div>
-      <a href="/TaysGourmetTreats/index.html">
-        <img
-          class="nav-logo"
-          src="../assets/images/TaysTreats Logo.png"
-          alt="Tay's Logo"
+      <div class="nav-sticky">
+        <div class="nav-logo-wrapper">
+          <div class="nav-logo-circle"></div>
+          <a href="/TaysGourmetTreats/index.html">
+            <img
+              class="nav-logo"
+              src="../assets/images/TaysTreats Logo.png"
+              alt="Tay's Logo"
+            />
+          </a>
+        </div>
+
+        <nav class="nav-bar">
+          <ul id="main-nav"></ul>
+        </nav>
+      </div>
+    </div>
+
+    <section class="gallery-cta">
+      <div class="gallery-cta-content">
+        <h2>Looking for Inspiration?</h2>
+        <p>
+          Explore our delicious collection of custom cakes, cupcakes, and
+          desserts — each handcrafted with creativity and love. Discover ideas
+          to spark your imagination and design the perfect treat for your next
+          celebration.
+        </p>
+        <a href="../Gallery/index.html" class="btn btn-outline"
+          >View Our Gallery</a
+        >
+      </div>
+    </section>
+
+    <!-- Package Deals Section (Only for Cakes) -->
+    <section class="pricing-section" id="cake-packages">
+      <div class="pricing-header">
+        <h2>Popular Cake Packages</h2>
+        <p>
+          Choose from our most popular packages or build your own custom
+          creation
+        </p>
+      </div>
+
+      <div class="packages-grid">
+        <div class="package-card">
+          <div class="package-image">
+            <img
+              src="https://images.unsplash.com/photo-1586788680434-30d324b2d46f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Bento Cake with Cupcakes"
+            />
+          </div>
+          <div class="package-badge">Popular</div>
+          <div class="package-content">
+            <h3>Bento Cake + 2 Cupcakes</h3>
+            <div class="package-price">R300</div>
+            <ul class="package-features">
+              <li>1x 4-Inch Bento Cake</li>
+              <li>2x Matching Cupcakes</li>
+              <li>Basic flavors only</li>
+              <li>Basic buttercream icing</li>
+              <li>Max 2 icing colors</li>
+              <li>Simple designs included</li>
+            </ul>
+            <button
+              type="button"
+              class="btn select-package"
+              data-package="bento-2-cupcakes"
+            >
+              Select This Package
+            </button>
+          </div>
+        </div>
+
+        <div class="package-card">
+          <div class="package-image">
+            <img
+              src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Bento Cake with More Cupcakes"
+            />
+          </div>
+          <div class="package-badge">Best Value</div>
+          <div class="package-content">
+            <h3>Bento Cake + 5 Cupcakes</h3>
+            <div class="package-price">R350</div>
+            <ul class="package-features">
+              <li>1x 4-Inch Bento Cake</li>
+              <li>5x Matching Cupcakes</li>
+              <li>Basic flavors only</li>
+              <li>Basic buttercream icing</li>
+              <li>Max 2 icing colors</li>
+              <li>Simple designs included</li>
+            </ul>
+            <button
+              type="button"
+              class="btn select-package"
+              data-package="bento-5-cupcakes"
+            >
+              Select This Package
+            </button>
+          </div>
+        </div>
+
+        <div class="package-card">
+          <div class="package-image">
+            <img
+              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Custom Celebration Cake"
+            />
+          </div>
+          <div class="package-content">
+            <h3>Custom Cake Only</h3>
+            <div class="package-price">From R250</div>
+            <ul class="package-features">
+              <li>Choose your cake size & shape</li>
+              <li>Custom design & flavors</li>
+              <li>Buttercream or ganache</li>
+              <li>Multiple filling options</li>
+              <li>Perfect for special occasions</li>
+              <li>Fully customizable</li>
+            </ul>
+            <button
+              type="button"
+              class="btn select-package"
+              data-package="custom-cake"
+            >
+              Build Custom Cake
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- Product Type Tabs -->
+      <div class="product-tabs">
+        <div class="product-tab active" data-product="cakes">
+          <span class="product-tab-icon">🎂</span>
+          Cakes
+        </div>
+        <div class="product-tab" data-product="cupcakes">
+          <span class="product-tab-icon">🧁</span>
+          Cupcakes
+        </div>
+        <div class="product-tab" data-product="cookies">
+          <span class="product-tab-icon">🍪</span>
+          Cookies
+        </div>
+      </div>
+
+      <header class="form-header">
+        <h2>Custom Cake Order</h2>
+        <p class="form-description">
+          Thank you for your interest in Tay's Gourmet Treats! Please fill out
+          this form to place your custom order. We'll get back to you within 24
+          hours to confirm details and provide pricing.
+        </p>
+      </header>
+
+      <!-- CAKES FORM -->
+      <form
+        id="cakes-form"
+        class="product-form order-form active"
+        action="https://formspree.io/f/myzbrvrg"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="New Cake Order Request" />
+        <input type="hidden" name="_replyto" value="customer@example.com" />
+
+        <!-- Customer Information -->
+        <section class="form-section">
+          <h3>Your Information</h3>
+          <div class="form-group">
+            <label for="cakes-full-name">Full Name *</label>
+            <input
+              type="text"
+              id="cakes-full-name"
+              name="full-name"
+              required
+              placeholder="Enter your full name"
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cakes-email">Email Address *</label>
+              <input
+                type="email"
+                id="cakes-email"
+                name="email"
+                required
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="cakes-phone">Phone Number *</label>
+              <input
+                type="tel"
+                id="cakes-phone"
+                name="phone"
+                required
+                placeholder="+27 82 123 4567"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Order Details -->
+        <section class="form-section">
+          <h3>Order Details</h3>
+          <div class="form-group">
+            <label for="order-type">Cake Type *</label>
+            <select id="order-type" name="order-type" required>
+              <option value="">Select cake type</option>
+              <option value="custom-cake">Custom Cake</option>
+              <option value="bento-cake">Bento Cake</option>
+              <option value="classic-cake">Classic Cake</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="serving-size">Serving Size / Quantity *</label>
+            <input
+              type="text"
+              id="serving-size"
+              name="serving-size"
+              required
+              placeholder="e.g., 20 people, 2 dozen cupcakes"
+            />
+          </div>
+          <div class="form-group">
+            <label for="budget-range">Budget Range</label>
+            <select id="budget-range" name="budget-range">
+              <option value="">Select budget range (optional)</option>
+              <option value="under-300">Under R300</option>
+              <option value="300-500">R300 - R500</option>
+              <option value="500-800">R500 - R800</option>
+              <option value="800-1200">R800 - R1200</option>
+              <option value="1200-plus">R1200+</option>
+              <option value="flexible">Flexible - depends on design</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="occasion">Occasion *</label>
+            <input
+              type="text"
+              id="occasion"
+              name="occasion"
+              required
+              placeholder="e.g., Birthday, Wedding, Corporate Event"
+            />
+          </div>
+        </section>
+
+        <!-- Size & Shape Selection -->
+        <section class="form-section" id="size-shape-section">
+          <h3>Cake Size & Shape</h3>
+          <div class="form-group">
+            <label>Select Cake Size *</label>
+            <div class="size-shape-grid">
+              <div class="size-option" data-size="4-inch">
+                <div>4-Inch</div>
+                <div class="size-price">+R0</div>
+                <div class="size-details">Feeds 2-4 people</div>
+              </div>
+              <div class="size-option" data-size="7-inch">
+                <div>7-Inch</div>
+                <div class="size-price">+R200</div>
+                <div class="size-details">Feeds 15-18 people</div>
+              </div>
+              <div class="size-option" data-size="9-inch">
+                <div>9-Inch</div>
+                <div class="size-price">+R400</div>
+                <div class="size-details">Feeds 20-25 people</div>
+              </div>
+              <div class="size-option" data-size="12-inch">
+                <div>12-Inch</div>
+                <div class="size-price">+R700</div>
+                <div class="size-details">Feeds 30-40 people</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Select Cake Shape *</label>
+            <div class="size-shape-grid">
+              <div class="shape-option" data-shape="circle">
+                <div>Round</div>
+                <div class="size-price">+R0</div>
+              </div>
+              <div class="shape-option" data-shape="square">
+                <div>Square</div>
+                <div class="size-price">+R50</div>
+              </div>
+              <div class="shape-option" data-shape="heart">
+                <div>Heart</div>
+                <div class="size-price">+R80</div>
+              </div>
+              <div class="shape-option" data-shape="number">
+                <div>Number</div>
+                <div class="size-price">+R100</div>
+              </div>
+              <div class="shape-option" data-shape="sheet">
+                <div>Sheet Cake</div>
+                <div class="size-price">+R150</div>
+              </div>
+              <div class="shape-option" data-shape="custom">
+                <div>Custom Shape</div>
+                <div class="size-price">+R200</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Number of Cake Layers</label>
+            <div class="layer-selection">
+              <div class="layer-btn" data-layers="2">2</div>
+              <div class="layer-btn" data-layers="3">3</div>
+              <div class="layer-btn" data-layers="4">4</div>
+              <div class="layer-btn" data-layers="5">5</div>
+              <div class="layer-btn" data-layers="6">6</div>
+              <div class="layer-display">3 Layers (Standard)</div>
+            </div>
+            <div class="form-note">
+              Standard is 3 layers. More layers require consultation for
+              structural integrity.
+            </div>
+          </div>
+        </section>
+
+        <!-- Calendar Availability -->
+        <section class="form-section" id="availability-section">
+          <h3>Select Your Date</h3>
+          <div class="availability-section">
+            <div class="availability-header">
+              <h4>Available Dates</h4>
+              <div class="availability-badge">
+                3 Bento Cakes / 2 Custom Cakes per day max
+              </div>
+            </div>
+            <p>
+              <strong>Availability Note:</strong> Next 2 weeks are quite packed!
+              More flexibility available from 2 weeks onward. Weekend
+              deliveries/collections preferred but can be arranged.
+            </p>
+            <div class="availability-calendar" id="availability-calendar">
+              <!-- Calendar will be generated by JavaScript -->
+            </div>
+            <div class="availability-note">
+              <small
+                >✅ Available = Good availability | ⚠️ Limited = Few slots left
+                | ❌ Full = No availability</small
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="event-date">Confirmed Event Date *</label>
+            <input type="date" id="event-date" name="event-date" required />
+            <div class="form-note">
+              This will auto-fill when you select an available date above
+            </div>
+          </div>
+        </section>
+
+        <!-- Delivery Options -->
+        <section class="form-section" id="delivery-section">
+          <h3>Delivery & Collection</h3>
+          <div class="delivery-options">
+            <div class="delivery-option" data-delivery="collection">
+              <div>Collection</div>
+              <div class="delivery-cost">R0</div>
+              <small>Pick up from my location</small>
+            </div>
+            <div class="delivery-option" data-delivery="delivery-standard">
+              <div>Standard Delivery</div>
+              <div class="delivery-cost">+-R80</div>
+              <small>Based on Uber Prices Subject to user prices</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="delivery-notes">Delivery/Collection Notes</label>
+            <textarea
+              id="delivery-notes"
+              name="delivery-notes"
+              placeholder="Any specific delivery instructions, preferred times, or special requirements..."
+              rows="3"
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- Design & Customization -->
+        <section class="form-section" id="design-section">
+          <h3>Design & Customization</h3>
+          <div class="form-group">
+            <label for="design-inspiration"
+              >Design Inspiration/Description *</label
+            >
+            <textarea
+              id="design-inspiration"
+              name="design-inspiration"
+              required
+              placeholder="Please describe your vision, include colors, theme, any specific elements you'd like, etc."
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="form-group" id="flavor-group">
+            <label for="flavor-preference">Flavor Preference *</label>
+            <select id="flavor-preference" name="flavor-preference" required>
+              <option value="">Select preferred flavor</option>
+              <option value="vanilla" data-basic="true">
+                Vanilla (Basic - Included)
+              </option>
+              <option value="chocolate" data-basic="true">
+                Chocolate (Basic - Included)
+              </option>
+              <option value="marble" data-basic="true">
+                Marble (Basic - Included)
+              </option>
+              <option value="red-velvet" data-basic="false">
+                Red Velvet (+R30)
+              </option>
+              <option value="funfetti" data-basic="false">
+                Funfetti (+R30)
+              </option>
+              <option value="cappuccino" data-basic="false">
+                Cappuccino (+R30)
+              </option>
+              <option value="carrot" data-basic="false">Carrot (+R40)</option>
+              <option value="cookies-cream" data-basic="false">
+                Cookies & Cream (+R40)
+              </option>
+              <option value="other" data-basic="false">
+                Other (Custom Quote)
+              </option>
+            </select>
+            <div id="flavor-warning" class="warning-message hidden">
+              ⚠️ Bento packages only include basic flavors (Vanilla, Chocolate,
+              Marble). Other flavors incur additional costs.
+            </div>
+          </div>
+          <div class="form-group" id="color-group">
+            <label for="icing-colors">Icing Colors *</label>
+            <select id="icing-colors" name="icing-colors" required>
+              <option value="">Select number of colors</option>
+              <option value="1" data-basic="true">1 Color (Included)</option>
+              <option value="2" data-basic="true">2 Colors (Included)</option>
+              <option value="3" data-basic="false">3 Colors (+R20)</option>
+              <option value="4" data-basic="false">4 Colors (+R30)</option>
+              <option value="5-plus" data-basic="false">
+                5+ Colors (Custom Quote)
+              </option>
+            </select>
+            <div id="color-warning" class="warning-message hidden">
+              ⚠️ Bento packages include maximum 2 colors. Additional colors
+              incur extra costs.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="color-details">Specific Color Details</label>
+            <input
+              type="text"
+              id="color-details"
+              name="color-details"
+              placeholder="e.g., Light pink and baby blue, rainbow colors, etc."
+            />
+          </div>
+          <div class="form-group" id="frosting-group">
+            <label for="frosting-preference">Frosting Type *</label>
+            <select
+              id="frosting-preference"
+              name="frosting-preference"
+              required
+            >
+              <option value="">Select frosting type</option>
+              <option value="buttercream" data-basic="true">
+                Buttercream (Basic - Included)
+              </option>
+              <option value="cream-cheese" data-basic="false">
+                Cream Cheese Frosting (+R40)
+              </option>
+              <option value="ganache" data-basic="false">
+                Chocolate Ganache (+R50)
+              </option>
+              <option value="whipped-cream" data-basic="false">
+                Whipped Cream (+R30)
+              </option>
+              <option value="fondant" data-basic="false">
+                Fondant Covering (Custom Quote)
+              </option>
+            </select>
+            <div id="frosting-warning" class="warning-message hidden">
+              ⚠️ Bento packages include basic buttercream only. Other frostings
+              incur additional costs.
+            </div>
+          </div>
+          <div class="form-group" id="filling-group">
+            <label for="filling-preference"
+              >Filling Preference (Optional)</label
+            >
+            <select id="filling-preference" name="filling-preference">
+              <option value="">Select filling (optional)</option>
+              <option value="none">No Filling</option>
+              <option value="chocolate-ganache">
+                Chocolate Ganache (+R40)
+              </option>
+              <option value="caramel">Caramel (+R35)</option>
+              <option value="raspberry-jam">Raspberry Jam (+R25)</option>
+              <option value="strawberry-jam">Strawberry Jam (+R25)</option>
+              <option value="lemon-curd">Lemon Curd (+R30)</option>
+              <option value="cream-cheese">Cream Cheese (+R35)</option>
+              <option value="biscuit-crunch">Biscuit Crunch (+R20)</option>
+              <option value="other-filling">Other (Specify in notes)</option>
+            </select>
+            <div class="form-note">
+              All fillings incur additional costs for Bento packages.
+            </div>
+          </div>
+        </section>
+
+        <!-- Extras & Add-ons -->
+        <section class="form-section" id="extras-section">
+          <h3>Extras & Add-ons</h3>
+          <p class="section-description">
+            Enhance your order with these optional extras (all incur additional
+            costs):
+          </p>
+          <div class="extras-grid">
+            <div class="extra-category">
+              <h4>Decorations & Toppers</h4>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="edible-print"
+                    data-cost="+R50"
+                  />
+                  <span class="checkmark"></span>
+                  Edible Print/Image (+R50)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="wafer-paper"
+                    data-cost="+R40"
+                  />
+                  <span class="checkmark"></span>
+                  Wafer Paper Decoration (+R40)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="burn-away"
+                    data-cost="+R60"
+                  />
+                  <span class="checkmark"></span>
+                  Burn Away Design (+R60)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="fondant-figures"
+                    data-cost="+R80"
+                  />
+                  <span class="checkmark"></span>
+                  Fondant Figures (+R80)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="chocolate-drip"
+                    data-cost="+R30"
+                  />
+                  <span class="checkmark"></span>
+                  Chocolate Drip (+R30)
+                </label>
+              </div>
+            </div>
+            <div class="extra-category">
+              <h4>Accessories & Finishing</h4>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="special-sprinkles"
+                    data-cost="+R20"
+                  />
+                  <span class="checkmark"></span>
+                  Special Sprinkles (+R20)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="custom-candles"
+                    data-cost="+R25"
+                  />
+                  <span class="checkmark"></span>
+                  Custom Number Candles (+R25)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="cake-topper"
+                    data-cost="+R40"
+                  />
+                  <span class="checkmark"></span>
+                  Custom Cake Topper (+R40)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="sparklers"
+                    data-cost="+R35"
+                  />
+                  <span class="checkmark"></span>
+                  Sparklers (+R35)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="gift-box"
+                    data-cost="+R30"
+                  />
+                  <span class="checkmark"></span>
+                  Premium Gift Box (+R30)
+                </label>
+              </div>
+            </div>
+            <div class="extra-category">
+              <h4>Premium Upgrades</h4>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="gold-leaf"
+                    data-cost="+R100"
+                  />
+                  <span class="checkmark"></span>
+                  Gold Leaf Accents (+R100)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="fresh-flowers"
+                    data-cost="+R80"
+                  />
+                  <span class="checkmark"></span>
+                  Fresh Flowers (+R80)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="custom-figurine"
+                    data-cost="Custom Quote"
+                  />
+                  <span class="checkmark"></span>
+                  Custom Figurine (Custom Quote)
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="extras"
+                    value="themed-props"
+                    data-cost="Custom Quote"
+                  />
+                  <span class="checkmark"></span>
+                  Themed Props (Custom Quote)
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="custom-extras">Other Custom Requests</label>
+            <textarea
+              id="custom-extras"
+              name="custom-extras"
+              placeholder="Any other special requests, custom decorations, or specific elements not listed above..."
+              rows="3"
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- Order Summary -->
+        <section class="form-section" id="order-summary-section">
+          <h3>Order Summary</h3>
+          <div class="order-summary">
+            <h4>Your Custom Cake</h4>
+            <div id="order-summary-details">
+              <!-- Summary will be generated by JavaScript -->
+            </div>
+          </div>
+          <div class="form-note">
+            <strong>Note:</strong> This is an estimate. Final pricing will be
+            confirmed during our consultation. Complex designs, last-minute
+            orders, or special requirements may affect the final cost.
+          </div>
+        </section>
+
+        <!-- Dietary Requirements -->
+        <section class="form-section">
+          <h3>Dietary Requirements & Allergies</h3>
+          <div class="checkbox-group">
+            <p>Please select any that apply:</p>
+            <label class="checkbox-label">
+              <input type="checkbox" name="dietary" value="nut-free" />
+              <span class="checkmark"></span>
+              Nut-Free
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="dietary" value="other" />
+              <span class="checkmark"></span>
+              Other (please specify in notes)
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="allergy-notes"
+              >Allergy Notes/Specific Requirements</label
+            >
+            <textarea
+              id="allergy-notes"
+              name="allergy-notes"
+              placeholder="Please list any specific allergies or dietary requirements we should be aware of"
+              rows="3"
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- Additional Information -->
+        <section class="form-section">
+          <h3>Additional Information</h3>
+          <div class="form-group">
+            <label for="special-requests"
+              >Special Requests/Additional Notes</label
+            >
+            <textarea
+              id="special-requests"
+              name="special-requests"
+              placeholder="Any other details, special requests, or questions you have..."
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="reference-images">Reference Images</label>
+            <div class="file-upload-guidance">
+              <h4>📁 File Upload Instructions</h4>
+              <!-- File Upload Guidance -->
+              <p>
+                <strong>Large files or many images:</strong> Please use our
+                <a
+                  href="https://forms.gle/eNFmHU4EeGR9j7cZ6"
+                  class="google-forms-link"
+                  target="_blank"
+                  >Google Forms Upload</a
+                >
+                for larger files.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- How did you hear about us -->
+        <section class="form-section">
+          <h3>How did you hear about us?</h3>
+          <div class="form-group">
+            <select id="referral-source" name="referral-source">
+              <option value="">Select an option (optional)</option>
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="word-of-mouth">Word of Mouth</option>
+              <option value="google-search">Google Search</option>
+              <option value="previous-customer">Previous Customer</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Additional Products -->
+        <section class="additional-products">
+          <h3>Also Interested In?</h3>
+          <div class="additional-options">
+            <div class="additional-option" data-product="cupcakes">
+              <input
+                type="checkbox"
+                name="also-cupcakes"
+                value="yes"
+                style="display: none"
+              />
+              <span class="product-tab-icon">🧁</span>
+              <div>Add Cupcakes</div>
+              <small>Perfect complement to your cake</small>
+            </div>
+            <div class="additional-option" data-product="cookies">
+              <input
+                type="checkbox"
+                name="also-cookies"
+                value="yes"
+                style="display: none"
+              />
+              <span class="product-tab-icon">🍪</span>
+              <div>Add Cookies</div>
+              <small>Great for party favors</small>
+            </div>
+          </div>
+        </section>
+        <!-- Cost Summary -->
+        <section class="form-section" id="cost-summary-section">
+          <h3>Estimated Cost Summary</h3>
+          <div class="cost-summary">
+            <div class="cost-line">
+              <span class="cost-label">Base Price:</span>
+              <span class="cost-amount" id="base-price">R0</span>
+            </div>
+            <div class="cost-line extras-cost hidden">
+              <span class="cost-label">Additional Costs:</span>
+              <span class="cost-amount" id="additional-cost">+R0</span>
+            </div>
+            <div class="cost-line total-cost">
+              <span class="cost-label"><strong>Estimated Total:</strong></span>
+              <span class="cost-amount" id="estimated-total"
+                ><strong>R0</strong></span
+              >
+            </div>
+            <div class="cost-note">
+              <small
+                >This is an estimate. Final pricing will be confirmed after
+                consultation.</small
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- Terms and Submission -->
+        <section class="form-section">
+          <div class="checkbox-group terms">
+            <label class="checkbox-label">
+              <input type="checkbox" name="terms-agree" required />
+              <span class="checkmark"></span>
+              I understand that this is a quote request and final pricing will
+              be confirmed after consultation. *
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">
+              Submit Cake Order Request
+            </button>
+            <p class="form-note">
+              We'll email you within 24 hours to confirm your order details and
+              provide pricing.
+            </p>
+          </div>
+        </section>
+      </form>
+
+      <!-- CUPCAKES FORM -->
+      <form
+        id="cupcakes-form"
+        class="product-form order-form"
+        action="https://formspree.io/f/mzzknwnb"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="New Cupcake Order Request"
         />
-      </a>
+        <input type="hidden" id="cupcake-quantity" name="quantity" value="" />
+
+        <!-- Customer Information -->
+        <section class="form-section">
+          <h3>Your Information</h3>
+          <div class="form-group">
+            <label for="cupcakes-full-name">Full Name *</label>
+            <input
+              type="text"
+              id="cupcakes-full-name"
+              name="full-name"
+              required
+              placeholder="Enter your full name"
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cupcakes-email">Email Address *</label>
+              <input
+                type="email"
+                id="cupcakes-email"
+                name="email"
+                required
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="cupcakes-phone">Phone Number *</label>
+              <input
+                type="tel"
+                id="cupcakes-phone"
+                name="phone"
+                required
+                placeholder="+27 82 123 4567"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Cupcake Quantity -->
+        <section class="form-section">
+          <h3>Quantity & Pricing</h3>
+          <div class="form-group">
+            <label>Select Quantity *</label>
+            <div class="quantity-options">
+              <div class="quantity-option" data-quantity="6">
+                <div>6 Cupcakes</div>
+                <div class="quantity-price">From R120</div>
+                <small>Perfect for small gatherings</small>
+              </div>
+              <div class="quantity-option" data-quantity="12">
+                <div>12 Cupcakes</div>
+                <div class="quantity-price">From R240</div>
+                <small>Most popular choice</small>
+              </div>
+              <div class="quantity-option" data-quantity="18">
+                <div>18 Cupcakes</div>
+                <div class="quantity-price">From R360</div>
+                <small>Great value</small>
+              </div>
+              <div class="quantity-option" data-quantity="24">
+                <div>24 Cupcakes</div>
+                <div class="quantity-price">From R480</div>
+                <small>Party size</small>
+              </div>
+              <div class="quantity-option" data-quantity="30">
+                <div>30+ Cupcakes</div>
+                <div class="quantity-price">Custom Quote</div>
+                <small>Large events</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cupcake Customization -->
+        <section class="form-section">
+          <h3>Cupcake Customization</h3>
+
+          <div class="form-group">
+            <label for="cupcake-occasion">Occasion *</label>
+            <input
+              type="text"
+              id="cupcake-occasion"
+              name="occasion"
+              required
+              placeholder="e.g., Birthday, Wedding, Corporate Event"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="cupcake-flavors">Flavor Preferences *</label>
+            <select id="cupcake-flavors" name="flavors" required>
+              <option value="">Select preferred flavors</option>
+              <option value="vanilla">Vanilla</option>
+              <option value="chocolate">Chocolate</option>
+              <option value="red-velvet">Red Velvet</option>
+              <option value="carrot">Carrot</option>
+              <option value="funfetti">Funfetti</option>
+              <option value="mixed">Mixed Flavors</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="cupcake-colors"
+              >Icing Colors (Max 3 recommended) *</label
+            >
+            <select id="cupcake-colors" name="colors" required>
+              <option value="">Select number of colors</option>
+              <option value="1">1 Color</option>
+              <option value="2">2 Colors</option>
+              <option value="3">3 Colors</option>
+              <option value="4">4+ Colors (Custom Quote)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="cupcake-design">Design Description *</label>
+            <textarea
+              id="cupcake-design"
+              name="design"
+              required
+              placeholder="Describe your design, theme, colors, and any specific elements you'd like..."
+              rows="4"
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- Additional Information -->
+        <section class="form-section">
+          <h3>Additional Information</h3>
+          <div class="form-group">
+            <label for="cupcake-date">Preferred Date *</label>
+            <input type="date" id="cupcake-date" name="event-date" required />
+          </div>
+
+          <div class="form-group">
+            <label for="cupcake-notes">Special Requests/Notes</label>
+            <textarea
+              id="cupcake-notes"
+              name="special-requests"
+              placeholder="Any dietary requirements, delivery instructions, or additional requests..."
+              rows="3"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="cupcake-reference">Reference Images</label>
+
+            <!-- File Upload Guidance -->
+            <div class="file-upload-guidance">
+              <h4>📁 File Upload Instructions</h4>
+
+              <p>
+                <strong>Large files or many images:</strong> Please use our
+                <a
+                  href="https://forms.gle/eNFmHU4EeGR9j7cZ6"
+                  class="google-forms-link"
+                  target="_blank"
+                  >Google Forms Upload</a
+                >
+                for larger files.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Terms and Submission -->
+        <section class="form-section">
+          <div class="checkbox-group terms">
+            <label class="checkbox-label">
+              <input type="checkbox" name="terms-agree" required />
+              <span class="checkmark"></span>
+              I understand that this is a quote request and final pricing will
+              be confirmed after consultation. *
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">
+              Submit Cupcake Order Request
+            </button>
+            <p class="form-note">
+              We'll email you within 24 hours to confirm your order details and
+              provide pricing.
+            </p>
+          </div>
+        </section>
+      </form>
+
+      <!-- COOKIES FORM -->
+      <form
+        id="cookies-form"
+        class="product-form order-form"
+        action="https://formspree.io/f/mqagrjvv"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="New Cookie Order Request" />
+        <input type="hidden" id="cookie-size" name="cookie-size" value="" />
+
+        <!-- Customer Information -->
+        <section class="form-section">
+          <h3>Your Information</h3>
+          <div class="form-group">
+            <label for="cookies-full-name">Full Name *</label>
+            <input
+              type="text"
+              id="cookies-full-name"
+              name="full-name"
+              required
+              placeholder="Enter your full name"
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cookies-email">Email Address *</label>
+              <input
+                type="email"
+                id="cookies-email"
+                name="email"
+                required
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="cookies-phone">Phone Number *</label>
+              <input
+                type="tel"
+                id="cookies-phone"
+                name="phone"
+                required
+                placeholder="+27 82 123 4567"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Cookie Details -->
+        <section class="form-section">
+          <h3>Cookie Details</h3>
+
+          <div class="form-group">
+            <label for="cookie-occasion">Occasion *</label>
+            <input
+              type="text"
+              id="cookie-occasion"
+              name="occasion"
+              required
+              placeholder="e.g., Birthday, Wedding, Corporate Gift"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Cookie Type *</label>
+            <div class="cookie-size-options">
+              <div class="cookie-size-option" data-size="classic">
+                <div>Classic Sugar Cookies</div>
+                <div class="cookie-minimum">Min. 12 cookies</div>
+                <small>Themed designs, perfect for events</small>
+              </div>
+              <div class="cookie-size-option" data-size="gourmet">
+                <div>Gourmet Cookies</div>
+                <div class="cookie-minimum">Custom Quote</div>
+                <small>Custom designs, requires consultation</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cookie-quantity">Quantity *</label>
+            <input
+              type="number"
+              id="cookie-quantity"
+              name="quantity"
+              required
+              min="12"
+              placeholder="Minimum 12 cookies"
+            />
+            <small class="file-note"
+              >Minimum order is 12 cookies. Larger quantities may have better
+              pricing.</small
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="cookie-design">Design Description *</label>
+            <textarea
+              id="cookie-design"
+              name="design"
+              required
+              placeholder="Describe your design, theme, colors, shapes, and any specific elements you'd like. For custom designs, please be as detailed as possible."
+              rows="4"
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- Additional Information -->
+        <section class="form-section">
+          <h3>Additional Information</h3>
+          <div class="form-group">
+            <label for="cookie-date">Preferred Date *</label>
+            <input type="date" id="cookie-date" name="event-date" required />
+          </div>
+
+          <div class="form-group">
+            <label for="cookie-notes">Special Requests/Notes</label>
+            <textarea
+              id="cookie-notes"
+              name="special-requests"
+              placeholder="Any dietary requirements, packaging preferences, or additional requests..."
+              rows="3"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="cookie-reference">Reference Images</label>
+            <!-- File Upload Guidance -->
+            <div class="file-upload-guidance">
+              <h4>📁 File Upload Instructions</h4>
+
+              <p>
+                <strong>Large files or many images:</strong> Please use our
+                <a
+                  href="https://forms.gle/eNFmHU4EeGR9j7cZ6"
+                  class="google-forms-link"
+                  target="_blank"
+                  >Google Forms Upload</a
+                >
+                for larger files.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Terms and Submission -->
+        <section class="form-section">
+          <div class="checkbox-group terms">
+            <label class="checkbox-label">
+              <input type="checkbox" name="terms-agree" required />
+              <span class="checkmark"></span>
+              I understand that this is a quote request and final pricing will
+              be confirmed after consultation. *
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">
+              Submit Cookie Order Request
+            </button>
+            <p class="form-note">
+              We'll email you within 24 hours to confirm your order details and
+              provide pricing.
+            </p>
+          </div>
+        </section>
+      </form>
+
+      <!-- Success Message -->
+      <div id="success-message" class="success-message hidden">
+        <div class="success-content">
+          <h3>Thank You!</h3>
+          <p>
+            Your order request has been submitted successfully. We'll be in
+            touch within 24 hours to confirm details and provide pricing.
+          </p>
+          <button id="new-order-btn" class="new-order-btn">
+            Submit Another Order
+          </button>
+        </div>
+      </div>
     </div>
 
-    <nav class="nav-bar">
-      <ul id="main-nav"></ul>
-    </nav>
-  </div>
-</div>
-
-    </div>
-    <div id="site-footer"></div>
+    <script src="../scripts/order.js"></script>
     <script src="../scripts/nav.js"></script>
   </body>
 </html>
