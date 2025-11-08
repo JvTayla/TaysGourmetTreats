@@ -22,7 +22,9 @@
   --button-border: #ffa8ce; /* Medium Pink for border */
 }
 
-
+body {
+  font-family: "Glacial Indifference", Arial, sans-serif;
+}
 
 .fredoka {
   font-family: "Fredoka", sans-serif;

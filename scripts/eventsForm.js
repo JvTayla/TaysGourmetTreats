@@ -85,17 +85,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Pre-fill event type if possible
         const eventTypeSelect = document.getElementById("eventType");
+        let interestMessage = "";
+
         if (eventName.toLowerCase().includes("corporate")) {
           eventTypeSelect.value = "corporate";
+          interestMessage = `Interested in: ${eventName}`;
         } else if (eventName.toLowerCase().includes("wedding")) {
           eventTypeSelect.value = "wedding";
+          interestMessage = `Interested in: ${eventName}`;
         } else if (
           eventName.toLowerCase().includes("school") ||
           eventName.toLowerCase().includes("community")
         ) {
           eventTypeSelect.value = "school";
-        } else {
+          interestMessage = `Interested in: ${eventName}`;
+        } else if (eventName.toLowerCase().includes("valentine")) {
           eventTypeSelect.value = "holiday";
+          interestMessage = `Interested in: ${eventName} from Valentine's Day Specials`;
+        } else if (eventName.toLowerCase().includes("christmas")) {
+          eventTypeSelect.value = "holiday";
+          interestMessage = `Interested in: ${eventName} from Christmas Specials`;
+        } else if (
+          eventName.toLowerCase().includes("mother") ||
+          eventName.toLowerCase().includes("father") ||
+          eventName.toLowerCase().includes("easter") ||
+          eventName.toLowerCase().includes("holiday")
+        ) {
+          eventTypeSelect.value = "holiday";
+          interestMessage = `Interested in: ${eventName}`;
+        } else {
+          eventTypeSelect.value = "other";
+          interestMessage = `Interested in: ${eventName}`;
+        }
+
+        // Get the theme textarea and add the event interest message
+        const themeTextarea = document.getElementById("theme");
+
+        // Check if there's already content in the textarea
+        if (themeTextarea.value.trim() === "") {
+          themeTextarea.value = interestMessage;
+        } else {
+          // If there's existing content, append the interest message
+          themeTextarea.value = themeTextarea.value + "\n\n" + interestMessage;
         }
 
         // Show helpful message
@@ -107,6 +138,73 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
       });
     });
+
+  // Special Offers Tab Functionality
+  // Tab functionality
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const specialsGrids = document.querySelectorAll(".specials-grid");
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const targetTab = this.getAttribute("data-tab");
+
+      // Update active tab
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
+
+      // Show target grid, hide others
+      specialsGrids.forEach((grid) => {
+        grid.classList.remove("active");
+        if (grid.id === `${targetTab}-specials`) {
+          grid.classList.add("active");
+        }
+      });
+    });
+  });
+
+  // Special CTA buttons
+  document.querySelectorAll(".special-cta").forEach((button) => {
+    button.addEventListener("click", function () {
+      const specialName = this.getAttribute("data-special");
+
+      // Scroll to quote form
+      document.querySelector(".quote-form-section").scrollIntoView({
+        behavior: "smooth",
+      });
+
+      // Pre-fill event type
+      const eventTypeSelect = document.getElementById("eventType");
+
+      // Determine which holiday category and set interest message
+      let interestMessage = "";
+      if (specialName.includes("Valentine")) {
+        eventTypeSelect.value = "holiday";
+        interestMessage = `Interested in: ${specialName} from Valentine's Day Specials`;
+      } else if (specialName.includes("Christmas")) {
+        eventTypeSelect.value = "holiday";
+        interestMessage = `Interested in: ${specialName} from Christmas Specials`;
+      }
+
+      // Get the theme textarea and add the special interest message
+      const themeTextarea = document.getElementById("theme");
+
+      // Check if there's already content in the textarea
+      if (themeTextarea.value.trim() === "") {
+        themeTextarea.value = interestMessage;
+      } else {
+        // If there's existing content, append the interest message
+        themeTextarea.value = themeTextarea.value + "\n\n" + interestMessage;
+      }
+
+      // Show helpful message
+      setTimeout(() => {
+        showMessage(
+          `We've added "${specialName}" to your quote request! Please complete the form below.`,
+          "success"
+        );
+      }, 500);
+    });
+  });
 });
 
 function isValidContactInfo(contactInfo) {
