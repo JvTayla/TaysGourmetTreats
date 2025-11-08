@@ -1,0 +1,60 @@
+/* styles/animations.css */
+/* GPU-accelerated properties for better performance */
+.animate-this {
+  will-change: transform, opacity;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Smooth scrolling for the whole site */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation classes for reusable animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Success states */
+.success-animation {
+  background-color: #d4edda !important;
+  border-color: #c3e6cb !important;
+}
