@@ -1,39 +1,101 @@
-// scripts/back-to-top-enhanced.js
+// scripts/backToTop.js
 class BackToTop {
   constructor() {
     this.pageConfigs = {
+      // Home page
       Home: {
         topElement: ".landing_page",
         scrollOffset: 0,
       },
+      // About Us
       "About Us": {
         topElement: ".about-wrapper",
         scrollOffset: -20,
       },
+      // Gallery
       Gallery: {
         topElement: "#gallery",
         scrollOffset: -10,
       },
+      // Order
       Order: {
         topElement: ".gallery-cta",
         scrollOffset: -30,
       },
+      // Events
       Events: {
         topElement: ".events-hero",
         scrollOffset: 0,
       },
+      // Kiddies Corner main page
       "Kiddies Corner": {
         topElement: ".kiddies-hero",
         scrollOffset: -10,
       },
+      // Contact Us
       "Contact Us": {
         topElement: ".faq-container",
         scrollOffset: -20,
+      },
+      // Kiddies Blog pages - they'll use the same as Kiddies Corner
+      "Kiddies Blog 1": {
+        topElement: ".blog-container",
+        scrollOffset: -10,
+      },
+      "Kiddies Blog 2": {
+        topElement: ".blog-container",
+        scrollOffset: -10,
+      },
+      "Kiddies Blog 3": {
+        topElement: ".blog-container",
+        scrollOffset: -10,
+      },
+      "Kiddies Blog 4": {
+        topElement: ".blog-container",
+        scrollOffset: -10,
+      },
+      "Kiddies Blog 5": {
+        topElement: ".blog-container",
+        scrollOffset: -10,
+      },
+      "Kiddies Blog 6": {
+        topElement: ".blog-container",
+        scrollOffset: -10,
       },
     };
 
     this.createButton();
     this.setupEventListeners();
+  }
+
+  getCurrentPage() {
+    // Method 1: Use the existing currentPage variable if available
+    if (typeof currentPage !== "undefined") {
+      console.log("Using currentPage variable:", currentPage);
+      return currentPage;
+    }
+
+    // Method 2: Fallback to URL detection
+    const path = window.location.pathname;
+    console.log("Detected path:", path);
+
+    if (path.includes("about") || path.includes("About-Us")) return "About Us";
+    if (path.includes("gallery") || path.includes("Gallery")) return "Gallery";
+    if (path.includes("order") || path.includes("Order")) return "Order";
+    if (path.includes("events") || path.includes("Events")) return "Events";
+    if (path.includes("kiddies") || path.includes("Kiddies")) {
+      // Check if it's a blog page or main page
+      if (path.includes("blog") || path.includes("Blog")) {
+        // It's a blog page - use blog container
+        return "Kiddies Blog 1"; // All blogs use same config
+      }
+      return "Kiddies Corner";
+    }
+    if (path.includes("contact") || path.includes("Contact-Us"))
+      return "Contact Us";
+
+    // Default to Home
+    return "Home";
   }
 
   createButton() {
@@ -47,11 +109,11 @@ class BackToTop {
     img.alt = "Back to top";
     img.className = "back-to-top-img";
 
-    // Add fallback text for screen readers and if image fails
+    // Add fallback text
     const fallbackText = document.createElement("span");
     fallbackText.className = "back-to-top-fallback";
     fallbackText.textContent = "↑";
-    fallbackText.style.display = "none"; // Hidden by default
+    fallbackText.style.display = "none";
 
     this.button.appendChild(img);
     this.button.appendChild(fallbackText);
@@ -59,16 +121,13 @@ class BackToTop {
 
     // Handle image load error
     img.onerror = () => {
-      console.warn("BackToTop image failed to load, using fallback");
       img.style.display = "none";
       fallbackText.style.display = "block";
-      this.button.classList.add("with-bg"); // Add background for fallback
+      this.button.classList.add("with-bg");
     };
 
-    // Also handle successful image load
     img.onload = () => {
-      console.log("BackToTop image loaded successfully");
-      this.button.classList.add("has-image"); // Add class when image loads
+      this.button.classList.add("has-image");
     };
 
     // Initial hidden state
@@ -79,7 +138,6 @@ class BackToTop {
     this.button.addEventListener("click", () => this.scrollToTop());
     window.addEventListener("scroll", () => this.toggleVisibility());
 
-    // Also show/hide on focus for accessibility
     this.button.addEventListener("focus", () => this.showButton());
     this.button.addEventListener("blur", () => {
       if (window.scrollY <= 300) this.hideButton();
@@ -87,14 +145,17 @@ class BackToTop {
   }
 
   scrollToTop() {
-    const config = this.pageConfigs[currentPage] || {};
+    const pageKey = this.getCurrentPage();
+    const config = this.pageConfigs[pageKey] || this.pageConfigs["Home"];
     const topElement =
       document.querySelector(config.topElement) ||
       document.querySelector("header") ||
       document.body;
     const offset = config.scrollOffset || 0;
 
-    // Smooth scroll with GSAP for buttery smooth animation
+    console.log(`Scrolling to top for: ${pageKey}`, { topElement, offset });
+
+    // Smooth scroll with GSAP
     gsap.to(window, {
       scrollTo: {
         y: topElement,
@@ -104,7 +165,7 @@ class BackToTop {
       ease: "power2.inOut",
     });
 
-    // Add a little bounce animation to the button
+    // Button bounce animation
     gsap.to(this.button, {
       scale: 1.2,
       duration: 0.2,
