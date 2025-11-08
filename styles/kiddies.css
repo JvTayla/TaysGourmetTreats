@@ -270,7 +270,31 @@
 .search-button:hover {
   background: #d83d7f;
 }
+.download-btn {
+  font-family: "Glacial Indifference", sans-serif;
+  font-size: 1.8rem;
+  background-color: #ff5da4;
+  color: white;
+  border: none;
+  padding: 1em 2em;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 93, 164, 0.3);
+  font-weight: 600;
+  /* Ensure it looks like a button */
+  text-align: center;
+}
 
+.download-btn:hover {
+  background-color: #d83d7f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 93, 164, 0.4);
+  color: white;
+  text-decoration: none;
+}
 .recipe-results {
   max-width: 1200px;
   margin: 2rem auto;
@@ -362,12 +386,12 @@
 }
 
 .view-recipe-btn {
-  background: #092c4c;
+  background: #d83d7f;
   color: var(--white);
 }
 
 .view-recipe-btn:hover {
-  background: #1a3d5c;
+  background: #ff5da4;
 }
 
 .save-recipe-btn {
@@ -479,7 +503,7 @@
 .blog-title {
   font-family: "Fredoka", sans-serif;
   font-size: 3rem;
-  color: #092c4c;
+  color: #d83d7f;
   margin-bottom: 1rem;
 }
 
@@ -509,7 +533,7 @@
 
 .blog-content h2 {
   font-family: "Fredoka", sans-serif;
-  color: #092c4c;
+  color: #d83d7f;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -523,7 +547,7 @@
 
 .blog-content h4 {
   font-family: "Fredoka", sans-serif;
-  color: #092c4c;
+  color: #000000;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
@@ -537,6 +561,7 @@
 
 .blog-content ul,
 .blog-content ol {
+  display: list-item;
   margin-left: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -604,24 +629,24 @@
 }
 
 .next-btn {
-  background: #092c4c;
+  background: #d83d7f;
   color: var(--white);
 }
 
 .next-btn:hover {
-  background: #1a3d5c;
+  background: #ff5da4;
 }
 
 .blog-celebration {
   text-align: center;
-  background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+  background: linear-gradient(135deg, #fde3f0 0%, #f5e5e7 100%);
   padding: 2rem;
   border-radius: 15px;
   border: 2px dashed var(--pink-bright);
 }
 
 .blog-celebration h3 {
-  color: #092c4c;
+  color: #d83d7f;
   font-size: 2rem;
 }
 
