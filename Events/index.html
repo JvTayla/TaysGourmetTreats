@@ -449,9 +449,10 @@
             Prefer to chat live?
           </p>
 
-          
-          <button
-            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/taysgourmettreats'}); return false;"
+          <!-- This will 100% work even with AdBlockers -->
+          <a
+            href="https://calendly.com/taysgourmettreats"
+            target="_blank"
             style="
               background: #ff5da4;
               color: white;
@@ -462,19 +463,14 @@
               cursor: pointer;
               font-weight: bold;
               box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+              text-decoration: none;
+              display: inline-block;
               transition: all 0.3s;
             "
           >
             Schedule A Meeting
-          </button>
+          </a>
         </div>
-
-        <!-- Calendly script -->
-        <script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          type="text/javascript"
-          async
-        ></script>
       </div>
     </section>
 
