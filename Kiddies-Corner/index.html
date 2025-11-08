@@ -32,6 +32,7 @@
     />
 
     <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="../styles/gsap.css" />
@@ -310,13 +311,11 @@
 
     <script src="../scripts/nav.js"></script>
     <script src="../scripts/kiddiesCorner.js"></script>
-  <!-- Back to Top Button -->
-<link rel="stylesheet" href="../styles/back-to-top.css">
-<script src="../scripts/back-to-top.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script src="../scripts/backToTop.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         new BackToTop();
-    });
-</script>
-</body>
+      });
+    </script>
+  </body>
 </html>

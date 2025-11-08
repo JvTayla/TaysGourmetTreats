@@ -38,10 +38,38 @@ class BackToTop {
 
   createButton() {
     this.button = document.createElement("button");
-    this.button.innerHTML = "↑";
     this.button.setAttribute("aria-label", "Back to top");
     this.button.className = "back-to-top";
+
+    // Create image element
+    const img = document.createElement("img");
+    img.src = "../assets/images/BackToTop.png";
+    img.alt = "Back to top";
+    img.className = "back-to-top-img";
+
+    // Add fallback text for screen readers and if image fails
+    const fallbackText = document.createElement("span");
+    fallbackText.className = "back-to-top-fallback";
+    fallbackText.textContent = "↑";
+    fallbackText.style.display = "none"; // Hidden by default
+
+    this.button.appendChild(img);
+    this.button.appendChild(fallbackText);
     document.body.appendChild(this.button);
+
+    // Handle image load error
+    img.onerror = () => {
+      console.warn("BackToTop image failed to load, using fallback");
+      img.style.display = "none";
+      fallbackText.style.display = "block";
+      this.button.classList.add("with-bg"); // Add background for fallback
+    };
+
+    // Also handle successful image load
+    img.onload = () => {
+      console.log("BackToTop image loaded successfully");
+      this.button.classList.add("has-image"); // Add class when image loads
+    };
 
     // Initial hidden state
     gsap.set(this.button, { opacity: 0, scale: 0 });

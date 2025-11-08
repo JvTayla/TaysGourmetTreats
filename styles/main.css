@@ -55,41 +55,85 @@ body {
 body {
   font-family: "Glacial Indifference", Arial, sans-serif;
 }
-
 .back-to-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 50px;
-  height: 50px;
-  background: #ff5da4;
-  color: white;
+  width: 60px;
+  height: 60px;
+  background: transparent;
   border: none;
   border-radius: 50%;
-  font-size: 20px;
-  font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(255, 93, 164, 0.3);
-  z-index: 1000;
+  z-index: 9999;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Styles when image is loaded successfully */
+.back-to-top.has-image {
+  background: transparent;
+}
+
+.back-to-top-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* Fallback styles when image fails to load */
+.back-to-top.with-bg {
+  background: #ff5da4;
+}
+
+.back-to-top-fallback {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: none; /* Hidden by default */
 }
 
 .back-to-top:hover {
-  background: #ff7ab8;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 93, 164, 0.4);
+}
+
+.back-to-top:hover .back-to-top-img {
+  transform: scale(1.1);
+}
+
+.back-to-top.with-bg:hover {
+  background: #ff7ab8;
 }
 
 @media (max-width: 768px) {
   .back-to-top {
     bottom: 20px;
     right: 20px;
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .back-to-top-fallback {
+    font-size: 20px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: none;
+  }
+
+  .back-to-top:hover .back-to-top-img {
+    transform: none;
   }
 }
 .fredoka {

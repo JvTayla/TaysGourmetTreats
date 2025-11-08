@@ -30,7 +30,7 @@
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css"
     />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <meta name="author" content="Jordyn Van Aswegen" />
   </head>
   <body>
@@ -154,13 +154,11 @@
 
     <div id="site-footer"></div>
     <script src="../scripts/nav.js"></script>
-  <!-- Back to Top Button -->
-<link rel="stylesheet" href="../styles/back-to-top.css">
-<script src="../scripts/back-to-top.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script src="../scripts/backToTop.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         new BackToTop();
-    });
-</script>
-</body>
+      });
+    </script>
+  </body>
 </html>
