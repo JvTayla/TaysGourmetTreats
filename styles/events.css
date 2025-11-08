@@ -628,3 +628,9 @@
     text-align: center;
   }
 }
+.calendly-badge-widget {
+  z-index: 9999 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+}

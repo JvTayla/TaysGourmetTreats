@@ -429,6 +429,37 @@
             <button type="submit" class="submit-btn">Request Quote</button>
           </div>
         </form>
+
+        <div
+          style="
+            text-align: center;
+            margin: 40px 0 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+          "
+        >
+          <p style="font-size: 18px; color: #666; margin-bottom: 15px">
+            <strong>Prefer to chat live?</strong>
+          </p>
+          <p style="color: #888; margin-bottom: 0">
+            Click the pink button in the bottom-right corner to schedule a
+            meeting!
+          </p>
+        </div>
+
+        <!-- Calendly badge widget - This creates the floating button -->
+        <script type="text/javascript">
+          document.addEventListener("DOMContentLoaded", function () {
+            Calendly.initBadgeWidget({
+              url: "https://calendly.com/taysgourmettreats",
+              text: "Schedule A Meeting with us!",
+              color: "#ff5da4",
+              textColor: "#ffffff",
+              branding: true,
+            });
+          });
+        </script>
       </div>
     </section>
 
