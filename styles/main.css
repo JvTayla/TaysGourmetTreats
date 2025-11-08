@@ -233,6 +233,7 @@ p {
 
 /* Logo container - positioned absolutely to overhang */
 .nav-logo-wrapper {
+  max-width: 100%;
   position: absolute;
   left: 2em;
   top: 50%;
@@ -244,18 +245,17 @@ p {
 }
 
 .nav-logo-circle {
-  transform: none !important; /* Disable GSAP transforms temporarily */
   position: absolute;
-  width: 230px !important;
-  height: 230px !important;
+  aspect-ratio: 1 / 1;
   background-color: #ffe8f4;
   border-radius: 50%;
-
+  max-width: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 149;
 }
 
 .nav-logo {
+  max-width: 100%;
   width: 180px;
   height: 180px;
   object-fit: cover;
@@ -486,17 +486,17 @@ a:active {
   }
   .nav-logo {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: -10%;
     width: 200px;
     height: 200px;
   }
   .nav-logo-circle {
+    aspect-ratio: 1 / 1 !important;
     position: absolute;
     top: 25%;
-    right: 0%;
-    width: 250px;
-    height: 250px;
+    right: 10%;
+    width: 300px;
   }
   .nav-logo img {
     width: 160px;
@@ -520,10 +520,10 @@ a:active {
   }
   .nav-logo {
     position: absolute;
-    top: 30%;
-    left: -12%;
-    width: 180px;
-    height: 180px;
+    top: 33%;
+    left: -14%;
+    width: 140px;
+    height: 140px;
   }
   .nav-logo-wrapper {
     width: 160px;
@@ -534,9 +534,9 @@ a:active {
     position: absolute;
     left: -20%;
     top: 25%;
-    width: 200px;
-    height: 200px;
+    width: 250px;
   }
+
   .nav-logo img {
     position: absolute;
     top: 50%;
@@ -573,7 +573,6 @@ a:active {
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
-    height: 100px;
   }
   .nav-logo {
     position: absolute;
@@ -581,16 +580,15 @@ a:active {
     left: -8%;
     width: 120px;
     height: 120px;
+    display: cover;
   }
   .nav-logo-circle {
     display: none;
     width: 150px;
-    height: 150px;
   }
   .nav-logo img {
     padding: 10px, 5px;
     width: 80px;
-    height: 80px;
   }
   .nav-bar {
     margin-left: 0;
@@ -603,7 +601,7 @@ a:active {
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 481) {
   h1 {
     font-size: 3.5em;
   }
@@ -642,7 +640,6 @@ a:active {
     display: none;
     top: 60%;
     width: 90px;
-    height: 90px;
   }
   .nav-logo img {
     width: 90px;
@@ -702,7 +699,6 @@ a:active {
   }
   .nav-logo-circle {
     width: 120px;
-    height: 120px;
   }
   .nav-logo img {
     width: 80px;
