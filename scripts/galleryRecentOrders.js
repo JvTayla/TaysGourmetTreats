@@ -1,6 +1,3 @@
-// galleryRecentOrders.js - Recent orders carousel for gallery page
-// This shows recent creations in the gallery with the same carousel functionality
-
 document.addEventListener("DOMContentLoaded", () => {
   const recentOrders = [
     {

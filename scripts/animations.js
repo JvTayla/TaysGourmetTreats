@@ -253,77 +253,78 @@ class TayAnimations {
   // =============================================
   // GALLERY PAGE ANIMATIONS - Showcasing the work
   // =============================================
-
   animateGalleryPage() {
-    // Recent orders cards scale and fade in
-    gsap.from(".recent_orders_slider .card", {
-      scale: 0.8,
-      opacity: 0,
-      stagger: 0.2,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: "#recent-orders",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-      onComplete: () => {
-        this.setupGalleryInteractions();
-      },
-    });
+    console.log("Animating Gallery page...");
 
-    // Gallery grid items slide up in a grid pattern from the center out
-    gsap.from(".gallery-grid .gallery-item", {
-      y: 50,
-      opacity: 0,
-      scale: 0.8,
-      stagger: {
-        amount: 0.6,
-        grid: "auto",
-        from: "center",
-      },
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: ".gallery-grid",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    // Pinterest boards sections slide up
-    gsap.from(".pinterest-board-section", {
-      y: 100,
-      opacity: 0,
-      stagger: 0.3,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: ".pinterest-boards",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-    });
-  }
-
-  // Add hover interactions to gallery items
-  setupGalleryInteractions() {
-    const galleryItems = document.querySelectorAll(".gallery-item, .card");
-
-    galleryItems.forEach((item) => {
-      item.addEventListener("mouseenter", () => {
-        gsap.to(item, {
-          scale: 1.05,
-          duration: 0.3,
-          ease: "power2.out",
-        });
+    // Recent orders slider animation - with proper error handling
+    /*const recentOrdersSlider = document.querySelector(".recent_orders_slider");
+    if (recentOrdersSlider) {
+      console.log("Found recent orders slider, animating...");
+      gsap.from(".recent_orders_slider .card", {
+        scale: 0.8,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: "#recent-orders",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        onComplete: () => {
+          console.log("Recent orders animation complete");
+          this.setupGalleryInteractions();
+        },
       });
+    } else {
+      console.log("No recent orders slider found");
+    }*/
 
-      item.addEventListener("mouseleave", () => {
-        gsap.to(item, {
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.out",
-        });
+    // Gallery grid items animation
+    const galleryGrid = document.querySelector(".gallery-grid");
+    if (galleryGrid) {
+      console.log("Found gallery grid, animating...");
+      gsap.from(".gallery-grid .gallery-item", {
+        y: 50,
+        opacity: 0,
+        scale: 0.8,
+        stagger: {
+          amount: 0.6,
+          grid: "auto",
+          from: "center",
+        },
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: ".gallery-grid",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        onComplete: () => {
+          this.setupGalleryInteractions();
+        },
       });
-    });
+    }
+
+    // Pinterest boards sections animation
+    const pinterestBoards = document.querySelector(".pinterest-boards");
+    if (pinterestBoards) {
+      console.log("Found Pinterest boards, animating...");
+      gsap.from(".pinterest-board-section", {
+        y: 100,
+        opacity: 0,
+        stagger: 0.3,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: ".pinterest-boards",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }
+
+    // Setup gallery interactions after a short delay
+    setTimeout(() => {
+      this.setupGalleryInteractions();
+    }, 1000);
   }
 
   // =============================================
