@@ -147,23 +147,30 @@ class BackToTop {
   scrollToTop() {
     const pageKey = this.getCurrentPage();
     const config = this.pageConfigs[pageKey] || this.pageConfigs["Home"];
-    const topElement =
-      document.querySelector(config.topElement) ||
-      document.querySelector("header") ||
-      document.body;
+    const topElement = document.querySelector(config.topElement);
     const offset = config.scrollOffset || 0;
 
     console.log(`Scrolling to top for: ${pageKey}`, { topElement, offset });
 
-    // Smooth scroll with GSAP
-    gsap.to(window, {
-      scrollTo: {
-        y: topElement,
-        offsetY: offset,
-      },
-      duration: 0.8,
-      ease: "power2.inOut",
-    });
+    if (topElement) {
+      // Calculate the target position
+      const rect = topElement.getBoundingClientRect();
+      const targetPosition = window.pageYOffset + rect.top + offset;
+
+      // Smooth scroll with GSAP - FIXED SYNTAX
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: targetPosition, // Just pass the numeric position
+        ease: "power2.inOut",
+      });
+    } else {
+      // Fallback to top of page
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: 0,
+        ease: "power2.inOut",
+      });
+    }
 
     // Button bounce animation
     gsap.to(this.button, {

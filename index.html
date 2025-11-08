@@ -3,53 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <meta name="description" content="Tay's Gourmet Treats Bakign Website." />
-    <meta
-      name="keywords"
-      content="baking, sugar cookies, cakes, south africa"
-    />
-<!-- Preconnects / Font Setup -->
+    <meta name="description" content="Tay's Gourmet Treats Baking Website." />
+    <meta name="keywords" content="baking, sugar cookies, cakes, south africa" />
+    <meta name="author" content="Jordyn Van Aswegen" />
+    
+    <!-- Preconnects / Font Setup -->
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/landing.css" />
+    <link rel="stylesheet" href="./styles/gsap.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.cdnfonts.com/css/brittany-signature"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.cdnfonts.com/css/glacial-indifference-2"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css"
-    />
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
-    <meta name="author" content="Jordyn Van Aswegen" />
-
-    <!-- scripts-->
-
-    <script src="./scripts/nav.js"></script>
-    <script src="./scripts/recentOrders.js"></script>
-    <script src="./scripts/upcomingEvents.js"></script>
-    <script src="./scripts/reviews.js"></script>
-    <link rel="stylesheet" href="./styles/gsap.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-<script src="./scripts/animations.js"></script>
-
-<link rel="icon" href="./assets/images/TaysTreats Logo.png" type="image/x-icon" />
-
-
+    <link rel="icon" href="./assets/images/TaysTreats Logo.png" type="image/x-icon" />
     <title>Tay's Gourmet Treats Website</title>
   </head>
   <body>
@@ -232,15 +207,23 @@
       </div>
     </section>
 
-    <div id="site-footer"></div>
+   <div id="site-footer"></div>
 
-
-  <!-- Back to Top Button -->
-<script src="./scripts/backToTop.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <!-- Scripts at the bottom -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="./scripts/animations.js"></script>
+    <script src="./scripts/nav.js"></script>
+    <script src="./scripts/recentOrders.js"></script>
+    <script src="./scripts/upcomingEvents.js"></script>
+    <script src="./scripts/reviews.js"></script>
+    <script src="./scripts/backToTop.js"></script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
         new BackToTop();
-    });
-</script>
+      });
+    </script>
 </body>
 </html>

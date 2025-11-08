@@ -3,16 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Tays Gourmet Treats</title>
+    <meta
+      name="description"
+      content="Learn about Tay's Gourmet Treats - our story, team, and manifesto."
+    />
+    <meta name="author" content="Jordyn Van Aswegen" />
+    <title>About Tay's Gourmet Treats</title>
+
     <link
       rel="icon"
       href="../assets/images/TaysTreats Logo.png"
       type="image/x-icon"
     />
 
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/about.css" />
+    <link rel="stylesheet" href="../styles/gsap.css" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,11 +40,11 @@
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css"
     />
-    <link rel="stylesheet" href="../styles/gsap.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <!-- GSAP Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="../scripts/animations.js"></script>
   </head>
   <body>
     <script>
@@ -102,7 +111,7 @@
       </div>
     </section>
 
-    <div class="team-wrapper">
+    <section class="team-wrapper">
       <h2 class="meet-the-team">Meet the Team!</h2>
 
       <section class="team-section">
@@ -120,7 +129,7 @@
               />
               <h4 class="team-name">Jordyn Tayla</h4>
               <p class="team-description">
-                Founder and creative heart behind Tay’s Gourmet Treats. Jordyn
+                Founder and creative heart behind Tay's Gourmet Treats. Jordyn
                 ensures every design and flavour meets the sweetest standards.
               </p>
             </div>
@@ -165,7 +174,7 @@
               />
               <h4 class="team-name">Madison Kamaldien</h4>
               <p class="team-description">
-                Taste-tester and perfectionist ensuring every treat meets Tay’s
+                Taste-tester and perfectionist ensuring every treat meets Tay's
                 delicious standards.
               </p>
             </div>
@@ -174,7 +183,7 @@
 
         <button class="team-next" aria-label="Next">&#10095;</button>
       </section>
-    </div>
+    </section>
     <section class="manifesto-wrapper">
       <h2 class="manifesto-title">Manifesto</h2>
       <div class="manifesto-container">
@@ -238,10 +247,16 @@
     </section>
 
     <div id="site-footer"></div>
+
+    <!-- Scripts at the end of body -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="../scripts/nav.js"></script>
-    <!-- Back to Top Button -->
-    <link rel="stylesheet" href="../styles/back-to-top.css" />
-    <script src="../scripts/back-to-top.js"></script>
+    <script src="../scripts/animations.js"></script>
+    <script src="../scripts/backToTop.js"></script>
+    <script src="../scripts/teamCarousel.js"></script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         new BackToTop();

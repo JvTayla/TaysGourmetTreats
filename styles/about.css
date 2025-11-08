@@ -1,3 +1,4 @@
+/* about.css - YOUR COMPLETE ORIGINAL CSS WITH TEAM CAROUSEL ADDED */
 .about-wrapper {
   position: relative;
   padding: 2em;
@@ -152,6 +153,7 @@ h4 {
   cursor: pointer;
   z-index: 2;
   transition: background-color 0.3s ease;
+  display: none; /* NEW: Hidden by default */
 }
 
 .team-prev:hover,
@@ -457,5 +459,42 @@ h4 {
 
   .manifesto-text {
     font-size: 1rem;
+  }
+}
+
+/* NEW: TEAM CAROUSEL RESPONSIVE BREAKPOINTS */
+/* Desktop - Show 4 team members, hide buttons */
+@media (min-width: 1025px) {
+  .team-member {
+    flex: 0 0 calc(25% - 1em);
+  }
+
+  .team-prev,
+  .team-next {
+    display: none;
+  }
+}
+
+/* Tablet - Show 2 team members, show buttons */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .team-member {
+    flex: 0 0 calc(50% - 1em);
+  }
+
+  .team-prev,
+  .team-next {
+    display: block;
+  }
+}
+
+/* Mobile - Show 1 team member, show buttons */
+@media (max-width: 768px) {
+  .team-member {
+    flex: 0 0 calc(100% - 1em);
+  }
+
+  .team-prev,
+  .team-next {
+    display: block;
   }
 }
