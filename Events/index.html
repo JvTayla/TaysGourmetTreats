@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tays Gourmet Treats Event Catering</title>
-    <link rel="icon" href="../assets/images/TaysTreats Logo.png" type="image/x-icon" />
-
+    <title>Tays Gourmet Treats - Events & Catering</title>
+    <link
+      rel="icon"
+      href="../assets/images/TaysTreats Logo.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="../styles/main.css" />
-
+    <link rel="stylesheet" href="../styles/events.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,7 +25,7 @@
       href="https://fonts.cdnfonts.com/css/glacial-indifference-2"
       rel="stylesheet"
     />
-     <link
+    <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css"
     />
@@ -31,30 +34,220 @@
     <script>
       const currentPage = "Events";
     </script>
-       <div class="nav-wrapper">
-  <div class="awning-top"></div>
-  <div class="awning"></div>
-
-  <div class="nav-sticky">
-    <div class="nav-logo-wrapper">
-      <div class="nav-logo-circle"></div>
-      <a href="/TaysGourmetTreats/index.html">
-        <img
-          class="nav-logo"
-          src="../assets/images/TaysTreats Logo.png"
-          alt="Tay's Logo"
-        />
-      </a>
+    <div class="nav-wrapper">
+      <div class="awning-top"></div>
+      <div class="awning"></div>
+      <div class="nav-sticky">
+        <div class="nav-logo-wrapper">
+          <div class="nav-logo-circle"></div>
+          <a href="/TaysGourmetTreats/index.html">
+            <img
+              class="nav-logo"
+              src="../assets/images/TaysTreats Logo.png"
+              alt="Tay's Logo"
+            />
+          </a>
+        </div>
+        <nav class="nav-bar">
+          <ul id="main-nav"></ul>
+        </nav>
+      </div>
     </div>
 
-    <nav class="nav-bar">
-      <ul id="main-nav"></ul>
-    </nav>
-  </div>
-</div>
+    <!-- Events Hero Section -->
+    <section class="events-hero">
+      <div class="hero-content">
+        <h1>Celebrate With Sweet Memories</h1>
+        <p>Bringing the bakery to your special moments</p>
+      </div>
+    </section>
 
-    </div>
+    <!-- Page Introduction -->
+    <section class="events-intro">
+      <p>
+        Our events service brings the bakery to your celebration. Whether it's a
+        family holiday, school fete, or corporate function, we design menus and
+        setups that fit your theme and budget. Browse current specials for
+        upcoming holidays, or request a custom quote for your date.
+      </p>
+    </section>
+
+    <!-- Your Existing Events Section -->
+    <section id="current-events">
+      <div class="events-wrapper">
+        <div class="events-bg-pattern"></div>
+        <h2 class="events-heading">Current and Upcoming Events</h2>
+
+        <section class="events-section">
+          <p class="event-info">Stay up to date with upcoming Holidays!</p>
+          <p class="event-info">
+            You'll never miss Mother's Day again! and best believe you will have
+            the best desserts to share and celebrate with.
+          </p>
+          <button class="event-prev" aria-label="Previous">&#10094;</button>
+
+          <div class="events-carousel">
+            <div class="events-grid" id="event-cards-container">
+              <!-- Event cards will be dynamically inserted here -->
+            </div>
+          </div>
+
+          <button class="event-next" aria-label="Next">&#10095;</button>
+        </section>
+      </div>
+    </section>
+
+    <!-- Custom Events Section -->
+    <section class="custom-events-section">
+      <div class="container">
+        <h2>Custom Event Catering</h2>
+        <p class="section-subtitle">
+          Planning something special? We create bespoke dessert experiences for
+          all occasions.
+        </p>
+
+        <div class="custom-events-grid">
+          <div class="custom-event-type">
+            <div class="event-icon">🏢</div>
+            <h3>Corporate Events</h3>
+            <p>
+              Office parties, client meetings, and corporate celebrations with
+              professional presentation and customizable options.
+            </p>
+            <div class="event-minimum"><strong>Minimum:</strong> 20 people</div>
+          </div>
+
+          <div class="custom-event-type">
+            <div class="event-icon">💍</div>
+            <h3>Weddings & Large Parties</h3>
+            <p>
+              Beautiful dessert tables, wedding cakes, and sweet stations for
+              your most important celebrations.
+            </p>
+            <div class="event-minimum"><strong>Minimum:</strong> 30 people</div>
+          </div>
+
+          <div class="custom-event-type">
+            <div class="event-icon">🎓</div>
+            <h3>School & Community Events</h3>
+            <p>
+              Fundraisers, school fetes, and community gatherings with
+              budget-friendly options.
+            </p>
+            <div class="event-minimum"><strong>Minimum:</strong> 25 people</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Request Form -->
+    <section class="quote-form-section">
+      <div class="container">
+        <h2>Request a Custom Quote</h2>
+        <p class="section-subtitle">
+          Tell us about your event and we'll create the perfect sweet experience
+        </p>
+
+        <form class="quote-form" id="eventQuoteForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName"
+                >Your Name <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="contactName"
+                name="contactName"
+                required
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="contactInfo"
+                >Email or Phone <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="contactInfo"
+                name="contactInfo"
+                required
+                placeholder="Your email or phone number"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="eventType"
+                >Event Type <span class="required">*</span></label
+              >
+              <select id="eventType" name="eventType" required>
+                <option value="">Select Event Type</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="wedding">Wedding</option>
+                <option value="birthday">Birthday Party</option>
+                <option value="school">School/Community Event</option>
+                <option value="holiday">Holiday Celebration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="guestCount"
+                >Number of Guests <span class="required">*</span></label
+              >
+              <input
+                type="number"
+                id="guestCount"
+                name="guestCount"
+                min="20"
+                required
+                placeholder="Minimum 20 guests"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="budget"
+                >Budget Range <span class="required">*</span></label
+              >
+              <select id="budget" name="budget" required>
+                <option value="">Select Budget Range</option>
+                <option value="500-1000">R500 - R1,000</option>
+                <option value="1000-2500">R1,000 - R2,500</option>
+                <option value="2500-5000">R2,500 - R5,000</option>
+                <option value="5000+">R5,000+</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="eventDate"
+                >Event Date <span class="required">*</span></label
+              >
+              <input type="date" id="eventDate" name="eventDate" required />
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label for="theme">Event Theme & Requirements</label>
+            <textarea
+              id="theme"
+              name="theme"
+              rows="4"
+              placeholder="Tell us about your theme, color scheme, dietary requirements, favorite flavors, etc."
+            ></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="submit-btn">Request Quote</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <div id="site-footer"></div>
+
     <script src="../scripts/nav.js"></script>
+    <script src="../scripts/events.js"></script>
+    <script src="../scripts/eventsForm.js"></script>
   </body>
 </html>

@@ -193,7 +193,6 @@ h2.intro {
 }
 
 .awning-top {
-  margin-top: 1em;
   background-color: #ff5da4;
   height: clamp(20px, 4vw, 40px);
   width: 100%;

@@ -187,5 +187,4 @@ class ProgressTracker {
 // Initialize the progress tracker when the script loads
 const progressTracker = new ProgressTracker();
 
-// Also make it available globally in case you need to manually update it
 window.updateFormProgress = () => progressTracker.updateProgress();
