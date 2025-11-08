@@ -433,33 +433,48 @@
         <div
           style="
             text-align: center;
-            margin: 40px 0 30px;
-            padding: 20px;
-            background: #f9f9f9;
+            margin-top: 5px;
+            padding: 5px;
             border-radius: 10px;
           "
         >
-          <p style="font-size: 18px; color: #666; margin-bottom: 15px">
-            <strong>Prefer to chat live?</strong>
+          <p
+            style="
+              font-size: 20px;
+              color: #333;
+              margin-bottom: 20px;
+              font-weight: bold;
+            "
+          >
+            Prefer to chat live?
           </p>
-          <p style="color: #888; margin-bottom: 0">
-            Click the pink button in the bottom-right corner to schedule a
-            meeting!
-          </p>
+
+          
+          <button
+            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/taysgourmettreats'}); return false;"
+            style="
+              background: #ff5da4;
+              color: white;
+              border: none;
+              padding: 15px 30px;
+              font-size: 18px;
+              border-radius: 50px;
+              cursor: pointer;
+              font-weight: bold;
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+              transition: all 0.3s;
+            "
+          >
+            Schedule A Meeting
+          </button>
         </div>
 
-        <!-- Calendly badge widget - This creates the floating button -->
-        <script type="text/javascript">
-          document.addEventListener("DOMContentLoaded", function () {
-            Calendly.initBadgeWidget({
-              url: "https://calendly.com/taysgourmettreats",
-              text: "Schedule A Meeting with us!",
-              color: "#ff5da4",
-              textColor: "#ffffff",
-              branding: true,
-            });
-          });
-        </script>
+        <!-- Calendly script -->
+        <script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          type="text/javascript"
+          async
+        ></script>
       </div>
     </section>
 
