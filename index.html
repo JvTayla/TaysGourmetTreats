@@ -44,14 +44,47 @@
       <h6 class="establish">EST 2024</h6>
     
     </header>
-    <div class="nav-wrapper">
-      <div class="awning-top"></div>
-      <div class="awning"></div>
-    
-  <nav class="nav-bar">
-  <ul id="main-nav"></ul>
+<div class="nav-wrapper">
+  <div class="awning-top"></div>
+  <div class="awning"></div>
 
-</nav>
+  <nav class="nav-bar">
+    <!-- Burger Menu Button -->
+    <button class="burger" id="burger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Static Navigation Links -->
+    <ul>
+      <li><a href="/TaysGourmetTreats/index.html" class="active">Home</a></li>
+      <li><a href="/TaysGourmetTreats/About-Us/index.html">About Us</a></li>
+      <li><a href="/TaysGourmetTreats/Gallery/index.html">Gallery</a></li>
+      <li><a href="/TaysGourmetTreats/Order/index.html">Order</a></li>
+      <li><a href="/TaysGourmetTreats/Events/index.html">Events</a></li>
+      <li><a href="/TaysGourmetTreats/Kiddies-Corner/index.html">Kiddies Corner</a></li>
+      <li><a href="/TaysGourmetTreats/Contact-Us/index.html">Contact Us</a></li>
+    </ul>
+    
+    <!-- Mobile Navigation Side Panel -->
+    <div class="mobile-nav-overlay">
+      <ul class="mobile-nav-links">
+        <li><a href="/TaysGourmetTreats/index.html" class="active">Home</a></li>
+        <li><a href="/TaysGourmetTreats/About-Us/index.html">About Us</a></li>
+        <li><a href="/TaysGourmetTreats/Gallery/index.html">Gallery</a></li>
+        <li><a href="/TaysGourmetTreats/Order/index.html">Order</a></li>
+        <li><a href="/TaysGourmetTreats/Events/index.html">Events</a></li>
+        <li><a href="/TaysGourmetTreats/Kiddies-Corner/index.html">Kiddies Corner</a></li>
+        <li><a href="/TaysGourmetTreats/Contact-Us/index.html">Contact Us</a></li>
+      </ul>
+    </div>
+    
+    <!-- Overlay to close menu when clicking outside -->
+    <div class="menu-overlay"></div>
+  </nav>
+</div>
+
 </div>
     <section id="introduction">
       <h2 class="intro">Introduction</h2>
@@ -250,7 +283,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script src="./scripts/animations.js"></script>
+    <!--<script src="./scripts/animations.js"></script>-->
     <script src="./scripts/nav.js"></script>
     <script src="./scripts/recentOrders.js"></script>
     <script src="./scripts/upcomingEvents.js"></script>
