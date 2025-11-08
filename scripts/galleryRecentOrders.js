@@ -1,3 +1,6 @@
+// galleryRecentOrders.js - Recent orders carousel for gallery page
+// This shows recent creations in the gallery with the same carousel functionality
+
 document.addEventListener("DOMContentLoaded", () => {
   const recentOrders = [
     {
@@ -16,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentIndex = 0;
 
-  // Select the three images
+  // Select the three images in the carousel
   const leftImage = document.querySelector(".left_card img");
   const mainImage = document.querySelector(".main_card img");
   const rightImage = document.querySelector(".right_card img");

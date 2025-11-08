@@ -1,4 +1,6 @@
-// FAQ Accordion Functionality
+// faq.js - FAQ Accordion Functionality
+// This makes the FAQ section interactive with smooth expand/collapse animations
+
 document.addEventListener("DOMContentLoaded", function () {
   initializeFAQAccordion();
 });
@@ -16,7 +18,7 @@ function initializeFAQAccordion() {
       const answer = this.nextElementSibling;
       const isActive = this.classList.contains("active");
 
-      // Close all other FAQs
+      // Close all other FAQs - only one open at a time
       faqQuestions.forEach((q) => {
         if (q !== this) {
           q.classList.remove("active");
@@ -27,21 +29,23 @@ function initializeFAQAccordion() {
         }
       });
 
-      // Toggle current FAQ
+      // Toggle the current FAQ
       this.classList.toggle("active");
 
       if (answer) {
         answer.classList.toggle("show");
 
-        // Add GSAP animation if available
+        // Add GSAP animation if available for smooth transitions
         if (typeof gsap !== "undefined") {
           if (answer.classList.contains("show")) {
+            // Expand animation - grow from 0 height to auto
             gsap.fromTo(
               answer,
               { height: 0, opacity: 0 },
               { height: "auto", opacity: 1, duration: 0.3, ease: "power2.out" }
             );
           } else {
+            // Collapse animation - shrink to 0 height
             gsap.to(answer, {
               height: 0,
               opacity: 0,
@@ -53,7 +57,7 @@ function initializeFAQAccordion() {
       }
     });
 
-    // Add keyboard accessibility
+    // Add keyboard accessibility - space or enter to toggle
     question.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
@@ -62,7 +66,7 @@ function initializeFAQAccordion() {
     });
   });
 
-  // Add GSAP animations for FAQ section entrance
+  // Add GSAP animations for the FAQ section entrance
   if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
     gsap.fromTo(
       ".faq-item",

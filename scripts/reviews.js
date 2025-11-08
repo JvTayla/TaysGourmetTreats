@@ -1,3 +1,6 @@
+// reviews.js - Customer reviews carousel
+// This cycles through customer testimonials on the home page
+
 document.addEventListener("DOMContentLoaded", () => {
   const reviews = document.querySelectorAll("#review-container .review_card");
   let currentIndex = 0;
@@ -13,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = index;
   }
 
-  // Add click event to each review
+  // Add click event to each review - click to go to next review
   reviews.forEach((review) => {
     review.addEventListener("click", () => {
       showReview(currentIndex + 1); // Go to next review

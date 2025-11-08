@@ -1,23 +1,26 @@
+// contactValidation.js - Handles the contact form validation and submission
+// This makes sure people fill out the contact form properly and handles file uploads
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Formspree configuration for main form data
+  // Where we send the main form data
   const formspreeUrl = "https://formspree.io/f/mnnowkdp";
 
-  // Your Google Form for file uploads
+  // Google Form for file uploads (since Formspree has file size limits)
   const googleFormUrl = "https://forms.gle/mhw3XsNdYy5cuDuXA";
 
-  // Check if GSAP is available
+  // Check if GSAP is available for animations
   if (typeof gsap !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
   }
 
-  // Form elements
+  // Find the contact form
   const form = document.getElementById("contactForm");
   if (!form) {
     console.log("Contact form not found");
     return;
   }
 
-  // Wait a bit for nav.js to load
+  // Wait a bit for other scripts to load
   setTimeout(() => {
     initializeForm();
   }, 100);
@@ -31,12 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const consentField = document.getElementById("consent");
     const submitBtn = document.querySelector(".form-submit");
 
+    // Make sure we have all the required fields
     if (!nameField || !emailField || !messageField || !consentField) {
       console.log("Required form fields not found");
       return;
     }
 
-    // ScrollTrigger Animation for form elements
+    // Add some nice animations to the form elements
     if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
       gsap.to(".form-group", {
         opacity: 1,
@@ -65,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // Create progress bar elements
+    // Create a progress bar to show form completion
     const progressContainer = document.createElement("div");
     progressContainer.className = "progress-container";
     progressContainer.innerHTML = `
@@ -77,29 +81,29 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     `;
 
-    // Create message element
+    // Create a message element for success/error messages
     const messageElement = document.createElement("div");
     messageElement.id = "form-message";
     messageElement.className = "form-message";
 
-    // Insert elements before submit button
+    // Insert the new elements before the submit button
     if (submitBtn) {
       form.insertBefore(progressContainer, submitBtn);
       form.insertBefore(messageElement, submitBtn);
     }
 
-    // Get references to new elements
+    // Get references to our new elements
     const progressFill = document.querySelector(".progress-fill");
     const progressValue = document.getElementById("progress-value");
 
-    // Required fields for progress tracking
+    // Track progress for required fields
     const requiredFields = [nameField, emailField, messageField, consentField];
     const totalFields = requiredFields.length;
 
     let completedFields = 0;
     updateProgress();
 
-    // Add error message elements
+    // Add error message elements to each form group
     const formGroups = form.querySelectorAll(".form-group, .consent");
     formGroups.forEach((group) => {
       const errorEl = document.createElement("small");
@@ -107,14 +111,14 @@ document.addEventListener("DOMContentLoaded", function () {
       group.appendChild(errorEl);
     });
 
-    // Validation functions
+    // Validation functions - make sure data is actually valid
     const validateName = (value) => /^[A-Z][a-zA-Z\s\-']{1,}$/.test(value);
     const validateEmail = (value) =>
       /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
     const validatePhone = (value) => value === "" || /^\d{10}$/.test(value);
     const validateMessage = (value) => value.trim().length >= 10;
 
-    // Validate individual field
+    // Validate a single field
     function validateField(field) {
       const formGroup = field.closest(".form-group, .consent");
       if (!formGroup) return true;
@@ -123,9 +127,11 @@ document.addEventListener("DOMContentLoaded", function () {
       let isValid = true;
       let errorMessage = "";
 
+      // Clear any previous errors
       formGroup.classList.remove("valid", "invalid");
       if (errorEl) errorEl.textContent = "";
 
+      // Different validation for different field types
       switch (field.type) {
         case "text":
           if (field === nameField) {
@@ -166,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
       }
 
+      // Show error or success state
       if (!isValid) {
         formGroup.classList.add("invalid");
         if (errorEl) errorEl.textContent = errorMessage;
@@ -176,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return isValid;
     }
 
-    // Update progress tracking with pink gradient
+    // Update the progress bar as people fill out the form
     function updateProgress() {
       completedFields = 0;
 
@@ -197,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (progressFill) {
         progressFill.style.width = `${progressPercentage}%`;
 
+        // Animate the progress bar if GSAP is available
         if (typeof gsap !== "undefined") {
           gsap.to(progressFill, {
             scaleX: progressPercentage / 100,
@@ -205,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
 
-        // Update progress bar color based on completion percentage
+        // Make the progress bar change colors as it fills
         // White to Dark Pink gradient (#FFFFFF to #FF006E)
         if (progressPercentage === 0) {
           progressFill.style.background = "#FFFFFF";
@@ -232,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Shake animation for form
+    // Shake the form when there are errors
     function shakeForm() {
       if (typeof gsap !== "undefined") {
         const shakeTimeline = gsap.timeline();
@@ -250,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Show message function
+    // Show success or error messages
     function showMessage(text, type) {
       if (!messageElement) return;
 
@@ -266,6 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
           { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }
         );
 
+        // Auto-hide success messages after a while
         if (type === "success") {
           setTimeout(() => {
             gsap.to(messageElement, {
@@ -282,12 +291,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Submit to Formspree with file reference
+    // Submit the form data to Formspree
     async function submitToFormspree(formData, fileName = null) {
       try {
         showMessage("📤 Sending your message...", "success");
 
-        // Create URLSearchParams instead of FormData to avoid file detection
+        // Create URLSearchParams instead of FormData to avoid file detection issues
         const params = new URLSearchParams();
         params.append("name", formData.get("name"));
         params.append("email", formData.get("email"));
@@ -299,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "New Contact Form Submission - Tay's Gourmet Treats"
         );
 
-        // Add file info if exists
+        // Add file info if they uploaded a file
         if (fileName) {
           params.append(
             "file_note",
@@ -330,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Event listeners for real-time validation
+    // Real-time validation as people type
     requiredFields.forEach((field) => {
       field.addEventListener("input", () => {
         validateField(field);
@@ -342,14 +351,14 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Phone field (optional)
+    // Phone field is optional, but validate if they fill it
     if (phoneField) {
       phoneField.addEventListener("input", () => {
         validateField(phoneField);
       });
     }
 
-    // File field change listener
+    // Handle file selection
     if (fileField) {
       fileField.addEventListener("change", () => {
         if (fileField.files[0]) {
@@ -369,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // Form submission
+    // Handle form submission
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -382,7 +391,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Validate optional phone field
+      // Validate optional phone field if filled
       if (
         phoneField &&
         phoneField.value.trim() !== "" &&
@@ -395,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showMessage("Please fix the errors above.", "error");
         shakeForm();
 
-        // Scroll to first error
+        // Scroll to the first error
         const firstError = form.querySelector(".invalid");
         if (firstError && typeof gsap !== "undefined") {
           gsap.to(window, {
@@ -410,7 +419,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Submit form
+      // Disable the submit button while processing
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Sending...";
@@ -421,14 +430,14 @@ document.addEventListener("DOMContentLoaded", function () {
         let fileName = null;
         let hasFile = false;
 
-        // Check if file exists
+        // Check if they uploaded a file
         if (fileField && fileField.files[0]) {
           const file = fileField.files[0];
           fileName = file.name;
           hasFile = true;
         }
 
-        // Submit form data to Formspree
+        // Submit to Formspree
         const result = await submitToFormspree(formData, fileName);
 
         // Show appropriate success message
@@ -438,7 +447,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "success"
           );
 
-          // Create and show Google Form button
+          // Create a button to go to the Google Form for file upload
           const googleFormButton = document.createElement("a");
           googleFormButton.href = googleFormUrl;
           googleFormButton.target = "_blank";
@@ -462,6 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
             box-shadow: 0 4px 15px rgba(255, 0, 110, 0.3);
           `;
 
+          // Add hover effects to the button
           googleFormButton.addEventListener("mouseenter", () => {
             googleFormButton.style.transform = "scale(1.05)";
             googleFormButton.style.boxShadow =
@@ -474,7 +484,7 @@ document.addEventListener("DOMContentLoaded", function () {
               "0 4px 15px rgba(255, 0, 110, 0.3)";
           });
 
-          // Add button after the message
+          // Add the button after the message
           messageElement.appendChild(googleFormButton);
         } else {
           showMessage(
@@ -483,6 +493,7 @@ document.addEventListener("DOMContentLoaded", function () {
           );
         }
 
+        // Fun little button animation on success
         if (typeof gsap !== "undefined" && submitBtn) {
           gsap.to(submitBtn, {
             scale: 1.1,
@@ -493,12 +504,12 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
 
-        // Reset form
+        // Reset the form
         form.reset();
         completedFields = 0;
         updateProgress();
 
-        // Clear validation states
+        // Clear all validation states
         formGroups.forEach((group) => {
           group.classList.remove("valid", "invalid");
           const errorEl = group.querySelector(".error-message");
@@ -511,6 +522,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "error"
         );
       } finally {
+        // Re-enable the submit button
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = "Send Message";
@@ -518,7 +530,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Initialize progress
+    // Initialize the progress display
     updateProgress();
   }
 });

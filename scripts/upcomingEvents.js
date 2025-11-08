@@ -1,3 +1,6 @@
+// upcomingEvents.js - Upcoming events display for home page
+// This shows the next few upcoming events on the home page
+
 const eventsTemplate = [
   // South African Public Holidays
   {
@@ -46,7 +49,7 @@ const eventsTemplate = [
     day: 28,
   },
   {
-    name: "Workers’ Day",
+    name: "Workers' Day",
     description: "A great time to honor workers",
     image: "assets/images/WorkersDay.jpeg",
     month: 4,
@@ -60,7 +63,7 @@ const eventsTemplate = [
     day: 16,
   },
   {
-    name: "National Women’s Day",
+    name: "National Women's Day",
     description: "A great time to celebrate women",
     image: "assets/images/events/WomensDay.jpg",
     month: 7,
@@ -99,14 +102,14 @@ const eventsTemplate = [
 
   // Gift & Relationship Days
   {
-    name: "Valentine’s Day",
+    name: "Valentine's Day",
     description: "The perfect time to celebrate love and romance",
     image: "assets/imagesValentinesDay.jpeg",
     month: 1,
     day: 14,
   },
   {
-    name: "Mother’s Day",
+    name: "Mother's Day",
     description:
       "A day to celebrate your mother with something as sweet as her",
     image: "assets/images/events/MothersDay.jpeg",
@@ -114,7 +117,7 @@ const eventsTemplate = [
     day: 11,
   },
   {
-    name: "Father’s Day",
+    name: "Father's Day",
     description: "A day to honor your father with something delicious",
     image: "assets/images/events/FathersDay.jpeg",
     month: 5,

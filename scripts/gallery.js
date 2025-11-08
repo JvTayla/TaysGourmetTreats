@@ -1,9 +1,12 @@
+// gallery.js - Pinterest-style gallery with filtering and search
+// This creates a beautiful gallery that shows off all the amazing treats
+
 class PinterestGallery {
   constructor() {
     // Using Pinterest API v5 with your actual boards
     this.boards = {
       traditional: "taysgourmettreats/traditional-cakes",
-      custom: "taysgourmettreats/custom-cakes",
+      custom: "taysgourmettreats/custom-cakes", 
       bento: "taysgourmettreats/bento-cakes",
     };
 
@@ -19,7 +22,7 @@ class PinterestGallery {
   }
 
   async init() {
-    // Try to load from Pinterest API, fallback to sample data
+    // Try to load from Pinterest API, but have sample data as backup
     await this.loadPinterestData();
     this.setupEventListeners();
     this.displayPins(this.allPins);
@@ -48,26 +51,25 @@ class PinterestGallery {
 
     // Example of how it would work:
     /*
-        for (const [boardType, boardName] of Object.entries(this.boards)) {
-            const pins = await this.fetchBoardPins(boardName);
-            this.allPins.push(...pins.map(pin => ({
-                ...pin,
-                boardType: boardType,
-                boardName: this.getBoardDisplayName(boardType),
-                price: this.generatePrice(boardType) // Generate ZAR prices
-            })));
-        }
-        */
+    for (const [boardType, boardName] of Object.entries(this.boards)) {
+      const pins = await this.fetchBoardPins(boardName);
+      this.allPins.push(...pins.map(pin => ({
+        ...pin,
+        boardType: boardType,
+        boardName: this.getBoardDisplayName(boardType),
+        price: this.generatePrice(boardType) // Generate ZAR prices
+      })));
+    }
+    */
   }
 
   loadSampleData() {
-    // Sample data with South African Rand prices
+    // Sample data with South African Rand prices - real treats you've made!
     this.allPins = [
       {
         id: 1,
         title: "Classic Chocolate Cake",
-        description:
-          "Rich traditional chocolate cake with buttercream frosting - perfect for birthdays and special occasions",
+        description: "Rich traditional chocolate cake with buttercream frosting - perfect for birthdays and special occasions",
         image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
         category: "traditional",
         boardType: "traditional",
@@ -78,8 +80,7 @@ class PinterestGallery {
       {
         id: 2,
         title: "Red Velvet Luxury",
-        description:
-          "Classic red velvet cake with cream cheese frosting and decorative elements",
+        description: "Classic red velvet cake with cream cheese frosting and decorative elements",
         image: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f",
         category: "traditional",
         boardType: "traditional",
@@ -90,8 +91,7 @@ class PinterestGallery {
       {
         id: 3,
         title: "Custom Wedding Masterpiece",
-        description:
-          "Elegant three-tier wedding cake with fresh floral accents and gold detailing",
+        description: "Elegant three-tier wedding cake with fresh floral accents and gold detailing",
         image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc",
         category: "custom",
         boardType: "custom",
@@ -102,8 +102,7 @@ class PinterestGallery {
       {
         id: 4,
         title: "Birthday Celebration Cake",
-        description:
-          "Custom birthday cake with personalized decorations and colorful design",
+        description: "Custom birthday cake with personalized decorations and colorful design",
         image: "https://images.unsplash.com/photo-1559620192-032c4bc4674e",
         category: "custom",
         boardType: "custom",
@@ -114,8 +113,7 @@ class PinterestGallery {
       {
         id: 5,
         title: "Mini Bento Cake",
-        description:
-          "Adorable individual-sized decorated cake perfect for personal treats",
+        description: "Adorable individual-sized decorated cake perfect for personal treats",
         image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e",
         category: "bento",
         boardType: "bento",
@@ -126,10 +124,8 @@ class PinterestGallery {
       {
         id: 6,
         title: "Character Bento Cake",
-        description:
-          "Fun character-themed bento cake that brings smiles to all ages",
-        image:
-          "https://images.unsplash.com/photo-1710912247355-4675bde57920?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&",
+        description: "Fun character-themed bento cake that brings smiles to all ages",
+        image: "https://images.unsplash.com/photo-1710912247355-4675bde57920?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&",
         category: "bento",
         boardType: "bento",
         boardName: "Custom Cakes",
@@ -152,29 +148,20 @@ class PinterestGallery {
 
   setupEventListeners() {
     // Search functionality
-    document
-      .getElementById("searchBtn")
-      .addEventListener("click", () => this.handleSearch());
+    document.getElementById("searchBtn").addEventListener("click", () => this.handleSearch());
     document.getElementById("searchInput").addEventListener("keypress", (e) => {
       if (e.key === "Enter") this.handleSearch();
     });
-    document
-      .getElementById("clearSearch")
-      .addEventListener("click", () => this.clearSearch());
+    document.getElementById("clearSearch").addEventListener("click", () => this.clearSearch());
 
-    // Board filter buttons
+    // Board filter buttons - traditional, custom, bento
     document.querySelectorAll(".filter-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) =>
-        this.filterByBoard(e.target.dataset.board)
-      );
+      btn.addEventListener("click", (e) => this.filterByBoard(e.target.dataset.board));
     });
   }
 
   handleSearch() {
-    const searchTerm = document
-      .getElementById("searchInput")
-      .value.toLowerCase()
-      .trim();
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase().trim();
     this.currentSearch = searchTerm;
     this.applyFilters();
   }
@@ -188,7 +175,7 @@ class PinterestGallery {
   filterByBoard(board) {
     this.currentBoard = board;
 
-    // Update active button
+    // Update active button styling
     document.querySelectorAll(".filter-btn").forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.board === board);
     });
@@ -198,10 +185,8 @@ class PinterestGallery {
 
   applyFilters() {
     this.filteredPins = this.allPins.filter((pin) => {
-      const matchesBoard =
-        this.currentBoard === "all" || pin.boardType === this.currentBoard;
-      const matchesSearch =
-        !this.currentSearch ||
+      const matchesBoard = this.currentBoard === "all" || pin.boardType === this.currentBoard;
+      const matchesSearch = !this.currentSearch ||
         pin.title.toLowerCase().includes(this.currentSearch) ||
         pin.description.toLowerCase().includes(this.currentSearch) ||
         pin.tags.some((tag) => tag.toLowerCase().includes(this.currentSearch));
@@ -226,31 +211,31 @@ class PinterestGallery {
 
     grid.innerHTML = pins.map((pin) => this.createPinCard(pin)).join("");
 
-    // Animate new pins
+    // Animate the new pins with GSAP
     this.animatePinCards();
   }
 
   createPinCard(pin) {
     return `
-            <div class="pin-card" data-board="${pin.boardType}">
-                <img src="${pin.image}" alt="${pin.title}" class="pin-image">
-                <div class="pin-info">
-                    <div class="pin-title">${pin.title}</div>
-                    <div class="pin-description">${pin.description}</div>
-                    <div class="pin-meta">
-                        <span class="pin-board">${pin.boardName}</span>
-                        <span class="pin-price">R ${pin.price}</span>
-                    </div>
-                    <div class="pin-tags">${pin.tags
-                      .map((tag) => `<span class="tag">${tag}</span>`)
-                      .join("")}</div>
-                </div>
-            </div>
-        `;
+      <div class="pin-card" data-board="${pin.boardType}">
+        <img src="${pin.image}" alt="${pin.title}" class="pin-image">
+        <div class="pin-info">
+          <div class="pin-title">${pin.title}</div>
+          <div class="pin-description">${pin.description}</div>
+          <div class="pin-meta">
+            <span class="pin-board">${pin.boardName}</span>
+            <span class="pin-price">R ${pin.price}</span>
+          </div>
+          <div class="pin-tags">${pin.tags
+            .map((tag) => `<span class="tag">${tag}</span>`)
+            .join("")}</div>
+        </div>
+      </div>
+    `;
   }
 
   setupGSAPAnimations() {
-    // Initial page load animation
+    // Initial page load animation for gallery title
     gsap.from(".gallery-section h2", {
       duration: 1,
       y: -50,
@@ -271,7 +256,7 @@ class PinterestGallery {
       ease: "power2.out",
     });
 
-    // Motion path for filter buttons
+    // Motion path for filter buttons - they slide in from the left
     gsap.from(".filter-btn", {
       duration: 1,
       x: -100,
@@ -280,7 +265,7 @@ class PinterestGallery {
       ease: "back.out(1.7)",
     });
 
-    // ScrollTrigger for Pinterest boards
+    // ScrollTrigger for Pinterest boards sections
     gsap.from(".pinterest-board-section", {
       scrollTrigger: {
         trigger: ".pinterest-boards",

@@ -1,31 +1,35 @@
-// scripts/animations.js
+// animations.js - All the fancy animations for the website
+// This makes the website feel alive and engaging with smooth transitions
+
 class TayAnimations {
   constructor() {
     this.init();
   }
 
   init() {
-    // Check for reduced motion preference
+    // First, check if the user prefers reduced motion - some people get motion sickness!
     this.prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
+    // If they do, let's skip all the fancy animations - accessibility first!
     if (this.prefersReducedMotion) {
-      return; // Skip animations if user prefers reduced motion
+      return;
     }
 
+    // Okay, let's get this party started with some animations!
     this.setupGlobalAnimations();
     this.setupPageSpecificAnimations();
   }
 
   setupGlobalAnimations() {
-    // Global animations for all pages
+    // These animations run on every page - like the navigation and footer
     this.animateNavigation();
     this.animateFooter();
   }
 
   setupPageSpecificAnimations() {
-    // Use the existing currentPage variable that's already declared in your HTML
+    // Using the currentPage variable that's already in the HTML to figure out which page we're on
     switch (currentPage) {
       case "Home":
         this.animateHomePage();
@@ -51,7 +55,11 @@ class TayAnimations {
     }
   }
 
-  // Global Animations
+  // =============================================
+  // GLOBAL ANIMATIONS - These run on every page
+  // =============================================
+
+  // Make the navigation slide in smoothly
   animateNavigation() {
     gsap.from(".nav-sticky", {
       y: -100,
@@ -60,6 +68,7 @@ class TayAnimations {
       ease: "power3.out",
     });
 
+    // Stagger the navigation items for a nice cascade effect
     gsap.from(".nav-bar li", {
       y: -20,
       opacity: 0,
@@ -69,6 +78,7 @@ class TayAnimations {
     });
   }
 
+  // Animate the footer when it comes into view
   animateFooter() {
     gsap.from("#site-footer", {
       y: 50,
@@ -82,18 +92,23 @@ class TayAnimations {
     });
   }
 
-  // Home Page Animations
+  // =============================================
+  // HOME PAGE ANIMATIONS - The main landing page
+  // =============================================
+
   animateHomePage() {
-    // Hero section timeline
+    // Hero section timeline - multiple animations in sequence
     const heroTimeline = gsap.timeline();
 
     heroTimeline
+      // Logo spins and scales in
       .from(".top_logo", {
         scale: 0,
         rotation: -180,
         duration: 1,
         ease: "back.out(1.7)",
       })
+      // Title slides down
       .from(
         "h1",
         {
@@ -102,8 +117,9 @@ class TayAnimations {
           duration: 0.8,
           ease: "power3.out",
         },
-        "-=0.3"
+        "-=0.3" // Start a bit before the previous animation finishes
       )
+      // Establishment text slides in
       .from(
         ".establish",
         {
@@ -113,6 +129,7 @@ class TayAnimations {
         },
         "-=0.2"
       )
+      // Intro logo bounces in
       .from(
         ".intro_logo",
         {
@@ -123,7 +140,7 @@ class TayAnimations {
         "-=0.2"
       );
 
-    // Review cards animation
+    // Review cards slide in from the right when scrolled to
     gsap.from(".review_card", {
       x: 100,
       opacity: 0,
@@ -136,7 +153,7 @@ class TayAnimations {
       },
     });
 
-    // Recent orders slider animation
+    // Recent orders slider scales in
     gsap.from(".recent_orders_slider", {
       scale: 0.8,
       opacity: 0,
@@ -148,7 +165,7 @@ class TayAnimations {
       },
     });
 
-    // Events animation
+    // Event cards slide up in sequence
     gsap.from(".events-grid .event-card", {
       y: 50,
       opacity: 0,
@@ -161,7 +178,7 @@ class TayAnimations {
       },
     });
 
-    // Kiddies corner cards animation
+    // Kiddies corner cards slide up from below
     gsap.from(".kiddies_cards figure", {
       y: 100,
       opacity: 0,
@@ -175,9 +192,12 @@ class TayAnimations {
     });
   }
 
-  // About Page Animations
+  // =============================================
+  // ABOUT PAGE ANIMATIONS - The story behind the treats
+  // =============================================
+
   animateAboutPage() {
-    // Title and background pattern
+    // Title and background pattern animations
     gsap.from(".about-title", {
       y: -50,
       opacity: 0,
@@ -191,7 +211,7 @@ class TayAnimations {
       ease: "power2.out",
     });
 
-    // Image and text animation
+    // Image slides in from the left
     gsap.from(".about-image", {
       x: -100,
       opacity: 0,
@@ -203,6 +223,7 @@ class TayAnimations {
       },
     });
 
+    // Text paragraphs slide in from the right, one after another
     gsap.from(".about-text p", {
       x: 100,
       opacity: 0,
@@ -215,7 +236,7 @@ class TayAnimations {
       },
     });
 
-    // Team carousel animation with ScrollTrigger
+    // Team members slide up when the team section comes into view
     gsap.from(".team-member", {
       y: 100,
       opacity: 0,
@@ -228,7 +249,7 @@ class TayAnimations {
       },
     });
 
-    // Manifesto text animation
+    // Manifesto text fades in line by line
     gsap.from(".manifesto-text p, .manifesto-text li", {
       y: 30,
       opacity: 0,
@@ -242,9 +263,12 @@ class TayAnimations {
     });
   }
 
-  // Gallery Page Animations
+  // =============================================
+  // GALLERY PAGE ANIMATIONS - Showcasing the work
+  // =============================================
+
   animateGalleryPage() {
-    // Recent orders slider
+    // Recent orders cards scale and fade in
     gsap.from(".recent_orders_slider .card", {
       scale: 0.8,
       opacity: 0,
@@ -260,7 +284,7 @@ class TayAnimations {
       },
     });
 
-    // Gallery grid staggered entrance
+    // Gallery grid items slide up in a grid pattern from the center out
     gsap.from(".gallery-grid .gallery-item", {
       y: 50,
       opacity: 0,
@@ -278,7 +302,7 @@ class TayAnimations {
       },
     });
 
-    // Pinterest boards animation
+    // Pinterest boards sections slide up
     gsap.from(".pinterest-board-section", {
       y: 100,
       opacity: 0,
@@ -292,8 +316,8 @@ class TayAnimations {
     });
   }
 
+  // Add hover interactions to gallery items
   setupGalleryInteractions() {
-    // Hover animations for gallery items
     const galleryItems = document.querySelectorAll(".gallery-item, .card");
 
     galleryItems.forEach((item) => {
@@ -315,9 +339,12 @@ class TayAnimations {
     });
   }
 
-  // Order Page Animations
+  // =============================================
+  // ORDER PAGE ANIMATIONS - The ordering experience
+  // =============================================
+
   animateOrderPage() {
-    // Progress circle animation
+    // Progress circle spins and scales in
     gsap.from(".progress-circle", {
       scale: 0,
       rotation: -180,
@@ -325,7 +352,7 @@ class TayAnimations {
       ease: "back.out(1.7)",
     });
 
-    // Gallery CTA animation
+    // Gallery call-to-action slides up
     gsap.from(".gallery-cta", {
       y: 50,
       opacity: 0,
@@ -337,7 +364,7 @@ class TayAnimations {
       },
     });
 
-    // Package cards animation
+    // Package cards slide up one after another
     gsap.from(".package-card", {
       y: 100,
       opacity: 0,
@@ -350,7 +377,7 @@ class TayAnimations {
       },
     });
 
-    // Form sections animation
+    // Form sections slide up in sequence
     gsap.from(".form-section", {
       y: 50,
       opacity: 0,
@@ -363,7 +390,7 @@ class TayAnimations {
       },
     });
 
-    // Product tabs animation
+    // Product tabs scale in
     gsap.from(".product-tab", {
       scale: 0,
       opacity: 0,
@@ -374,6 +401,7 @@ class TayAnimations {
     this.setupFormAnimations();
   }
 
+  // Add animations to form interactions
   setupFormAnimations() {
     // Input focus animations
     const inputs = document.querySelectorAll("input, select, textarea");
@@ -421,6 +449,7 @@ class TayAnimations {
     }
   }
 
+  // Shake animation for invalid fields
   shakeInvalidField(field) {
     gsap.to(field, {
       x: 10,
@@ -434,9 +463,12 @@ class TayAnimations {
     });
   }
 
-  // Events Page Animations
+  // =============================================
+  // EVENTS PAGE ANIMATIONS - Special occasions
+  // =============================================
+
   animateEventsPage() {
-    // Hero section
+    // Hero content slides down
     gsap.from(".events-hero .hero-content", {
       y: -50,
       opacity: 0,
@@ -444,7 +476,7 @@ class TayAnimations {
       ease: "power3.out",
     });
 
-    // Event cards fade/zoom animation with ScrollTrigger
+    // Event cards scale and fade in when scrolled to
     gsap.from(".events-grid .event-card", {
       scale: 0.8,
       opacity: 0,
@@ -457,7 +489,7 @@ class TayAnimations {
       },
     });
 
-    // Special offers animation
+    // Special offers cards slide up
     gsap.from(".special-card", {
       y: 100,
       opacity: 0,
@@ -470,7 +502,7 @@ class TayAnimations {
       },
     });
 
-    // Custom events grid animation
+    // Custom event types slide in from the left
     gsap.from(".custom-event-type", {
       x: -100,
       opacity: 0,
@@ -483,7 +515,7 @@ class TayAnimations {
       },
     });
 
-    // Quote form animation
+    // Quote form slides up
     gsap.from(".quote-form", {
       y: 50,
       opacity: 0,
@@ -496,7 +528,10 @@ class TayAnimations {
     });
   }
 
-  // Kiddies Corner Animations
+  // =============================================
+  // KIDDIES CORNER ANIMATIONS - Fun for the kids
+  // =============================================
+
   animateKiddiesPage() {
     // Hero section with floating sprinkles
     const heroTimeline = gsap.timeline();
@@ -517,21 +552,21 @@ class TayAnimations {
           duration: 1,
           ease: "back.out(1.7)",
         },
-        "-=0.5"
+        "-=0.5" // Overlap with previous animation
       );
 
-    // Animate floating sprinkles continuously
+    // Continuous floating animation for the sprinkles
     gsap.to(".floating-sprinkle", {
       y: -20,
       rotation: 360,
       duration: 3,
-      repeat: -1,
+      repeat: -1, // Loop forever
       yoyo: true,
       stagger: 0.5,
       ease: "sine.inOut",
     });
 
-    // Blog cards animation with ScrollTrigger
+    // Blog cards slide up when scrolled to
     gsap.from(".blog-card", {
       y: 100,
       opacity: 0,
@@ -544,7 +579,7 @@ class TayAnimations {
       },
     });
 
-    // Recipe finder animation
+    // Recipe finder section slides up
     gsap.from(".recipe-finder-section", {
       y: 50,
       opacity: 0,
@@ -559,8 +594,8 @@ class TayAnimations {
     this.setupRecipeAnimations();
   }
 
+  // Add special animations to recipe cards
   setupRecipeAnimations() {
-    // Recipe card interactions
     const recipeCards = document.querySelectorAll(".recipe-card, .blog-card");
 
     recipeCards.forEach((card) => {
@@ -570,7 +605,7 @@ class TayAnimations {
         this.setupMagneticButton(button);
       }
 
-      // Hover animations
+      // Hover animations - cards lift up on hover
       card.addEventListener("mouseenter", () => {
         gsap.to(card, {
           y: -10,
@@ -589,9 +624,12 @@ class TayAnimations {
     });
   }
 
-  // Contact Page Animations
+  // =============================================
+  // CONTACT PAGE ANIMATIONS - Getting in touch
+  // =============================================
+
   animateContactPage() {
-    // FAQ and Contact sections fade in
+    // FAQ and Contact sections timeline
     const sectionsTimeline = gsap.timeline();
 
     sectionsTimeline
@@ -607,10 +645,10 @@ class TayAnimations {
           opacity: 0,
           duration: 0.8,
         },
-        "-=0.3"
+        "-=0.3" // Overlap with previous animation
       );
 
-    // FAQ items animation with ScrollTrigger
+    // FAQ items slide in from the left
     gsap.from(".faq-item", {
       x: -50,
       opacity: 0,
@@ -623,7 +661,7 @@ class TayAnimations {
       },
     });
 
-    // Contact form animation
+    // Contact form slides in from the right
     gsap.from(".contact-form-container form", {
       x: 50,
       opacity: 0,
@@ -638,8 +676,8 @@ class TayAnimations {
     this.setupFAQAnimations();
   }
 
+  // Add animations to FAQ accordion
   setupFAQAnimations() {
-    // FAQ accordion animations
     const faqQuestions = document.querySelectorAll(".faq-question");
 
     faqQuestions.forEach((question) => {
@@ -647,7 +685,7 @@ class TayAnimations {
         const answer = question.nextElementSibling;
         const isOpen = answer.style.display === "block";
 
-        // Animate the question button
+        // Animate the question button when clicked
         gsap.to(question, {
           scale: 0.95,
           duration: 0.1,
@@ -656,7 +694,7 @@ class TayAnimations {
         });
 
         if (isOpen) {
-          // Collapse animation
+          // Collapse animation - shrink height and fade out
           gsap.to(answer, {
             height: 0,
             opacity: 0,
@@ -667,7 +705,7 @@ class TayAnimations {
             },
           });
         } else {
-          // Expand animation
+          // Expand animation - grow height and fade in
           answer.style.display = "block";
           const height = answer.scrollHeight;
 
@@ -681,7 +719,11 @@ class TayAnimations {
     });
   }
 
-  // Magnetic button effect utility
+  // =============================================
+  // UTILITY FUNCTIONS - Reusable animation helpers
+  // =============================================
+
+  // Magnetic button effect - buttons follow cursor movement
   setupMagneticButton(button) {
     button.addEventListener("mousemove", (e) => {
       const rect = button.getBoundingClientRect();
@@ -706,33 +748,35 @@ class TayAnimations {
     });
   }
 
-  // Utility method for confirmation animations
+  // Show confirmation messages with animations
   showConfirmation(message) {
     const confirmation = document.createElement("div");
     confirmation.className = "confirmation-message";
     confirmation.textContent = message;
     confirmation.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            z-index: 1000;
-            text-align: center;
-            font-family: inherit;
-        `;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 1000;
+      text-align: center;
+      font-family: inherit;
+    `;
 
     document.body.appendChild(confirmation);
 
+    // Animate in
     gsap.fromTo(
       confirmation,
       { scale: 0, opacity: 0 },
       { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
     );
 
+    // Auto-remove after 2 seconds
     setTimeout(() => {
       gsap.to(confirmation, {
         scale: 0,
@@ -746,9 +790,9 @@ class TayAnimations {
   }
 }
 
-// Initialize animations when DOM is loaded
+// Initialize animations when the page loads
 document.addEventListener("DOMContentLoaded", () => {
-  // Wait a tiny bit to ensure currentPage variable is available
+  // Wait a tiny bit to make sure the currentPage variable is available
   setTimeout(() => {
     new TayAnimations();
   }, 10);

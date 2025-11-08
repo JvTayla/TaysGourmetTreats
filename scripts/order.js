@@ -1,6 +1,9 @@
-// order.js - COMPREHENSIVE MULTI-PRODUCT ORDERING SYSTEM - COMPLETE VERSION
+// order.js - COMPREHENSIVE MULTI-PRODUCT ORDERING SYSTEM
+// This is the complete ordering system for cakes, cupcakes, and cookies
+// Everything is in one file to keep it simple and maintainable
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize all functionality
+  // Fire up all the ordering systems when the page loads
   initProductTabs();
   initOrderForm();
   initCakeForm();
@@ -9,11 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
   initAdditionalProducts();
   initFileUploadGuidance();
 
-  console.log("Tay's Gourmet Treats Order System loaded successfully!");
+  console.log(" Tay's Gourmet Treats Order System loaded successfully!");
 });
 
 // =============================================
-// PRODUCT TABS NAVIGATION
+// PRODUCT TABS NAVIGATION - Switch between cakes, cupcakes, cookies
 // =============================================
 
 function initProductTabs() {
@@ -24,11 +27,11 @@ function initProductTabs() {
     tab.addEventListener("click", function () {
       const productType = this.getAttribute("data-product");
 
-      // Update active tab
+      // Update the active tab visually
       tabs.forEach((t) => t.classList.remove("active"));
       this.classList.add("active");
 
-      // Show corresponding form
+      // Show the right form and hide the others
       forms.forEach((form) => {
         form.classList.remove("active");
         if (form.id === `${productType}-form`) {
@@ -36,10 +39,10 @@ function initProductTabs() {
         }
       });
 
-      // Update page title
+      // Update the page title to match what they're ordering
       updatePageTitle(productType);
 
-      // Scroll to form
+      // Smooth scroll to the form so they don't get lost
       document.querySelector(".container").scrollIntoView({
         behavior: "smooth",
         block: "start",
@@ -47,7 +50,7 @@ function initProductTabs() {
     });
   });
 
-  // Set default active tab
+  // Start with cakes as the default - everyone loves cake!
   document
     .querySelector('.product-tab[data-product="cakes"]')
     ?.classList.add("active");
@@ -68,11 +71,122 @@ function updatePageTitle(productType) {
 }
 
 // =============================================
-// CAKE FORM FUNCTIONALITY
+// CAKE FORM FUNCTIONALITY - The main attraction!
+// =============================================
+// =============================================
+// VALIDATION FUNCTIONS - Moved to top so they're available everywhere
 // =============================================
 
+function validateField(field) {
+  const value = field.value.trim();
+  let isValid = true;
+  let errorMessage = "";
+
+  clearFieldError(field);
+
+  if (field.hasAttribute("required") && !value) {
+    isValid = false;
+    errorMessage = "This field is required";
+  }
+
+  if (field.type === "email" && value) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      isValid = false;
+      errorMessage = "Please enter a valid email address";
+    }
+  }
+
+  if (field.name === "phone" && value) {
+    const phoneRegex = /^[\+]?27[-\s]?[0-9]{9}$|^0[0-9]{9}$/;
+    if (!phoneRegex.test(value.replace(/\s/g, ""))) {
+      isValid = false;
+      errorMessage = "Please enter a valid South African phone number";
+    }
+  }
+
+  if (!isValid) {
+    showFieldError(field, errorMessage);
+  } else {
+    field.parentElement.classList.add("success");
+  }
+
+  return isValid;
+}
+
+function validateFiles(fileInput) {
+  const files = fileInput.files;
+  const maxFiles = 5;
+  const maxSize = 5 * 1024 * 1024; // 5MB
+
+  clearFieldError(fileInput);
+
+  if (files.length > maxFiles) {
+    showFieldError(fileInput, `You can upload maximum ${maxFiles} files`);
+    fileInput.value = "";
+    return false;
+  }
+
+  for (let file of files) {
+    if (file.size > maxSize) {
+      showFieldError(
+        fileInput,
+        `File "${file.name}" is too large. Maximum size is 5MB.`
+      );
+      fileInput.value = "";
+      return false;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      showFieldError(
+        fileInput,
+        `File "${file.name}" is not an image. Please upload image files only.`
+      );
+      fileInput.value = "";
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function showFieldError(field, message) {
+  field.parentElement.classList.add("error");
+
+  const errorElement = document.createElement("span");
+  errorElement.className = "error-message";
+  errorElement.textContent = message;
+
+  field.parentElement.appendChild(errorElement);
+}
+
+function clearFieldError(field) {
+  field.parentElement.classList.remove("error", "success");
+
+  const errorElement = field.parentElement.querySelector(".error-message");
+  if (errorElement) {
+    errorElement.remove();
+  }
+}
+
+// =============================================
+// MAIN INITIALIZATION - Rest of the code follows...
+// =============================================
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Fire up all the ordering systems when the page loads
+  initProductTabs();
+  initOrderForm();
+  initCakeForm();
+  initCupcakeForm();
+  initCookieForm();
+  initAdditionalProducts();
+  initFileUploadGuidance();
+
+  console.log("🎂 Tay's Gourmet Treats Order System loaded successfully!");
+});
 function initCakeForm() {
-  // Initialize all cake-specific functionality
+  // Fire up all the cake-specific systems
   initPackageSelection();
   initSmartFormValidation();
   initSizeShapeSelection();
@@ -82,7 +196,7 @@ function initCakeForm() {
   initCakeFormValidation();
   initCakeFormUpdates();
 
-  // Update form action for cakes
+  // Send cake orders to the right form endpoint
   const cakeForm = document.getElementById("cakes-form");
   if (cakeForm) {
     cakeForm.action = "https://formspree.io/f/myzbrvrg";
@@ -93,7 +207,7 @@ function initCakeFormUpdates() {
   const form = document.getElementById("cakes-form");
   if (!form) return;
 
-  // Listen for changes on all interactive elements
+  // Watch all the interactive elements for changes that affect pricing
   const updateElements = form.querySelectorAll(
     'select, input[type="checkbox"], .size-option, .shape-option, .layer-btn, .delivery-option'
   );
@@ -113,7 +227,7 @@ function initCakeFormUpdates() {
     }
   });
 
-  // Also listen for clicks on option buttons
+  // Also watch for clicks on option buttons
   const optionButtons = form.querySelectorAll(
     ".size-option, .shape-option, .layer-btn, .delivery-option"
   );
@@ -152,30 +266,30 @@ function validateCakeForm() {
 }
 
 // =============================================
-// CUPCAKE FORM FUNCTIONALITY
+// CUPCAKE FORM FUNCTIONALITY - Little cakes, big flavor!
 // =============================================
 
 function initCupcakeForm() {
   const cupcakeForm = document.getElementById("cupcakes-form");
   if (!cupcakeForm) return;
 
-  // Set form action
+  // Send cupcake orders to the right place
   cupcakeForm.action = "https://formspree.io/f/mzzknwnb";
 
-  // Initialize cupcake functionality
+  // Fire up all the cupcake systems
   initCupcakeQuantity();
   initCupcakeCustomization();
   initCupcakeFormValidation();
   initCupcakePricing();
 
-  // Set default quantity
+  // Start with 12 cupcakes as a sensible default
   document
     .querySelector('.quantity-option[data-quantity="12"]')
     ?.classList.add("selected");
   const quantityInput = document.getElementById("cupcake-quantity");
   if (quantityInput) quantityInput.value = "12";
 
-  // Initialize pricing
+  // Calculate the initial price
   updateCupcakePricing();
 }
 
@@ -186,7 +300,7 @@ function initCupcakeQuantity() {
       quantityOptions.forEach((opt) => opt.classList.remove("selected"));
       this.classList.add("selected");
 
-      // Update hidden field
+      // Update the hidden quantity field
       const quantityInput = document.getElementById("cupcake-quantity");
       if (quantityInput) {
         quantityInput.value = this.getAttribute("data-quantity");
@@ -196,7 +310,7 @@ function initCupcakeQuantity() {
 }
 
 function initCupcakeCustomization() {
-  // Initialize cupcake customization options
+  // Watch for changes to cupcake customization options
   const customizationSelects = document.querySelectorAll(
     "#cupcakes-form select"
   );
@@ -208,7 +322,7 @@ function initCupcakeCustomization() {
 }
 
 function initCupcakePricing() {
-  // Listen for changes that affect pricing
+  // Watch everything that affects cupcake pricing
   const quantityOptions = document.querySelectorAll(".quantity-option");
   const extrasCheckboxes = document.querySelectorAll(
     'input[name="cupcake-extras"]'
@@ -216,28 +330,28 @@ function initCupcakePricing() {
   const colorSelect = document.getElementById("cupcake-colors");
   const frostingSelect = document.getElementById("cupcake-frosting");
 
-  // Quantity changes
+  // Quantity changes affect price
   quantityOptions.forEach((option) => {
     option.addEventListener("click", function () {
       setTimeout(updateCupcakePricing, 100);
     });
   });
 
-  // Extras changes
+  // Extra toppings cost extra
   extrasCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
       setTimeout(updateCupcakePricing, 100);
     });
   });
 
-  // Color changes (for complex designs)
+  // Complex color designs cost more
   if (colorSelect) {
     colorSelect.addEventListener("change", function () {
       setTimeout(updateCupcakePricing, 100);
     });
   }
 
-  // Frosting changes
+  // Premium frostings cost more
   if (frostingSelect) {
     frostingSelect.addEventListener("change", function () {
       setTimeout(updateCupcakePricing, 100);
@@ -249,6 +363,8 @@ function updateCupcakePricing() {
   const selectedQuantity = document
     .querySelector(".quantity-option.selected")
     ?.getAttribute("data-quantity");
+
+  // Base prices for different quantities
   const basePrices = {
     6: 180,
     12: 300,
@@ -260,12 +376,12 @@ function updateCupcakePricing() {
   let totalCost = 0;
   let additionalCost = 0;
 
-  // Base price
+  // Start with the base price
   if (selectedQuantity && basePrices[selectedQuantity]) {
     totalCost = basePrices[selectedQuantity];
   }
 
-  // Extras costs
+  // Add costs for any extras they selected
   const extraCheckboxes = document.querySelectorAll(
     'input[name="cupcake-extras"]:checked'
   );
@@ -277,24 +393,26 @@ function updateCupcakePricing() {
     }
   });
 
-  // Complex design surcharges
+  // Complex designs cost extra
   const colorSelect = document.getElementById("cupcake-colors");
   const frostingSelect = document.getElementById("cupcake-frosting");
 
+  // Extra colors surcharge
   if (colorSelect && colorSelect.value === "4") {
-    additionalCost += 30; // Additional colors surcharge
+    additionalCost += 30;
   }
 
+  // Premium frosting surcharge
   if (
     frostingSelect &&
     (frostingSelect.value === "fondant" || frostingSelect.value === "ganache")
   ) {
-    additionalCost += 25; // Premium frosting surcharge
+    additionalCost += 25;
   }
 
   totalCost += additionalCost;
 
-  // Update display
+  // Update the price display
   const basePriceElement = document.getElementById("cupcake-base-price");
   const additionalCostElement = document.getElementById(
     "cupcake-additional-cost"
@@ -313,6 +431,7 @@ function updateCupcakePricing() {
   if (estimatedTotalElement)
     estimatedTotalElement.innerHTML = `<strong>R${totalCost}</strong>`;
 
+  // Only show the extras cost if there actually are any
   if (extrasCostElement) {
     extrasCostElement.classList.toggle("hidden", additionalCost === 0);
   }
@@ -333,41 +452,41 @@ function initCupcakeFormValidation() {
 }
 
 // =============================================
-// COOKIE FORM FUNCTIONALITY
+// COOKIE FORM FUNCTIONALITY - Sweet little works of art!
 // =============================================
 
 function initCookieForm() {
   const cookieForm = document.getElementById("cookies-form");
   if (!cookieForm) return;
 
-  // Set form action
+  // Send cookie orders to the right place
   cookieForm.action = "https://formspree.io/f/mqagrjvv";
 
-  // Initialize cookie options
+  // Fire up all the cookie systems
   initCookieOptions();
   initCookieFormValidation();
   initCookiePricing();
 
-  // Set default size
+  // Start with classic cookies as default
   document
     .querySelector('.cookie-size-option[data-size="classic"]')
     ?.classList.add("selected");
   const sizeInput = document.getElementById("cookie-size");
   if (sizeInput) sizeInput.value = "classic";
 
-  // Initialize pricing
+  // Calculate the initial price
   updateCookiePricing();
 }
 
 function initCookieOptions() {
-  // Size selection
+  // Cookie size selection
   const sizeOptions = document.querySelectorAll(".cookie-size-option");
   sizeOptions.forEach((option) => {
     option.addEventListener("click", function () {
       sizeOptions.forEach((opt) => opt.classList.remove("selected"));
       this.classList.add("selected");
 
-      // Update hidden field
+      // Update the hidden size field
       const sizeInput = document.getElementById("cookie-size");
       if (sizeInput) {
         sizeInput.value = this.getAttribute("data-size");
@@ -375,7 +494,7 @@ function initCookieOptions() {
     });
   });
 
-  // Minimum quantity enforcement
+  // Minimum quantity enforcement - 12 cookies minimum!
   const quantityInput = document.getElementById("cookie-quantity");
   if (quantityInput) {
     quantityInput.addEventListener("blur", function () {
@@ -388,13 +507,13 @@ function initCookieOptions() {
       }
     });
 
-    // Set default value
+    // Set default to minimum quantity
     quantityInput.value = "12";
   }
 }
 
 function initCookiePricing() {
-  // Listen for changes that affect pricing
+  // Watch everything that affects cookie pricing
   const sizeOptions = document.querySelectorAll(".cookie-size-option");
   const quantityInput = document.getElementById("cookie-quantity");
   const extrasCheckboxes = document.querySelectorAll(
@@ -403,35 +522,35 @@ function initCookiePricing() {
   const colorSelect = document.getElementById("cookie-colors");
   const shapeSelect = document.getElementById("cookie-shapes");
 
-  // Size changes
+  // Size changes affect price
   sizeOptions.forEach((option) => {
     option.addEventListener("click", function () {
       setTimeout(updateCookiePricing, 100);
     });
   });
 
-  // Quantity changes
+  // More cookies = more money
   if (quantityInput) {
     quantityInput.addEventListener("input", function () {
       setTimeout(updateCookiePricing, 100);
     });
   }
 
-  // Extras changes
+  // Extra decorations cost extra
   extrasCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
       setTimeout(updateCookiePricing, 100);
     });
   });
 
-  // Color complexity changes
+  // Complex colors cost more
   if (colorSelect) {
     colorSelect.addEventListener("change", function () {
       setTimeout(updateCookiePricing, 100);
     });
   }
 
-  // Shape complexity changes
+  // Custom shapes cost more
   if (shapeSelect) {
     shapeSelect.addEventListener("change", function () {
       setTimeout(updateCookiePricing, 100);
@@ -446,7 +565,7 @@ function updateCookiePricing() {
   const quantityInput = document.getElementById("cookie-quantity");
   const quantity = quantityInput ? parseInt(quantityInput.value) || 12 : 12;
 
-  // Base prices per cookie
+  // Base prices per cookie type
   const basePrices = {
     classic: 25,
     gourmet: 35,
@@ -456,19 +575,19 @@ function updateCookiePricing() {
   let totalCost = 0;
   let additionalCost = 0;
 
-  // Base price
+  // Calculate base price
   if (selectedSize && basePrices[selectedSize]) {
     totalCost = basePrices[selectedSize] * quantity;
   }
 
-  // Minimum charge
+  // Enforce minimum order charge
   const minimumOrder = 12;
   const minimumPrice = basePrices[selectedSize] * minimumOrder;
   if (totalCost < minimumPrice) {
     totalCost = minimumPrice;
   }
 
-  // Extras costs
+  // Add costs for any extras
   const extraCheckboxes = document.querySelectorAll(
     'input[name="cookie-extras"]:checked'
   );
@@ -504,7 +623,7 @@ function updateCookiePricing() {
 
   totalCost += additionalCost;
 
-  // Update display
+  // Update the price display
   const basePriceElement = document.getElementById("cookie-base-price");
   const additionalCostElement = document.getElementById(
     "cookie-additional-cost"
@@ -523,6 +642,7 @@ function updateCookiePricing() {
   if (estimatedTotalElement)
     estimatedTotalElement.innerHTML = `<strong>R${totalCost}</strong>`;
 
+  // Only show extras cost if there are any
   if (extrasCostElement) {
     extrasCostElement.classList.toggle("hidden", additionalCost === 0);
   }
@@ -553,7 +673,7 @@ function initCookieFormValidation() {
 }
 
 // =============================================
-// ADDITIONAL PRODUCTS SELECTION - ENHANCED WITH SINGLE SELECTION
+// ADDITIONAL PRODUCTS - Add cupcakes or cookies to cake orders
 // =============================================
 
 function initAdditionalProducts() {
@@ -563,29 +683,29 @@ function initAdditionalProducts() {
       const product = this.getAttribute("data-product");
       const checkbox = this.querySelector('input[type="checkbox"]');
 
-      // If already selected, do nothing (prevent unselecting)
+      // If already selected, do nothing (we don't want them unselecting)
       if (this.classList.contains("selected")) {
         return;
       }
 
-      // Toggle selection
+      // Toggle the selection
       this.classList.toggle("selected");
       checkbox.checked = !checkbox.checked;
 
       if (checkbox.checked) {
-        // Add product form section to cake form
+        // Add the product form section to the cake order
         addProductFormToCakeOrder(product);
         showSelectionConfirmation(`Added ${product} to your order!`);
 
         // Remove the option button after selection
         removeAdditionalOptionButton(product);
       } else {
-        // Remove product form section from cake form
+        // Remove the product form section
         removeProductFormFromCakeOrder(product);
         showSelectionConfirmation(`Removed ${product} from your order.`);
       }
 
-      // Update pricing
+      // Update the pricing
       setTimeout(window.updateCostSummary, 100);
     });
   });
@@ -596,7 +716,7 @@ function removeAdditionalOptionButton(productType) {
     `.additional-option[data-product="${productType}"]`
   );
   if (additionalOption) {
-    // Instead of removing, we can disable it and change the appearance
+    // Instead of removing, we disable it and change how it looks
     additionalOption.style.opacity = "0.6";
     additionalOption.style.pointerEvents = "none";
     additionalOption.innerHTML = `
@@ -607,9 +727,6 @@ function removeAdditionalOptionButton(productType) {
         <small>Customize in form below</small>
       </div>
     `;
-
-    // Or if you prefer to completely remove it:
-    // additionalOption.remove();
   }
 }
 
@@ -652,7 +769,7 @@ function restoreAdditionalOptionButton(productType) {
     `;
   }
 
-  // Insert the button back (you might want to position it appropriately)
+  // Add the button back to the page
   additionalProductsSection.insertAdjacentHTML("beforeend", buttonHTML);
 
   // Re-initialize the click handler for the new button
@@ -696,6 +813,7 @@ function addProductFormToCakeOrder(productType) {
   const cakeForm = document.getElementById("cakes-form");
   if (!cakeForm) return;
 
+  // Remove any existing section first
   removeProductFormFromCakeOrder(productType);
 
   let productHTML = "";
@@ -842,7 +960,7 @@ function addProductFormToCakeOrder(productType) {
     `;
   }
 
-  // Insert before the Additional Products section
+  // Insert the new section before the Additional Products section
   const additionalProductsSection = cakeForm.querySelector(
     ".additional-products"
   );
@@ -855,7 +973,7 @@ function addProductFormToCakeOrder(productType) {
 }
 
 function initAdditionalProductSection(productType) {
-  // Initialize quantity selection for additional products
+  // Set up quantity selection for the additional products
   const quantityOptions = document.querySelectorAll(
     `.additional-quantity[data-product="${productType}"]`
   );
@@ -880,7 +998,7 @@ function initAdditionalProductSection(productType) {
     }
   });
 
-  // Initialize remove buttons
+  // Set up remove buttons
   const removeButtons = document.querySelectorAll(
     `.remove-additional-product[data-product="${productType}"]`
   );
@@ -893,7 +1011,7 @@ function initAdditionalProductSection(productType) {
     });
   });
 
-  // Initialize form element listeners
+  // Watch for changes in the new form elements
   const selects = document.querySelectorAll(
     `.additional-product-section[data-product="${productType}"] select`
   );
@@ -909,19 +1027,20 @@ function initAdditionalProductSection(productType) {
 
   textareas.forEach((textarea) => {
     textarea.addEventListener("input", function () {
-      // Character counting or other features can be added here
+      // We could add character counting here later
     });
   });
 }
+
 // =============================================
-// UPDATED COST CALCULATION WITH ADDITIONAL PRODUCTS
+// COST CALCULATION SYSTEM - The money math!
 // =============================================
 
 window.updateCostSummary = function () {
   let totalCost = 0;
   let breakdown = [];
 
-  // Get package cost
+  // Start with package cost
   const selectedPackage = window.selectedPackage;
   if (selectedPackage && window.packagePrices[selectedPackage]) {
     totalCost += window.packagePrices[selectedPackage];
@@ -1038,7 +1157,7 @@ window.updateCostSummary = function () {
     }
   }
 
-  // Add extras costs
+  // Add extras costs (sprinkles, decorations, etc.)
   const extraCheckboxes = document.querySelectorAll(
     'input[name="extras"]:checked'
   );
@@ -1118,7 +1237,7 @@ window.updateCostSummary = function () {
     }
   }
 
-  // Update display
+  // Update all the displays
   updateCostDisplay(totalCost, breakdown);
   updateOrderSummary(totalCost, breakdown);
 };
@@ -1148,219 +1267,7 @@ function updateCostDisplay(totalCost, breakdown) {
 }
 
 // =============================================
-// FILE UPLOAD GUIDANCE
-// =============================================
-
-function initFileUploadGuidance() {
-  // Add click tracking for Google Forms links
-  const googleFormsLinks = document.querySelectorAll(".google-forms-link");
-  googleFormsLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      showSelectionConfirmation(
-        "Opening Google Forms for large file uploads..."
-      );
-    });
-  });
-}
-
-// =============================================
-// FORM VALIDATION (GENERIC)
-// =============================================
-
-function initOrderForm() {
-  const forms = document.querySelectorAll(".product-form");
-
-  forms.forEach((form) => {
-    // Basic validation
-    const inputs = form.querySelectorAll(
-      "input[required], select[required], textarea[required]"
-    );
-    inputs.forEach((input) => {
-      input.addEventListener("blur", function () {
-        validateField(this);
-      });
-
-      input.addEventListener("input", function () {
-        clearFieldError(this);
-      });
-    });
-
-    // Phone formatting
-    const phoneInputs = form.querySelectorAll('input[type="tel"]');
-    phoneInputs.forEach((phoneInput) => {
-      phoneInput.addEventListener("input", function (e) {
-        let value = e.target.value.replace(/\D/g, "");
-
-        if (value.startsWith("27")) {
-          value = "+" + value;
-        }
-
-        if (value.length > 2) {
-          value = value.replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, "$1 $2 $3 $4");
-        }
-
-        e.target.value = value;
-      });
-    });
-
-    // Date validation - set minimum date to today
-    const dateInputs = form.querySelectorAll('input[type="date"]');
-    dateInputs.forEach((dateInput) => {
-      const today = new Date().toISOString().split("T")[0];
-      dateInput.min = today;
-
-      dateInput.addEventListener("change", function () {
-        const selectedDate = new Date(this.value);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        if (selectedDate < today) {
-          showFieldError(this, "Please select a future date");
-        } else {
-          clearFieldError(this);
-        }
-      });
-    });
-
-    // File upload validation
-    const fileInputs = form.querySelectorAll('input[type="file"]');
-    fileInputs.forEach((fileInput) => {
-      fileInput.addEventListener("change", function () {
-        validateFiles(this);
-      });
-    });
-  });
-}
-
-// =============================================
-// VALIDATION FUNCTIONS
-// =============================================
-
-function validateField(field) {
-  const value = field.value.trim();
-  let isValid = true;
-  let errorMessage = "";
-
-  clearFieldError(field);
-
-  if (field.hasAttribute("required") && !value) {
-    isValid = false;
-    errorMessage = "This field is required";
-  }
-
-  if (field.type === "email" && value) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(value)) {
-      isValid = false;
-      errorMessage = "Please enter a valid email address";
-    }
-  }
-
-  if (field.name === "phone" && value) {
-    const phoneRegex = /^[\+]?27[-\s]?[0-9]{9}$|^0[0-9]{9}$/;
-    if (!phoneRegex.test(value.replace(/\s/g, ""))) {
-      isValid = false;
-      errorMessage = "Please enter a valid South African phone number";
-    }
-  }
-
-  if (!isValid) {
-    showFieldError(field, errorMessage);
-  } else {
-    field.parentElement.classList.add("success");
-  }
-
-  return isValid;
-}
-
-function validateFiles(fileInput) {
-  const files = fileInput.files;
-  const maxFiles = 5;
-  const maxSize = 5 * 1024 * 1024; // 5MB
-
-  clearFieldError(fileInput);
-
-  if (files.length > maxFiles) {
-    showFieldError(fileInput, `You can upload maximum ${maxFiles} files`);
-    fileInput.value = "";
-    return false;
-  }
-
-  for (let file of files) {
-    if (file.size > maxSize) {
-      showFieldError(
-        fileInput,
-        `File "${file.name}" is too large. Maximum size is 5MB.`
-      );
-      fileInput.value = "";
-      return false;
-    }
-
-    if (!file.type.startsWith("image/")) {
-      showFieldError(
-        fileInput,
-        `File "${file.name}" is not an image. Please upload image files only.`
-      );
-      fileInput.value = "";
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function showFieldError(field, message) {
-  field.parentElement.classList.add("error");
-
-  const errorElement = document.createElement("span");
-  errorElement.className = "error-message";
-  errorElement.textContent = message;
-
-  field.parentElement.appendChild(errorElement);
-}
-
-function clearFieldError(field) {
-  field.parentElement.classList.remove("error", "success");
-
-  const errorElement = field.parentElement.querySelector(".error-message");
-  if (errorElement) {
-    errorElement.remove();
-  }
-}
-
-// =============================================
-// NOTIFICATION SYSTEM
-// =============================================
-
-function showSelectionConfirmation(message) {
-  const confirmation = document.createElement("div");
-  confirmation.textContent = message;
-  confirmation.style.cssText = `
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    background: var(--pink-bright);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    z-index: 1000;
-    animation: slideIn 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    word-wrap: break-word;
-  `;
-  document.body.appendChild(confirmation);
-
-  setTimeout(() => {
-    confirmation.style.animation = "slideOut 0.3s ease";
-    setTimeout(() => {
-      confirmation.remove();
-    }, 300);
-  }, 3000);
-}
-
-// =============================================
-// CAKE-SPECIFIC FUNCTIONALITY
+// CAKE-SPECIFIC FUNCTIONALITY - The detailed cake stuff
 // =============================================
 
 // Package Selection Functionality
@@ -1422,7 +1329,7 @@ function initSmartFormValidation() {
     "custom-cake": 250,
   };
 
-  // Size pricing
+  // Size pricing - bigger cakes cost more!
   const sizePrices = {
     "4-inch": 0,
     "7-inch": 200,
@@ -1430,7 +1337,7 @@ function initSmartFormValidation() {
     "12-inch": 700,
   };
 
-  // Shape pricing
+  // Shape pricing - fancy shapes cost extra
   const shapePrices = {
     circle: 0,
     square: 50,
@@ -1440,7 +1347,7 @@ function initSmartFormValidation() {
     custom: 200,
   };
 
-  // Layer pricing
+  // Layer pricing - more layers = more cake!
   const layerPrices = {
     2: -50,
     3: 0,
@@ -1554,7 +1461,7 @@ function initSmartFormValidation() {
     });
   }
 
-  // Store prices globally for updateCostSummary
+  // Store prices globally for updateCostSummary to use
   window.packagePrices = packagePrices;
   window.sizePrices = sizePrices;
   window.shapePrices = shapePrices;
@@ -1562,7 +1469,7 @@ function initSmartFormValidation() {
   window.upgradeCosts = upgradeCosts;
   window.deliveryCosts = deliveryCosts;
 
-  // Initialize
+  // Initialize everything
   validateBentoSelections();
   setTimeout(window.updateCostSummary, 200);
 }
@@ -1581,7 +1488,7 @@ function validateBentoSelections() {
   // Check if current order is a Bento package
   const isBento = orderTypeSelect && orderTypeSelect.value === "bento-cake";
 
-  // Flavor validation
+  // Flavor validation for bento cakes
   if (isBento && flavorSelect && flavorSelect.value) {
     const selectedOption = flavorSelect.options[flavorSelect.selectedIndex];
     const isBasic = selectedOption.getAttribute("data-basic") === "true";
@@ -1590,7 +1497,7 @@ function validateBentoSelections() {
     if (flavorWarning) flavorWarning.classList.add("hidden");
   }
 
-  // Color validation
+  // Color validation for bento cakes
   if (isBento && colorSelect && colorSelect.value) {
     const selectedOption = colorSelect.options[colorSelect.selectedIndex];
     const isBasic = selectedOption.getAttribute("data-basic") === "true";
@@ -1599,7 +1506,7 @@ function validateBentoSelections() {
     if (colorWarning) colorWarning.classList.add("hidden");
   }
 
-  // Frosting validation
+  // Frosting validation for bento cakes
   if (isBento && frostingSelect && frostingSelect.value) {
     const selectedOption = frostingSelect.options[frostingSelect.selectedIndex];
     const isBasic = selectedOption.getAttribute("data-basic") === "true";
@@ -1641,7 +1548,7 @@ function initSizeShapeSelection() {
     });
   });
 
-  // Default selections
+  // Default selections - 4-inch circle cake with 3 layers
   document
     .querySelector('.size-option[data-size="4-inch"]')
     ?.classList.add("selected");
@@ -1663,6 +1570,7 @@ function initCalendarAvailability() {
 
   let calendarHTML = "";
 
+  // Show availability for the next 14 days
   for (let i = 0; i < 14; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
@@ -1731,6 +1639,7 @@ function generateAvailabilityData() {
   const data = {};
   const today = new Date();
 
+  // This generates sample availability data
   for (let i = 0; i < 14; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
@@ -1738,6 +1647,7 @@ function generateAvailabilityData() {
 
     const isWeekend = date.getDay() === 0 || date.getDay() === 6;
 
+    // Simple logic: more availability further in the future
     if (i < 14) {
       if (i < 7) {
         data[dateString] = {
@@ -1769,6 +1679,7 @@ function initDeliveryOptions() {
     });
   });
 
+  // Default to collection (it's free!)
   document
     .querySelector('.delivery-option[data-delivery="collection"]')
     ?.classList.add("selected");
@@ -1805,22 +1716,118 @@ function updateOrderSummary(totalCost, breakdown) {
 }
 
 // =============================================
-// CSS ANIMATIONS
+// BASIC FORM VALIDATION - Shared across all forms
 // =============================================
 
-const style = document.createElement("style");
-style.textContent = `
-  @keyframes slideIn {
-    from { transform: translateX(100px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-  }
-  @keyframes slideOut {
-    from { transform: translateX(0); opacity: 1; }
-    to { transform: translateX(100px); opacity: 0; }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-`;
-document.head.appendChild(style);
+function initOrderForm() {
+  const forms = document.querySelectorAll(".product-form");
+
+  forms.forEach((form) => {
+    // Basic validation for required fields
+    const inputs = form.querySelectorAll(
+      "input[required], select[required], textarea[required]"
+    );
+    inputs.forEach((input) => {
+      input.addEventListener("blur", function () {
+        validateField(this);
+      });
+
+      input.addEventListener("input", function () {
+        clearFieldError(this);
+      });
+    });
+
+    // Phone formatting
+    const phoneInputs = form.querySelectorAll('input[type="tel"]');
+    phoneInputs.forEach((phoneInput) => {
+      phoneInput.addEventListener("input", function (e) {
+        let value = e.target.value.replace(/\D/g, "");
+
+        // Handle South African number format
+        if (value.startsWith("27")) {
+          value = "+" + value;
+        }
+
+        // Add spaces for readability
+        if (value.length > 2) {
+          value = value.replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, "$1 $2 $3 $4");
+        }
+
+        e.target.value = value;
+      });
+    });
+
+    // Date validation - can't order for past dates!
+    const dateInputs = form.querySelectorAll('input[type="date"]');
+    dateInputs.forEach((dateInput) => {
+      const today = new Date().toISOString().split("T")[0];
+      dateInput.min = today;
+
+      dateInput.addEventListener("change", function () {
+        const selectedDate = new Date(this.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (selectedDate < today) {
+          showFieldError(this, "Please select a future date");
+        } else {
+          clearFieldError(this);
+        }
+      });
+    });
+
+    // File upload validation
+    const fileInputs = form.querySelectorAll('input[type="file"]');
+    fileInputs.forEach((fileInput) => {
+      fileInput.addEventListener("change", function () {
+        validateFiles(this);
+      });
+    });
+  });
+}
+
+// =============================================
+// FILE UPLOAD GUIDANCE - Help with large files
+// =============================================
+
+function initFileUploadGuidance() {
+  // Add click tracking for Google Forms links
+  const googleFormsLinks = document.querySelectorAll(".google-forms-link");
+  googleFormsLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      showSelectionConfirmation(
+        "Opening Google Forms for large file uploads..."
+      );
+    });
+  });
+}
+// =============================================
+// NOTIFICATION SYSTEM
+// =============================================
+
+function showSelectionConfirmation(message) {
+  const confirmation = document.createElement("div");
+  confirmation.textContent = message;
+  confirmation.style.cssText = `
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: var(--pink-bright);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    word-wrap: break-word;
+  `;
+  document.body.appendChild(confirmation);
+
+  setTimeout(() => {
+    confirmation.style.animation = "slideOut 0.3s ease";
+    setTimeout(() => {
+      confirmation.remove();
+    }, 300);
+  }, 3000);
+}

@@ -1,43 +1,47 @@
-// scripts/backToTop.js
+// backToTop.js - Smooth scrolling back to top button
+// This makes it easy for people to get back to the top of any page
+
 class BackToTop {
   constructor() {
+    // Each page has its own scroll position so we don't always go to the VERY top
+    // Some pages have headers that stick out, so we need slight offsets
     this.pageConfigs = {
-      // Home page
+      // Home page - scroll to the landing section
       Home: {
         topElement: ".landing_page",
         scrollOffset: 0,
       },
-      // About Us
+      // About Us - scroll to the about wrapper with a tiny offset
       "About Us": {
         topElement: ".about-wrapper",
         scrollOffset: -20,
       },
-      // Gallery
+      // Gallery - scroll to the gallery section
       Gallery: {
         topElement: "#gallery",
         scrollOffset: -10,
       },
-      // Order
+      // Order - scroll to the order call-to-action section
       Order: {
         topElement: ".gallery-cta",
         scrollOffset: -30,
       },
-      // Events
+      // Events - scroll to the events hero section
       Events: {
         topElement: ".events-hero",
         scrollOffset: 0,
       },
-      // Kiddies Corner main page
+      // Kiddies Corner - scroll to the kiddies hero
       "Kiddies Corner": {
         topElement: ".kiddies-hero",
         scrollOffset: -10,
       },
-      // Contact Us
+      // Contact Us - scroll to the FAQ container
       "Contact Us": {
         topElement: ".faq-container",
         scrollOffset: -20,
       },
-      // Kiddies Blog pages - they'll use the same as Kiddies Corner
+      // All the kiddies blog pages use the same blog container
       "Kiddies Blog 1": {
         topElement: ".blog-container",
         scrollOffset: -10,
@@ -64,52 +68,56 @@ class BackToTop {
       },
     };
 
+    // Create the button and set up all the event listeners
     this.createButton();
     this.setupEventListeners();
   }
 
+  // Figure out which page we're on so we know where to scroll to
   getCurrentPage() {
-    // Method 1: Use the existing currentPage variable if available
+    // First try: use the existing currentPage variable if it's available
     if (typeof currentPage !== "undefined") {
       console.log("Using currentPage variable:", currentPage);
       return currentPage;
     }
 
-    // Method 2: Fallback to URL detection
+    // Fallback: figure out the page from the URL
     const path = window.location.pathname;
     console.log("Detected path:", path);
 
+    // Check the URL for clues about which page we're on
     if (path.includes("about") || path.includes("About-Us")) return "About Us";
     if (path.includes("gallery") || path.includes("Gallery")) return "Gallery";
     if (path.includes("order") || path.includes("Order")) return "Order";
     if (path.includes("events") || path.includes("Events")) return "Events";
     if (path.includes("kiddies") || path.includes("Kiddies")) {
-      // Check if it's a blog page or main page
+      // Check if it's a blog page or the main kiddies page
       if (path.includes("blog") || path.includes("Blog")) {
-        // It's a blog page - use blog container
-        return "Kiddies Blog 1"; // All blogs use same config
+        // It's a blog page - use blog container settings
+        return "Kiddies Blog 1"; // All blogs use the same config
       }
       return "Kiddies Corner";
     }
     if (path.includes("contact") || path.includes("Contact-Us"))
       return "Contact Us";
 
-    // Default to Home
+    // If we can't figure it out, default to Home
     return "Home";
   }
 
+  // Create the actual back-to-top button
   createButton() {
     this.button = document.createElement("button");
     this.button.setAttribute("aria-label", "Back to top");
     this.button.className = "back-to-top";
 
-    // Create image element
+    // Create the image for the button
     const img = document.createElement("img");
     img.src = "../assets/images/BackToTop.png";
     img.alt = "Back to top";
     img.className = "back-to-top-img";
 
-    // Add fallback text
+    // Add a fallback text in case the image doesn't load
     const fallbackText = document.createElement("span");
     fallbackText.className = "back-to-top-fallback";
     fallbackText.textContent = "↑";
@@ -119,31 +127,40 @@ class BackToTop {
     this.button.appendChild(fallbackText);
     document.body.appendChild(this.button);
 
-    // Handle image load error
+    // Handle image load errors - show the fallback text instead
     img.onerror = () => {
       img.style.display = "none";
       fallbackText.style.display = "block";
       this.button.classList.add("with-bg");
     };
 
+    // When image loads successfully, add a class for styling
     img.onload = () => {
       this.button.classList.add("has-image");
     };
 
-    // Initial hidden state
+    // Start with the button hidden
     gsap.set(this.button, { opacity: 0, scale: 0 });
   }
 
+  // Set up all the button interactions
   setupEventListeners() {
+    // Click to scroll to top
     this.button.addEventListener("click", () => this.scrollToTop());
+
+    // Show/hide based on scroll position
     window.addEventListener("scroll", () => this.toggleVisibility());
 
+    // Show when focused (for keyboard users)
     this.button.addEventListener("focus", () => this.showButton());
+
+    // Hide when blurred, but only if we're near the top
     this.button.addEventListener("blur", () => {
       if (window.scrollY <= 300) this.hideButton();
     });
   }
 
+  // The main scroll function - smooth scrolls to the right position
   scrollToTop() {
     const pageKey = this.getCurrentPage();
     const config = this.pageConfigs[pageKey] || this.pageConfigs["Home"];
@@ -153,18 +170,18 @@ class BackToTop {
     console.log(`Scrolling to top for: ${pageKey}`, { topElement, offset });
 
     if (topElement) {
-      // Calculate the target position
+      // Calculate exactly where we need to scroll to
       const rect = topElement.getBoundingClientRect();
       const targetPosition = window.pageYOffset + rect.top + offset;
 
-      // Smooth scroll with GSAP - FIXED SYNTAX
+      // Smooth scroll with GSAP - this feels really nice
       gsap.to(window, {
         duration: 0.8,
-        scrollTo: targetPosition, // Just pass the numeric position
+        scrollTo: targetPosition, // Just the numeric position
         ease: "power2.inOut",
       });
     } else {
-      // Fallback to top of page
+      // Fallback: just go to the very top of the page
       gsap.to(window, {
         duration: 0.8,
         scrollTo: 0,
@@ -172,7 +189,7 @@ class BackToTop {
       });
     }
 
-    // Button bounce animation
+    // Fun little bounce animation when clicked
     gsap.to(this.button, {
       scale: 1.2,
       duration: 0.2,
@@ -181,6 +198,7 @@ class BackToTop {
     });
   }
 
+  // Show or hide the button based on scroll position
   toggleVisibility() {
     if (window.scrollY > 300) {
       this.showButton();
@@ -189,6 +207,7 @@ class BackToTop {
     }
   }
 
+  // Animate the button in
   showButton() {
     gsap.to(this.button, {
       opacity: 1,
@@ -198,6 +217,7 @@ class BackToTop {
     });
   }
 
+  // Animate the button out
   hideButton() {
     gsap.to(this.button, {
       opacity: 0,

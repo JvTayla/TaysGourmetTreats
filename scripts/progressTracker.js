@@ -1,4 +1,6 @@
-// Progress Tracker for Tay's Gourmet Treats Order Forms
+// progressTracker.js - Shows form completion progress
+// This helps people see how much of the form they've filled out
+
 class ProgressTracker {
   constructor() {
     this.currentForm = null;
@@ -6,7 +8,7 @@ class ProgressTracker {
   }
 
   initializeTracker() {
-    // Wait for DOM to be fully loaded
+    // Wait for the page to fully load before setting things up
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", () => this.setupTracker());
     } else {
@@ -19,12 +21,13 @@ class ProgressTracker {
     this.setupFormListeners();
     this.setupTabListeners();
 
-    // Initial update
+    // Do an initial progress check
     this.updateProgress();
   }
 
   createProgressCircle() {
-    // The HTML is already in the main file, just ensure it exists
+    // The HTML for the progress circle is already in the main file
+    // We just need to make sure we can find it
     this.progressCircle = document.querySelector(".progress-circle-container");
     if (!this.progressCircle) {
       console.warn("Progress circle container not found");
@@ -32,27 +35,28 @@ class ProgressTracker {
   }
 
   setupTabListeners() {
+    // When people switch between cake/cupcake/cookie tabs, update progress
     const tabs = document.querySelectorAll(".product-tab");
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {
-        // Small delay to allow form switch to complete
+        // Small delay to let the form switch complete
         setTimeout(() => this.updateProgress(), 100);
       });
     });
   }
 
   setupFormListeners() {
-    // Get all forms
+    // Get all the product forms (cakes, cupcakes, cookies)
     const forms = document.querySelectorAll(".product-form");
 
     forms.forEach((form) => {
-      // Listen to all input events
+      // Listen to any input in the forms
       form.addEventListener("input", () => this.updateProgress());
 
-      // Listen to all change events (for selects, checkboxes, etc.)
+      // Listen to changes (for selects, checkboxes, etc.)
       form.addEventListener("change", () => this.updateProgress());
 
-      // Listen to click events for custom buttons (size options, etc.)
+      // Listen to clicks on custom buttons (size options, etc.)
       form.addEventListener("click", (e) => {
         if (
           e.target.closest(
@@ -65,11 +69,13 @@ class ProgressTracker {
     });
   }
 
+  // Figure out which form is currently active
   getCurrentForm() {
     const activeForm = document.querySelector(".product-form.active");
     return activeForm || document.getElementById("cakes-form");
   }
 
+  // The main function that calculates and updates progress
   updateProgress() {
     const form = this.getCurrentForm();
     if (!form) return;
@@ -81,8 +87,9 @@ class ProgressTracker {
     this.updateProgressDisplay(progress);
   }
 
+  // Find all the fields that need to be filled out
   getRequiredFields(form) {
-    // Get all required fields in the current form
+    // Get all the regular required fields
     const fields = form.querySelectorAll(
       "input[required], select[required], textarea[required]"
     );
@@ -93,6 +100,7 @@ class ProgressTracker {
     return [...fields, ...customRequired];
   }
 
+  // Find custom elements that act like required fields
   getCustomRequiredFields(form) {
     const customFields = [];
 
@@ -108,11 +116,11 @@ class ProgressTracker {
     const selectedDelivery = form.querySelector(".delivery-option.selected");
     if (selectedDelivery) customFields.push(selectedDelivery);
 
-    // For cupcakes: quantity selection
+    // Cupcake quantity selection
     const selectedQuantity = form.querySelector(".quantity-option.selected");
     if (selectedQuantity) customFields.push(selectedQuantity);
 
-    // For cookies: size selection
+    // Cookie size selection
     const selectedCookieSize = form.querySelector(
       ".cookie-size-option.selected"
     );
@@ -121,15 +129,18 @@ class ProgressTracker {
     return customFields;
   }
 
+  // Figure out which required fields have been completed
   getCompletedFields(requiredFields) {
     return requiredFields.filter((field) => {
+      // Custom selected elements are considered completed
       if (field.classList && field.classList.contains("selected")) {
-        return true; // Custom selected elements are considered completed
+        return true;
       }
 
       const tagName = field.tagName.toLowerCase();
       const type = field.type ? field.type.toLowerCase() : "";
 
+      // Different field types need different completion checks
       switch (tagName) {
         case "input":
           if (type === "checkbox" || type === "radio") {
@@ -149,11 +160,13 @@ class ProgressTracker {
     });
   }
 
+  // Calculate the percentage of completion
   calculateProgress(completed, total) {
     if (total.length === 0) return 0;
     return (completed.length / total.length) * 100;
   }
 
+  // Update the visual progress display
   updateProgressDisplay(progress) {
     const percentElement = document.querySelector(".progress-percent");
     const fillElement = document.querySelector(".circle-fill");
@@ -162,29 +175,31 @@ class ProgressTracker {
       const roundedProgress = Math.round(progress);
       percentElement.textContent = `${roundedProgress}%`;
 
-      // Update the conic gradient for the circle fill
+      // Update the circle fill with a conic gradient
       fillElement.style.background = `conic-gradient(#4CAF50 ${progress}%, #ffffffff ${progress}%)`;
 
-      // Optional: Change color based on progress
+      // Change color based on how complete they are
       this.updateProgressColor(progress, fillElement);
     }
   }
 
+  // Make the progress circle change colors as it fills up
   updateProgressColor(progress, fillElement) {
-    // Change color based on completion level
+    // Different colors for different completion levels
     if (progress >= 90) {
-      fillElement.style.background = `conic-gradient(#ffa8ce ${progress}%, #ffffffff ${progress}%)`; // Dark green
+      fillElement.style.background = `conic-gradient(#ffa8ce ${progress}%, #ffffffff ${progress}%)`; // Dark pink
     } else if (progress >= 50) {
-      fillElement.style.background = `conic-gradient(#ff5da4 ${progress}%, #ffffffff ${progress}%)`; // Green
+      fillElement.style.background = `conic-gradient(#ff5da4 ${progress}%, #ffffffff ${progress}%)`; // Medium pink
     } else if (progress >= 25) {
-      fillElement.style.background = `conic-gradient(#d83d7f ${progress}%, #ffffffff ${progress}%)`; // Orange
+      fillElement.style.background = `conic-gradient(#d83d7f ${progress}%, #ffffffff ${progress}%)`; // Light pink
     } else {
-      fillElement.style.background = `conic-gradient(#d83d7f ${progress}%, #ffffffff ${progress}%)`; // Red
+      fillElement.style.background = `conic-gradient(#d83d7f ${progress}%, #ffffffff ${progress}%)`; // Base pink
     }
   }
 }
 
-// Initialize the progress tracker when the script loads
+// Create the progress tracker when the page loads
 const progressTracker = new ProgressTracker();
 
+// Make it available globally so other scripts can trigger updates
 window.updateFormProgress = () => progressTracker.updateProgress();

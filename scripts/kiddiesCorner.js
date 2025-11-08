@@ -1,13 +1,16 @@
-// Kiddies Corner JavaScript
+// kiddiesCorner.js - Kiddies Corner JavaScript
+// This handles the kids' section with recipes, blogs, and fun animations
+
+// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// Spoonacular API Configuration
+// Spoonacular API Configuration for recipe searches
 const SPOONACULAR_API_KEY = "eb28a73d78744f4ab57ee67205cfc369";
 const SPOONACULAR_BASE_URL = "https://api.spoonacular.com/recipes";
 
-// GSAP Animations
+// GSAP Animations for the kiddies section
 function initAnimations() {
-  // Hero animation
+  // Hero title animation
   gsap.from(".hero-title", {
     duration: 1,
     y: 50,
@@ -15,6 +18,7 @@ function initAnimations() {
     ease: "back.out(1.7)",
   });
 
+  // Hero text paragraphs stagger in
   gsap.from(".hero-text p", {
     duration: 1,
     y: 30,
@@ -23,7 +27,7 @@ function initAnimations() {
     delay: 0.5,
   });
 
-  // Blog cards animation
+  // Blog cards slide up when scrolled to
   gsap.from(".blog-card", {
     duration: 1,
     y: 50,
@@ -35,7 +39,7 @@ function initAnimations() {
     },
   });
 
-  // Search section animation
+  // Search section slides up
   gsap.from(".recipe-finder-section", {
     duration: 1,
     y: 30,
@@ -46,7 +50,7 @@ function initAnimations() {
     },
   });
 
-  // Saved recipes section animation
+  // Saved recipes section slides up
   gsap.from(".saved-recipes-section", {
     duration: 1,
     y: 30,
@@ -57,12 +61,12 @@ function initAnimations() {
     },
   });
 
-  // Floating sprinkles
+  // Floating sprinkles - continuous bouncy animation
   gsap.to(".floating-sprinkle", {
     y: -20,
     rotation: 360,
     duration: 2,
-    repeat: -1,
+    repeat: -1, // Loop forever
     yoyo: true,
     stagger: 0.5,
     ease: "sine.inOut",
@@ -87,7 +91,7 @@ function openBlog(blogNumber) {
   }
 }
 
-// Search suggestion handler
+// Search suggestion handler - fill search box with suggested terms
 function searchSuggestion(term) {
   document.getElementById("recipeSearch").value = term;
   searchRecipes();
@@ -108,7 +112,7 @@ async function searchRecipes() {
     '<p class="loading">Searching for kid-friendly recipes...</p>';
 
   try {
-    // Search with kid-friendly parameters
+    // Search with kid-friendly parameters - shorter recipes, popular ones
     const response = await fetch(
       `${SPOONACULAR_BASE_URL}/complexSearch?apiKey=${SPOONACULAR_API_KEY}&query=${encodeURIComponent(
         searchTerm
@@ -122,9 +126,9 @@ async function searchRecipes() {
     const data = await response.json();
 
     if (data.results && data.results.length > 0) {
-      // Filter for simpler recipes (shorter ready times)
+      // Filter for simpler recipes (shorter ready times are better for kids)
       const kidFriendlyRecipes = data.results.filter(
-        (recipe) => recipe.readyInMinutes <= 90 // Shorter recipes
+        (recipe) => recipe.readyInMinutes <= 90 // Shorter recipes work better
       );
 
       if (kidFriendlyRecipes.length > 0) {
@@ -140,11 +144,11 @@ async function searchRecipes() {
   } catch (error) {
     console.error("Error fetching recipes:", error);
     resultsDiv.innerHTML = `
-            <div class="error">
-                <p>Could not fetch recipes at this time</p>
-                <p><small>Error: ${error.message}</small></p>
-            </div>
-        `;
+      <div class="error">
+        <p>Could not fetch recipes at this time</p>
+        <p><small>Error: ${error.message}</small></p>
+      </div>
+    `;
   }
 }
 
