@@ -243,6 +243,7 @@
               name="full-name"
               required
               placeholder="Enter your full name"
+              autocomplete="name"
             />
           </div>
           <div class="form-row">
@@ -254,6 +255,7 @@
                 name="email"
                 required
                 placeholder="your.email@example.com"
+                autocomplete="email"
               />
             </div>
             <div class="form-group">
@@ -264,6 +266,7 @@
                 name="phone"
                 required
                 placeholder="+27 82 123 4567"
+                autocomplete="tel"
               />
             </div>
           </div>
@@ -273,8 +276,8 @@
         <section class="form-section">
           <h3>Order Details</h3>
           <div class="form-group">
-            <label for="order-type">Cake Type *</label>
-            <select id="order-type" name="order-type" required>
+            <label for="cakes-order-type">Cake Type *</label>
+            <select id="cakes-order-type" name="order-type" required>
               <option value="">Select cake type</option>
               <option value="custom-cake">Custom Cake</option>
               <option value="bento-cake">Bento Cake</option>
@@ -282,18 +285,18 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="serving-size">Serving Size / Quantity *</label>
+            <label for="cakes-serving-size">Serving Size / Quantity *</label>
             <input
               type="text"
-              id="serving-size"
+              id="cakes-serving-size"
               name="serving-size"
               required
               placeholder="e.g., 20 people, 2 dozen cupcakes"
             />
           </div>
           <div class="form-group">
-            <label for="budget-range">Budget Range</label>
-            <select id="budget-range" name="budget-range">
+            <label for="cakes-budget-range">Budget Range</label>
+            <select id="cakes-budget-range" name="budget-range">
               <option value="">Select budget range (optional)</option>
               <option value="under-300">Under R300</option>
               <option value="300-500">R300 - R500</option>
@@ -304,10 +307,10 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="occasion">Occasion *</label>
+            <label for="cakes-occasion">Occasion *</label>
             <input
               type="text"
-              id="occasion"
+              id="cakes-occasion"
               name="occasion"
               required
               placeholder="e.g., Birthday, Wedding, Corporate Event"
@@ -319,8 +322,12 @@
         <section class="form-section" id="size-shape-section">
           <h3>Cake Size & Shape</h3>
           <div class="form-group">
-            <label>Select Cake Size *</label>
-            <div class="size-shape-grid">
+            <label id="cakes-size-label">Select Cake Size *</label>
+            <div
+              class="size-shape-grid"
+              role="group"
+              aria-labelledby="cakes-size-label"
+            >
               <div class="size-option" data-size="4-inch">
                 <div>4-Inch</div>
                 <div class="size-price">+R0</div>
@@ -344,8 +351,12 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Select Cake Shape *</label>
-            <div class="size-shape-grid">
+            <label id="cakes-shape-label">Select Cake Shape *</label>
+            <div
+              class="size-shape-grid"
+              role="group"
+              aria-labelledby="cakes-shape-label"
+            >
               <div class="shape-option" data-shape="circle">
                 <div>Round</div>
                 <div class="size-price">+R0</div>
@@ -373,8 +384,12 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Number of Cake Layers</label>
-            <div class="layer-selection">
+            <label id="cakes-layers-label">Number of Cake Layers</label>
+            <div
+              class="layer-selection"
+              role="group"
+              aria-labelledby="cakes-layers-label"
+            >
               <div class="layer-btn" data-layers="2">2</div>
               <div class="layer-btn" data-layers="3">3</div>
               <div class="layer-btn" data-layers="4">4</div>
@@ -415,8 +430,13 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="event-date">Confirmed Event Date *</label>
-            <input type="date" id="event-date" name="event-date" required />
+            <label for="cakes-event-date">Confirmed Event Date *</label>
+            <input
+              type="date"
+              id="cakes-event-date"
+              name="event-date"
+              required
+            />
             <div class="form-note">
               This will auto-fill when you select an available date above
             </div>
@@ -426,7 +446,11 @@
         <!-- Delivery Options -->
         <section class="form-section" id="delivery-section">
           <h3>Delivery & Collection</h3>
-          <div class="delivery-options">
+          <div
+            class="delivery-options"
+            role="group"
+            aria-labelledby="delivery-label"
+          >
             <div class="delivery-option" data-delivery="collection">
               <div>Collection</div>
               <div class="delivery-cost">R0</div>
@@ -439,9 +463,9 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="delivery-notes">Delivery/Collection Notes</label>
+            <label for="cakes-delivery-notes">Delivery/Collection Notes</label>
             <textarea
-              id="delivery-notes"
+              id="cakes-delivery-notes"
               name="delivery-notes"
               placeholder="Any specific delivery instructions, preferred times, or special requirements..."
               rows="3"
@@ -453,11 +477,11 @@
         <section class="form-section" id="design-section">
           <h3>Design & Customization</h3>
           <div class="form-group">
-            <label for="design-inspiration"
+            <label for="cakes-design-inspiration"
               >Design Inspiration/Description *</label
             >
             <textarea
-              id="design-inspiration"
+              id="cakes-design-inspiration"
               name="design-inspiration"
               required
               placeholder="Please describe your vision, include colors, theme, any specific elements you'd like, etc."
@@ -465,8 +489,12 @@
             ></textarea>
           </div>
           <div class="form-group" id="flavor-group">
-            <label for="flavor-preference">Flavor Preference *</label>
-            <select id="flavor-preference" name="flavor-preference" required>
+            <label for="cakes-flavor-preference">Flavor Preference *</label>
+            <select
+              id="cakes-flavor-preference"
+              name="flavor-preference"
+              required
+            >
               <option value="">Select preferred flavor</option>
               <option value="vanilla" data-basic="true">
                 Vanilla (Basic - Included)
@@ -494,14 +522,14 @@
                 Other (Custom Quote)
               </option>
             </select>
-            <div id="flavor-warning" class="warning-message hidden">
+            <div id="cakes-flavor-warning" class="warning-message hidden">
               ⚠️ Bento packages only include basic flavors (Vanilla, Chocolate,
               Marble). Other flavors incur additional costs.
             </div>
           </div>
           <div class="form-group" id="color-group">
-            <label for="icing-colors">Icing Colors *</label>
-            <select id="icing-colors" name="icing-colors" required>
+            <label for="cakes-icing-colors">Icing Colors *</label>
+            <select id="cakes-icing-colors" name="icing-colors" required>
               <option value="">Select number of colors</option>
               <option value="1" data-basic="true">1 Color (Included)</option>
               <option value="2" data-basic="true">2 Colors (Included)</option>
@@ -511,24 +539,24 @@
                 5+ Colors (Custom Quote)
               </option>
             </select>
-            <div id="color-warning" class="warning-message hidden">
+            <div id="cakes-color-warning" class="warning-message hidden">
               ⚠️ Bento packages include maximum 2 colors. Additional colors
               incur extra costs.
             </div>
           </div>
           <div class="form-group">
-            <label for="color-details">Specific Color Details</label>
+            <label for="cakes-color-details">Specific Color Details</label>
             <input
               type="text"
-              id="color-details"
+              id="cakes-color-details"
               name="color-details"
               placeholder="e.g., Light pink and baby blue, rainbow colors, etc."
             />
           </div>
           <div class="form-group" id="frosting-group">
-            <label for="frosting-preference">Frosting Type *</label>
+            <label for="cakes-frosting-preference">Frosting Type *</label>
             <select
-              id="frosting-preference"
+              id="cakes-frosting-preference"
               name="frosting-preference"
               required
             >
@@ -549,16 +577,16 @@
                 Fondant Covering (Custom Quote)
               </option>
             </select>
-            <div id="frosting-warning" class="warning-message hidden">
+            <div id="cakes-frosting-warning" class="warning-message hidden">
               ⚠️ Bento packages include basic buttercream only. Other frostings
               incur additional costs.
             </div>
           </div>
           <div class="form-group" id="filling-group">
-            <label for="filling-preference"
+            <label for="cakes-filling-preference"
               >Filling Preference (Optional)</label
             >
-            <select id="filling-preference" name="filling-preference">
+            <select id="cakes-filling-preference" name="filling-preference">
               <option value="">Select filling (optional)</option>
               <option value="none">No Filling</option>
               <option value="chocolate-ganache">
@@ -743,9 +771,9 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="custom-extras">Other Custom Requests</label>
+            <label for="cakes-custom-extras">Other Custom Requests</label>
             <textarea
-              id="custom-extras"
+              id="cakes-custom-extras"
               name="custom-extras"
               placeholder="Any other special requests, custom decorations, or specific elements not listed above..."
               rows="3"
@@ -786,11 +814,11 @@
             </label>
           </div>
           <div class="form-group">
-            <label for="allergy-notes"
+            <label for="cakes-allergy-notes"
               >Allergy Notes/Specific Requirements</label
             >
             <textarea
-              id="allergy-notes"
+              id="cakes-allergy-notes"
               name="allergy-notes"
               placeholder="Please list any specific allergies or dietary requirements we should be aware of"
               rows="3"
@@ -802,11 +830,11 @@
         <section class="form-section">
           <h3>Additional Information</h3>
           <div class="form-group">
-            <label for="special-requests"
+            <label for="cakes-special-requests"
               >Special Requests/Additional Notes</label
             >
             <textarea
-              id="special-requests"
+              id="cakes-special-requests"
               name="special-requests"
               placeholder="Any other details, special requests, or questions you have..."
               rows="4"
@@ -814,7 +842,7 @@
           </div>
 
           <div class="form-group">
-            <label for="reference-images">Reference Images</label>
+            <label for="cakes-reference-images">Reference Images</label>
             <div class="file-upload-guidance">
               <h4>📁 File Upload Instructions</h4>
               <!-- File Upload Guidance -->
@@ -836,7 +864,8 @@
         <section class="form-section">
           <h3>How did you hear about us?</h3>
           <div class="form-group">
-            <select id="referral-source" name="referral-source">
+            <label for="cakes-referral-source">Referral Source</label>
+            <select id="cakes-referral-source" name="referral-source">
               <option value="">Select an option (optional)</option>
               <option value="instagram">Instagram</option>
               <option value="facebook">Facebook</option>
@@ -950,6 +979,7 @@
               name="full-name"
               required
               placeholder="Enter your full name"
+              autocomplete="name"
             />
           </div>
           <div class="form-row">
@@ -961,6 +991,7 @@
                 name="email"
                 required
                 placeholder="your.email@example.com"
+                autocomplete="email"
               />
             </div>
             <div class="form-group">
@@ -971,6 +1002,7 @@
                 name="phone"
                 required
                 placeholder="+27 82 123 4567"
+                autocomplete="tel"
               />
             </div>
           </div>
@@ -980,8 +1012,12 @@
         <section class="form-section">
           <h3>Quantity & Pricing</h3>
           <div class="form-group">
-            <label>Select Quantity *</label>
-            <div class="quantity-options">
+            <label id="cupcake-quantity-label">Select Quantity *</label>
+            <div
+              class="quantity-options"
+              role="group"
+              aria-labelledby="cupcake-quantity-label"
+            >
               <div class="quantity-option" data-quantity="6">
                 <div>6 Cupcakes</div>
                 <div class="quantity-price">From R120</div>
@@ -1146,6 +1182,7 @@
               name="full-name"
               required
               placeholder="Enter your full name"
+              autocomplete="name"
             />
           </div>
           <div class="form-row">
@@ -1157,6 +1194,7 @@
                 name="email"
                 required
                 placeholder="your.email@example.com"
+                autocomplete="email"
               />
             </div>
             <div class="form-group">
@@ -1167,6 +1205,7 @@
                 name="phone"
                 required
                 placeholder="+27 82 123 4567"
+                autocomplete="tel"
               />
             </div>
           </div>
@@ -1188,8 +1227,12 @@
           </div>
 
           <div class="form-group">
-            <label>Cookie Type *</label>
-            <div class="cookie-size-options">
+            <label id="cookie-type-label">Cookie Type *</label>
+            <div
+              class="cookie-size-options"
+              role="group"
+              aria-labelledby="cookie-type-label"
+            >
               <div class="cookie-size-option" data-size="classic">
                 <div>Classic Sugar Cookies</div>
                 <div class="cookie-minimum">Min. 12 cookies</div>
