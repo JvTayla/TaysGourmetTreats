@@ -482,9 +482,9 @@ nav .nav-bg {
 }
 
 .events-grid {
-  display: flex;
   transition: transform 0.5s ease;
-  gap: 1.2em;
+  gap: 1.2em 1em;
+  margin-bottom: 1em;
 }
 
 .event-card {
@@ -556,6 +556,7 @@ nav .nav-bg {
 
 .event-prev,
 .event-next {
+  display: none;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1296,19 +1297,16 @@ body.menu-open {
   .prev_rec,
   .next_rec {
     position: static;
-    transform: none;
-    margin: 1em;
-    display: inline-block;
+    position: absolute;
   }
 
   .prev_rec {
     border-width: 20px 30px 20px 0;
-    left: auto;
+    top: 28.2em !important;
   }
 
   .next_rec {
     border-width: 20px 0 20px 30px;
-    right: auto;
   }
 
   /* Events section mobile fixes */
@@ -1326,6 +1324,7 @@ body.menu-open {
     width: 35px;
     height: 35px;
     font-size: 1.4em;
+    z-index: 5000;
   }
 
   .event-prev {
