@@ -31,38 +31,6 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../assets/images/RepeatingBackground.png") repeat;
-  background-size: 20em 20em;
-  opacity: 0.4;
-  z-index: 0;
-}
-
-#recent-orders h2 {
-  color: #d83d7f;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-#recent-orders {
-  display: block;
-  background-color: white;
-  color: #000000;
-  font-family: "Glacial Indifference", sans-serif;
-  margin: 0 auto;
-  padding-bottom: 8em;
-  perspective: 1000px;
-  position: relative;
-  padding: 2em 0em 7em 0em;
-}
-
-#recent-orders::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background: url("../assets/images/RepeatingBackground1.png") repeat;
   background-color: #d83d7f;
   background-size: 20em 20em;
@@ -93,43 +61,6 @@ h1 {
   align-items: center;
   position: relative;
   z-index: 2;
-}
-
-.recent_orders.main_card {
-  width: 40em;
-  height: 40em;
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  opacity: 1;
-  transform: scale(1.1);
-  cursor: pointer;
-  position: relative;
-  z-index: 3;
-}
-
-.recent_orders.side_card {
-  width: 35em;
-  height: 35em;
-  border-radius: 8px;
-  object-fit: cover;
-  opacity: 0.6;
-  filter: brightness(0.9);
-  position: absolute;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  z-index: 2;
-}
-
-.left_card {
-  left: 0;
-  transform: translateX(-25em) scale(1);
-  cursor: pointer;
-}
-
-.right_card {
-  right: 0;
-  transform: translateX(25em) scale(1);
-  cursor: pointer;
 }
 
 .card {
@@ -206,30 +137,322 @@ h1 {
   border-color: transparent transparent transparent #ffffff;
   right: 10em;
 }
+
+/* Pinterest Gallery Styles */
 #Inspiration-board {
-  size: 100%;
+  width: 100%;
   text-align: center;
   color: #d83d7f;
-  background-color: #d83d7f;
+  background-color: #fafafa;
+  padding: 1em 0;
+}
+
+#Inspiration-board h2 {
+  color: #d83d7f;
+  font-size: 4em;
+  margin-bottom: 0.25em;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Pinterest Board Sections - LARGER SIZE */
+.pinterest-boards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3em;
+  padding: 2em;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .pinterest-board-section {
-  background-color: #ffffff;
-  border-radius: 5%;
-}
-#Inspiration-board span {
-  background-color: #ffa8ce;
-  padding: 1em;
-  height: 150;
+  background: #ffa8ce;
+  border-radius: 20px;
+  padding: 2em;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
+.pinterest-board-section h3 {
+  color: #d83d7f;
+  font-family: "Fredoka", sans-serif;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+  font-weight: 600;
+}
+
+/* Make Pinterest Embeds Larger */
+.pinterest-board-section a[data-pin-do="embedBoard"] {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+/* Override Pinterest embed styles to make them larger */
+span[class*="PIN_"],
+div[class*="PIN_"] {
+  max-width: 100% !important;
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Specific override for   embed ID */
+span.PIN_1762638347476_embed_grid.PIN_1762638347476_c3 {
+  max-width: 100% !important;
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Ensure iframes scale properly */
+.pinterest-board-section iframe {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 500px !important;
+  border-radius: 12px;
+}
+
+/* Gallery Grid - Pinterest Style */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5em;
+  padding: 2em;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Pin Card Styles */
+.pin-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  break-inside: avoid;
+  margin-bottom: 1.5em;
+}
+
+.pin-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.pin-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pin-card:hover .pin-image {
+  transform: scale(1.05);
+}
+
+.pin-info {
+  padding: 1.2em;
+  background: white;
+}
+
+.pin-title {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.pin-description {
+  font-family: "Glacial Indifference", sans-serif;
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin-bottom: 1em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pin-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+  border-top: 1px solid #f0f0f0;
+}
+
+.pin-board {
+  background: #d83d7f;
+  color: white;
+  padding: 0.3em 0.8em;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.pin-price {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  color: #d83d7f;
+  font-size: 1.1em;
+}
+
+.pin-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.tag {
+  background: #f8f8f8;
+  color: #666;
+  padding: 0.2em 0.6em;
+  border-radius: 12px;
+  font-size: 0.75em;
+  border: 1px solid #e0e0e0;
+}
+
+/* Responsive Design for Pinterest Boards */
 @media (min-width: 1441px) {
-  .recent_orders.main_card {
+  .pinterest-boards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4em;
+    padding: 3em;
+  }
+
+  .pinterest-board-section {
+    min-height: 700px;
+  }
+
+  .pinterest-board-section iframe {
+    height: 600px !important;
+  }
+
+  .pinterest-board-section h3 {
+    font-size: 2.2em;
+  }
+}
+
+/* Desktop (1025px - 1440px) */
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .pinterest-boards {
+    grid-template-columns: repeat(1, 3fr);
+    gap: 2.5em;
+    padding: 2em;
+  }
+
+  .pinterest-board-section {
+    min-height: 550px;
+  }
+
+  .pinterest-board-section iframe {
+    height: 450px !important;
+  }
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .pinterest-boards {
+    grid-template-columns: repeat(1, 3fr);
+    gap: 2em;
+    padding: 1.5em;
+  }
+
+  .pinterest-board-section {
+    min-height: 500px;
+  }
+
+  .pinterest-board-section iframe {
+    height: 400px !important;
+  }
+
+  .pinterest-board-section h3 {
+    font-size: 1.8em;
+  }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  #Inspiration-board h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  .pinterest-boards {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    padding: 1em;
+  }
+
+  .pinterest-board-section {
+    min-height: 450px;
+    padding: 1.5em;
+  }
+
+  .pinterest-board-section iframe {
+    height: 350px !important;
+  }
+
+  .pinterest-board-section h3 {
+    font-size: 1.6em;
+    margin-bottom: 1em;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .pinterest-boards {
+    padding: 0.5em;
+    gap: 1em;
+  }
+
+  .pinterest-board-section {
+    min-height: 400px;
+    padding: 1em;
+  }
+
+  .pinterest-board-section iframe {
+    height: 300px !important;
+  }
+
+  .pinterest-board-section h3 {
+    font-size: 1.4em;
+  }
+
+  #Inspiration-board h2 {
+    font-size: 1.8em;
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 1441px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2em;
+  }
+
+  .pinterest-boards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .main_card {
     width: 45em;
     height: 45em;
   }
 
-  .recent_orders.side_card {
+  .left_card,
+  .right_card {
     width: 40em;
     height: 40em;
   }
@@ -251,27 +474,27 @@ h1 {
     right: 12em;
     border-width: 35px 0 35px 45px;
   }
-
-  .search-input {
-    width: 350px;
-    font-size: 18px;
-  }
-
-  .search-btn,
-  .clear-btn {
-    padding: 14px 28px;
-    font-size: 18px;
-  }
 }
 
 /* Desktop (1025px - 1440px) */
 @media (max-width: 1440px) and (min-width: 1025px) {
-  .recent_orders.main_card {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5em;
+    padding: 1.5em;
+  }
+
+  .pinterest-boards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .main_card {
     width: 35em;
     height: 35em;
   }
 
-  .recent_orders.side_card {
+  .left_card,
+  .right_card {
     width: 30em;
     height: 30em;
   }
@@ -301,13 +524,26 @@ h1 {
 
 /* Tablet (769px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .recent_orders.main_card {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.2em;
+    padding: 1.2em;
+  }
+
+  .pinterest-boards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+    padding: 1.5em;
+  }
+
+  .main_card {
     width: 28em;
     height: 28em;
     transform: scale(1.05);
   }
 
-  .recent_orders.side_card {
+  .left_card,
+  .right_card {
     width: 24em;
     height: 24em;
   }
@@ -342,6 +578,23 @@ h1 {
 
 /* Mobile (768px and below) */
 @media (max-width: 768px) {
+  #Inspiration-board h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .pinterest-boards {
+    grid-template-columns: 1fr;
+    gap: 1em;
+    padding: 1em;
+  }
+
   .recent_orders_slider {
     padding-top: 1.5em;
   }
@@ -351,14 +604,15 @@ h1 {
     gap: 1em;
   }
 
-  .recent_orders.main_card {
+  .main_card {
     width: 22em;
     height: 22em;
     transform: scale(1);
     position: relative;
   }
 
-  .recent_orders.side_card {
+  .left_card,
+  .right_card {
     width: 18em;
     height: 18em;
     position: relative;
@@ -378,7 +632,7 @@ h1 {
     left: auto;
     right: auto;
     transform: none;
-    display: none; /* Hide side cards on mobile or show stacked */
+    display: none;
   }
 
   .prev_rec,
@@ -408,12 +662,27 @@ h1 {
 
 /* Small Mobile (480px and below) */
 @media (max-width: 480px) {
-  .recent_orders.main_card {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1em;
+    padding: 0.5em;
+  }
+
+  .pin-card {
+    margin-bottom: 1em;
+  }
+
+  #Inspiration-board h2 {
+    font-size: 1.8em;
+  }
+
+  .main_card {
     width: 18em;
     height: 18em;
   }
 
-  .recent_orders.side_card {
+  .left_card,
+  .right_card {
     width: 15em;
     height: 15em;
   }

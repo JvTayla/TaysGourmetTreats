@@ -455,7 +455,11 @@ nav .nav-bg {
   padding: 2em 0;
   background-color: #ffc0dc;
 }
-
+.events-grid {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 1.2em;
+}
 .events-heading {
   color: #ffffff;
   text-align: center;
@@ -482,6 +486,7 @@ nav .nav-bg {
 }
 
 .events-grid {
+  grid-template-columns: auto;
   transition: transform 0.5s ease;
   gap: 1.2em 1em;
   margin-bottom: 1em;

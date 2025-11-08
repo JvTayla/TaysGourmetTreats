@@ -150,6 +150,8 @@ class Navigation {
   }
 }
 
+
+
 // Initialize navigation when DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
   new Navigation();

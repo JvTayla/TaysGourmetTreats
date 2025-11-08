@@ -305,7 +305,7 @@ class TayAnimations {
     }
 
     // Pinterest boards sections animation
-    const pinterestBoards = document.querySelector(".pinterest-boards");
+    /*const pinterestBoards = document.querySelector(".pinterest-boards");
     if (pinterestBoards) {
       console.log("Found Pinterest boards, animating...");
       gsap.from(".pinterest-board-section", {
@@ -320,7 +320,7 @@ class TayAnimations {
         },
       });
     }
-
+*/
     // Setup gallery interactions after a short delay
     setTimeout(() => {
       this.setupGalleryInteractions();

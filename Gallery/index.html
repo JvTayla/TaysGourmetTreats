@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Gallery of Tay's Gourmet Treats creations and inspiration." />
+    <meta
+      name="description"
+      content="Gallery of Tay's Gourmet Treats creations and inspiration."
+    />
     <meta name="author" content="Jordyn Van Aswegen" />
     <title>Tay's Gourmet Treats Cake Gallery</title>
-    
-    <link rel="icon" href="../assets/images/TaysTreats Logo.png" type="image/x-icon" />
+
+    <link
+      rel="icon"
+      href="../assets/images/TaysTreats Logo.png"
+      type="image/x-icon"
+    />
 
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/gallery.css" />
@@ -15,10 +22,22 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet" />
-    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/brittany-signature"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/glacial-indifference-2"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css"
+    />
 
     <!-- GSAP Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -31,120 +50,131 @@
     <script>
       const currentPage = "Gallery";
     </script>
-<header class="nav-wrapper">
-  <div class="awning-top"></div>
-  <div class="awning"></div>
+    <header class="nav-wrapper">
+      <div class="awning-top"></div>
+      <div class="awning"></div>
 
-  <div class="nav-sticky">
-    <div class="nav-logo-wrapper">
-      <div class="nav-logo-circle"></div>
-      <a href="/TaysGourmetTreats/index.html">
-        <img
-          class="nav-logo"
-          src="../assets/images/TaysTreats Logo.png"
-          alt="Tay's Gourmet Treats Logo"
-        />
-      </a>
-    </div>
+      <div class="nav-sticky">
+        <div class="nav-logo-wrapper">
+          <div class="nav-logo-circle"></div>
+          <a href="/TaysGourmetTreats/index.html">
+            <img
+              class="nav-logo"
+              src="../assets/images/TaysTreats Logo.png"
+              alt="Tay's Gourmet Treats Logo"
+            />
+          </a>
+        </div>
 
-    <!-- Burger button -->
-    <button class="burger" id="burger" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+        <!-- Burger button -->
+        <button class="burger" id="burger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-    <nav class="nav-bar">
-      <!-- Desktop Navigation -->
-      <ul id="main-nav">
-        <!-- Will be populated dynamically -->
-      </ul>
-      
-      <!-- Mobile Navigation Overlay -->
-      <div class="mobile-nav-overlay">
-        <ul class="mobile-nav-links">
-          <!-- Will be populated dynamically -->
-        </ul>
+        <nav class="nav-bar">
+          <!-- Desktop Navigation -->
+          <ul id="main-nav">
+            <!-- Will be populated dynamically -->
+          </ul>
+
+          <!-- Mobile Navigation Overlay -->
+          <div class="mobile-nav-overlay">
+            <ul class="mobile-nav-links">
+              <!-- Will be populated dynamically -->
+            </ul>
+          </div>
+
+          <!-- Overlay to close menu when clicking outside -->
+          <div class="menu-overlay"></div>
+        </nav>
       </div>
-      
-      <!-- Overlay to close menu when clicking outside -->
-      <div class="menu-overlay"></div>
-    </nav>
-  </div>
-</header>
+    </header>
 
-
-    
     <!-- Gallery Section -->
     <section id="gallery" class="gallery-section">
       <div class="container">
         <h1>Tay's Cake Gallery</h1>
 
- <section id="recent-orders">
-   <h2>Recent Completed Orders</h2>
-   <button class="prev_rec" aria-label="Previous order"></button>
-     <div class="recent_orders_slider">
-       <div class="order_image_wrapper">
-         <div class="card left_card">
-          <img class="side_card" src="../assets/images/orders/recent-order1.jpg" alt="Previous order preview left" />
-         </div>
-         <div class="card main_card">
-          <img class="main_card_img" src="../assets/images/orders/recent-order2.jpg" alt="Current main order preview" />
-         </div>
-         <div class="card right_card">
-          <img class="side_card" src="../assets/images/orders/recent-order3.jpg" alt="Next order preview right" />
-        </div>
-       </div>
-      </div>
-   <button class="next_rec" aria-label="Next order"></button>
-</section>
+        <section id="recent-orders">
+          <h2>Recent Completed Orders</h2>
+          <button class="prev_rec" aria-label="Previous order"></button>
+          <div class="recent_orders_slider">
+            <div class="order_image_wrapper">
+              <div class="card left_card">
+                <img
+                  class="side_card"
+                  src="../assets/images/orders/recent-order1.jpg"
+                  alt="Previous order preview left"
+                />
+              </div>
+              <div class="card main_card">
+                <img
+                  class="main_card_img"
+                  src="../assets/images/orders/recent-order2.jpg"
+                  alt="Current main order preview"
+                />
+              </div>
+              <div class="card right_card">
+                <img
+                  class="side_card"
+                  src="../assets/images/orders/recent-order3.jpg"
+                  alt="Next order preview right"
+                />
+              </div>
+            </div>
+          </div>
+          <button class="next_rec" aria-label="Next order"></button>
+        </section>
 
+        <section id="Inspiration-board">
+          <h2>Inspiration Boards</h2>
 
-<section id="Inspiration-board">
-  <h2>Inspiration Board</h2>
-        <!-- Gallery Grid -->
-        <div id="galleryGrid" class="gallery-grid">
-          <!-- Pinterest pins will be dynamically inserted here -->
-        </div>
-
-        <!-- Pinterest Board Embeds (Backup/Additional Display) -->
-        <div class="pinterest-boards">
-          <div class="pinterest-board-section">
-            <h3>Traditional Cakes</h3>
-            <a
-              data-pin-do="embedBoard"
-              data-pin-board-width="1920px"
-              data-pin-scale-height="800px"
-              data-pin-scale-width="265px"
-              href="https://za.pinterest.com/taysgourmettreats/traditional-cakes/"
-            >
-            </a>
+          <!-- Gallery Grid -->
+         
+            <!-- Pinterest pins will be dynamically inserted here -->
           </div>
 
-          <div class="pinterest-board-section">
-            <h3>Custom Cakes</h3>
-            <a
-              data-pin-do="embedBoard"
-              data-pin-board-width="190"
-              data-pin-scale-height="1200"
-              data-pin-scale-width="265"
-              href="https://za.pinterest.com/taysgourmettreats/custom-cakes/"
-            >
-            </a>
-          </div>
+          <!-- Pinterest Board Embeds -->
+          <div class="pinterest-boards">
+            <div class="pinterest-board-section">
+              <h3>Traditional Cakes</h3>
+              <a
+                data-pin-do="embedBoard"
+                data-pin-board-width="1920px"
+                data-pin-scale-height="800px"
+                data-pin-scale-width="265px"
+                href="https://za.pinterest.com/taysgourmettreats/traditional-cakes/"
+              >
+              </a>
+            </div>
 
-          <div class="pinterest-board-section">
-            <h3>Bento Cakes</h3>
-            <a
-              data-pin-do="embedBoard"
-              data-pin-board-width="1920"
-              data-pin-scale-height="1200"
-              data-pin-scale-width="265"
-              href="https://za.pinterest.com/taysgourmettreats/bento-cakes/"
-            >
-            </a>
+            <div class="pinterest-board-section">
+              <h3>Custom Cakes</h3>
+              <a
+                data-pin-do="embedBoard"
+                data-pin-board-width="190"
+                data-pin-scale-height="1200"
+                data-pin-scale-width="265"
+                href="https://za.pinterest.com/taysgourmettreats/custom-cakes/"
+              >
+              </a>
+            </div>
+
+            <div class="pinterest-board-section">
+              <h3>Bento Cakes</h3>
+              <a
+                data-pin-do="embedBoard"
+                data-pin-board-width="1920"
+                data-pin-scale-height="1200"
+                data-pin-scale-width="265"
+                href="https://za.pinterest.com/taysgourmettreats/bento-cakes/"
+              >
+              </a>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </section>
 
@@ -159,11 +189,11 @@
     <script src="../scripts/gallery.js"></script>
     <script src="../scripts/galleryRecentOrders.js"></script>
     <script src="../scripts/backToTop.js"></script>
-    
+
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         new BackToTop();
       });
     </script>
-</body>
+  </body>
 </html>

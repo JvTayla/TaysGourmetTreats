@@ -1,30 +1,22 @@
-// gallery.js - Pinterest-style gallery with filtering and search
+// gallery.js - Pinterest-style gallery
 // This creates a beautiful gallery that shows off all the amazing treats
 
 class PinterestGallery {
   constructor() {
-    // Using Pinterest API v5 with your actual boards
     this.boards = {
       traditional: "taysgourmettreats/traditional-cakes",
-      custom: "taysgourmettreats/custom-cakes", 
+      custom: "taysgourmettreats/custom-cakes",
       bento: "taysgourmettreats/bento-cakes",
     };
 
-    // For demo purposes - in production, you'd use OAuth
-    this.accessToken = "YOUR_PINTEREST_ACCESS_TOKEN";
-
     this.allPins = [];
     this.filteredPins = [];
-    this.currentBoard = "all";
-    this.currentSearch = "";
 
     this.init();
   }
 
   async init() {
-    // Try to load from Pinterest API, but have sample data as backup
     await this.loadPinterestData();
-    this.setupEventListeners();
     this.displayPins(this.allPins);
     this.setupGSAPAnimations();
   }
@@ -33,11 +25,9 @@ class PinterestGallery {
     this.showLoading(true);
 
     try {
-      // Attempt to load from Pinterest API
       await this.loadFromPinterestAPI();
     } catch (error) {
       console.log("Pinterest API failed, using sample data:", error);
-      // Fallback to sample data with South African pricing
       this.loadSampleData();
     } finally {
       this.showLoading(false);
@@ -45,42 +35,28 @@ class PinterestGallery {
   }
 
   async loadFromPinterestAPI() {
-    // Note: This requires proper OAuth setup
-    // For now, we'll use sample data but you can implement this later
     throw new Error("Pinterest API requires OAuth setup");
-
-    // Example of how it would work:
-    /*
-    for (const [boardType, boardName] of Object.entries(this.boards)) {
-      const pins = await this.fetchBoardPins(boardName);
-      this.allPins.push(...pins.map(pin => ({
-        ...pin,
-        boardType: boardType,
-        boardName: this.getBoardDisplayName(boardType),
-        price: this.generatePrice(boardType) // Generate ZAR prices
-      })));
-    }
-    */
   }
 
   loadSampleData() {
-    // Sample data with South African Rand prices - real treats you've made!
     this.allPins = [
       {
         id: 1,
         title: "Classic Chocolate Cake",
-        description: "Rich traditional chocolate cake with buttercream frosting - perfect for birthdays and special occasions",
+        description:
+          "Rich traditional chocolate cake with buttercream frosting - perfect for birthdays and special occasions",
         image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
         category: "traditional",
         boardType: "traditional",
         boardName: "Traditional Cakes",
-        price: 450, // ZAR
+        price: 450,
         tags: ["chocolate", "traditional", "birthday", "celebration"],
       },
       {
         id: 2,
         title: "Red Velvet Luxury",
-        description: "Classic red velvet cake with cream cheese frosting and decorative elements",
+        description:
+          "Classic red velvet cake with cream cheese frosting and decorative elements",
         image: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f",
         category: "traditional",
         boardType: "traditional",
@@ -91,7 +67,8 @@ class PinterestGallery {
       {
         id: 3,
         title: "Custom Wedding Masterpiece",
-        description: "Elegant three-tier wedding cake with fresh floral accents and gold detailing",
+        description:
+          "Elegant three-tier wedding cake with fresh floral accents and gold detailing",
         image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc",
         category: "custom",
         boardType: "custom",
@@ -102,7 +79,8 @@ class PinterestGallery {
       {
         id: 4,
         title: "Birthday Celebration Cake",
-        description: "Custom birthday cake with personalized decorations and colorful design",
+        description:
+          "Custom birthday cake with personalized decorations and colorful design",
         image: "https://images.unsplash.com/photo-1559620192-032c4bc4674e",
         category: "custom",
         boardType: "custom",
@@ -113,7 +91,8 @@ class PinterestGallery {
       {
         id: 5,
         title: "Mini Bento Cake",
-        description: "Adorable individual-sized decorated cake perfect for personal treats",
+        description:
+          "Adorable individual-sized decorated cake perfect for personal treats",
         image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e",
         category: "bento",
         boardType: "bento",
@@ -124,11 +103,12 @@ class PinterestGallery {
       {
         id: 6,
         title: "Character Bento Cake",
-        description: "Fun character-themed bento cake that brings smiles to all ages",
-        image: "https://images.unsplash.com/photo-1710912247355-4675bde57920?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&",
+        description:
+          "Fun character-themed bento cake that brings smiles to all ages",
+        image: "https://images.unsplash.com/photo-1710912247355-4675bde57920",
         category: "bento",
         boardType: "bento",
-        boardName: "Custom Cakes",
+        boardName: "Bento Cakes",
         price: 300,
         tags: ["character", "bento", "fun", "themed", "colorful"],
       },
@@ -137,81 +117,20 @@ class PinterestGallery {
     this.filteredPins = [...this.allPins];
   }
 
-  getBoardDisplayName(boardType) {
-    const names = {
-      traditional: "Traditional Cakes",
-      custom: "Custom Cakes",
-      bento: "Bento Cakes",
-    };
-    return names[boardType] || boardType;
-  }
-
-  setupEventListeners() {
-    // Search functionality
-    document.getElementById("searchBtn").addEventListener("click", () => this.handleSearch());
-    document.getElementById("searchInput").addEventListener("keypress", (e) => {
-      if (e.key === "Enter") this.handleSearch();
-    });
-    document.getElementById("clearSearch").addEventListener("click", () => this.clearSearch());
-
-    // Board filter buttons - traditional, custom, bento
-    document.querySelectorAll(".filter-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => this.filterByBoard(e.target.dataset.board));
-    });
-  }
-
-  handleSearch() {
-    const searchTerm = document.getElementById("searchInput").value.toLowerCase().trim();
-    this.currentSearch = searchTerm;
-    this.applyFilters();
-  }
-
-  clearSearch() {
-    document.getElementById("searchInput").value = "";
-    this.currentSearch = "";
-    this.applyFilters();
-  }
-
-  filterByBoard(board) {
-    this.currentBoard = board;
-
-    // Update active button styling
-    document.querySelectorAll(".filter-btn").forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.board === board);
-    });
-
-    this.applyFilters();
-  }
-
-  applyFilters() {
-    this.filteredPins = this.allPins.filter((pin) => {
-      const matchesBoard = this.currentBoard === "all" || pin.boardType === this.currentBoard;
-      const matchesSearch = !this.currentSearch ||
-        pin.title.toLowerCase().includes(this.currentSearch) ||
-        pin.description.toLowerCase().includes(this.currentSearch) ||
-        pin.tags.some((tag) => tag.toLowerCase().includes(this.currentSearch));
-
-      return matchesBoard && matchesSearch;
-    });
-
-    this.displayPins(this.filteredPins);
-  }
-
   displayPins(pins) {
     const grid = document.getElementById("galleryGrid");
-    const noResults = document.getElementById("noResults");
 
-    if (pins.length === 0) {
-      grid.innerHTML = "";
-      noResults.style.display = "block";
+    if (!grid) {
+      console.error("Gallery grid element not found");
       return;
     }
 
-    noResults.style.display = "none";
+    if (pins.length === 0) {
+      grid.innerHTML = "<p>No cakes to display</p>";
+      return;
+    }
 
     grid.innerHTML = pins.map((pin) => this.createPinCard(pin)).join("");
-
-    // Animate the new pins with GSAP
     this.animatePinCards();
   }
 
@@ -236,33 +155,11 @@ class PinterestGallery {
 
   setupGSAPAnimations() {
     // Initial page load animation for gallery title
-    gsap.from(".gallery-section h2", {
+    gsap.from("#Inspiration-board h2", {
       duration: 1,
       y: -50,
       opacity: 0,
       ease: "power3.out",
-    });
-
-    // ScrollTrigger for search section
-    gsap.from(".search-container", {
-      scrollTrigger: {
-        trigger: ".search-container",
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-      duration: 1,
-      y: 30,
-      opacity: 0,
-      ease: "power2.out",
-    });
-
-    // Motion path for filter buttons - they slide in from the left
-    gsap.from(".filter-btn", {
-      duration: 1,
-      x: -100,
-      opacity: 0,
-      stagger: 0.1,
-      ease: "back.out(1.7)",
     });
 
     // ScrollTrigger for Pinterest boards sections
@@ -281,24 +178,29 @@ class PinterestGallery {
   }
 
   animatePinCards() {
-    gsap.fromTo(
-      ".pin-card",
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
-      }
-    );
+    if (typeof gsap !== "undefined") {
+      gsap.fromTo(
+        ".pin-card",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out",
+        }
+      );
+    }
   }
 
   showLoading(show) {
-    document.getElementById("loading").style.display = show ? "block" : "none";
+    const loadingElement = document.getElementById("loading");
+    if (loadingElement) {
+      loadingElement.style.display = show ? "block" : "none";
+    }
   }
 }
 
