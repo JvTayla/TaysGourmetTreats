@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Tay's Gourmet Treats Website</title>
     <meta name="description" content="Tay's Gourmet Treats Baking Website." />
     <meta name="keywords" content="baking, sugar cookies, cakes, south africa" />
     <meta name="author" content="Jordyn Van Aswegen" />
@@ -25,7 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
     <link rel="icon" href="./assets/images/TaysTreats Logo.png" type="image/x-icon" />
-    <title>Tay's Gourmet Treats Website</title>
+   
   </head>
   <body>
      <script>
@@ -45,45 +46,29 @@
     
     </header>
 <div class="nav-wrapper">
-  <div class="awning-top"></div>
-  <div class="awning"></div>
+      <div class="awning-top"></div>
+      <div class="awning"></div>
 
-  <nav class="nav-bar">
-    <!-- Burger Menu Button -->
-    <button class="burger" id="burger" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <nav class="nav-bar" role="navigation" aria-label="Main Navigation">
+        <!-- Burger Menu Button -->
+        <button class="burger" id="burger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-    <!-- Static Navigation Links -->
-    <ul>
-      <li><a href="/TaysGourmetTreats/index.html" class="active">Home</a></li>
-      <li><a href="/TaysGourmetTreats/About-Us/index.html">About Us</a></li>
-      <li><a href="/TaysGourmetTreats/Gallery/index.html">Gallery</a></li>
-      <li><a href="/TaysGourmetTreats/Order/index.html">Order</a></li>
-      <li><a href="/TaysGourmetTreats/Events/index.html">Events</a></li>
-      <li><a href="/TaysGourmetTreats/Kiddies-Corner/index.html">Kiddies Corner</a></li>
-      <li><a href="/TaysGourmetTreats/Contact-Us/index.html">Contact Us</a></li>
-    </ul>
-    
-    <!-- Mobile Navigation Side Panel -->
-    <div class="mobile-nav-overlay">
-      <ul class="mobile-nav-links">
-        <li><a href="/TaysGourmetTreats/index.html" class="active">Home</a></li>
-        <li><a href="/TaysGourmetTreats/About-Us/index.html">About Us</a></li>
-        <li><a href="/TaysGourmetTreats/Gallery/index.html">Gallery</a></li>
-        <li><a href="/TaysGourmetTreats/Order/index.html">Order</a></li>
-        <li><a href="/TaysGourmetTreats/Events/index.html">Events</a></li>
-        <li><a href="/TaysGourmetTreats/Kiddies-Corner/index.html">Kiddies Corner</a></li>
-        <li><a href="/TaysGourmetTreats/Contact-Us/index.html">Contact Us</a></li>
-      </ul>
+        <!-- Dynamic Navigation Links will be injected here -->
+        <ul id="main-nav"></ul>
+
+        <!-- Mobile Navigation Side Panel -->
+        <div class="mobile-nav-overlay">
+          <ul class="mobile-nav-links" id="mobile-nav-links"></ul>
+        </div>
+
+        <!-- Overlay to close menu when clicking outside -->
+        <div class="menu-overlay"></div>
+      </nav>
     </div>
-    
-    <!-- Overlay to close menu when clicking outside -->
-    <div class="menu-overlay"></div>
-  </nav>
-</div>
 
 </div>
     <section id="introduction">
