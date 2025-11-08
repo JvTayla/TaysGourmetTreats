@@ -46,8 +46,7 @@
     <script>
       const currentPage = "Kiddies Corner";
     </script>
-
-<div class="nav-wrapper">
+<header class="nav-wrapper">
   <div class="awning-top"></div>
   <div class="awning"></div>
 
@@ -58,12 +57,12 @@
         <img
           class="nav-logo"
           src="../assets/images/TaysTreats Logo.png"
-          alt="Tay's Logo"
+          alt="Tay's Gourmet Treats Logo"
         />
       </a>
     </div>
 
-   <!-- Burger button -->
+    <!-- Burger button -->
     <button class="burger" id="burger" aria-label="Toggle navigation">
       <span></span>
       <span></span>
@@ -71,10 +70,23 @@
     </button>
 
     <nav class="nav-bar">
-      <ul id="main-nav"></ul>
+      <!-- Desktop Navigation -->
+      <ul id="main-nav">
+        <!-- Will be populated dynamically -->
+      </ul>
+      
+      <!-- Mobile Navigation Overlay -->
+      <div class="mobile-nav-overlay">
+        <ul class="mobile-nav-links">
+          <!-- Will be populated dynamically -->
+        </ul>
+      </div>
+      
+      <!-- Overlay to close menu when clicking outside -->
+      <div class="menu-overlay"></div>
     </nav>
   </div>
-</div>
+</header>
 
 
     <!-- Blog Content -->
