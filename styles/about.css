@@ -94,7 +94,6 @@
   position: relative;
   max-width: 90%;
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .team-carousel {
@@ -140,13 +139,14 @@ h4 {
 .team-next {
   position: absolute;
   top: 50%;
+
   transform: translateY(-50%);
   background-color: #ff5da4;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   font-size: 1.8em;
   cursor: pointer;
   z-index: 2;
@@ -160,11 +160,11 @@ h4 {
 }
 
 .team-prev {
-  left: -2em;
+  left: -0.5em;
 }
 
 .team-next {
-  right: -2em;
+  right: -0.5em;
 }
 
 /* MANIFESTO STYLES - UPDATED AND INTEGRATED */
@@ -299,7 +299,7 @@ h4 {
     width: 35em;
   }
   .about-image-fg {
-    right:15em;
+    right: 15em;
   }
 }
 
