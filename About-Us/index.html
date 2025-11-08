@@ -50,7 +50,9 @@
     <script>
       const currentPage = "About Us";
     </script>
-    <div class="nav-wrapper">
+
+    <!-- Header with navigation -->
+    <header class="nav-wrapper">
       <div class="awning-top"></div>
       <div class="awning"></div>
 
@@ -61,192 +63,206 @@
             <img
               class="nav-logo"
               src="../assets/images/TaysTreats Logo.png"
-              alt="Tay's Logo"
+              alt="Tay's Gourmet Treats - Home"
             />
           </a>
         </div>
 
-        <nav class="nav-bar">
+        <nav class="nav-bar" aria-label="Main navigation">
           <ul id="main-nav"></ul>
         </nav>
       </div>
-    </div>
-    <section class="about-wrapper">
-      <h2 class="about-title">About Tay’s</h2>
-      <div class="about-bg-pattern"></div>
-      <div class="about-container">
-        <div class="about-image-wrapper">
-          <img
-            class="about-image"
-            src="../assets/images/StoreFront.png"
-            alt="Tay's Gourmet Treats Storefront"
-          />
-          <img
-            class="about-image-fg"
-            src="../assets/images/Posing.png"
-            alt="Leaning pose Jordyn "
-          />
-        </div>
-        <div class="about-text">
-          <p>
-            Tay’s Gourmet Treats started at the kitchen table with a whisk, a
-            recipe book, and a very patient mum. We believe treats taste better
-            with a story , that’s why every cake is hand-decorated and every
-            cookie is made to feel like a hug.
-          </p>
-          <p>
-            Our owner, <strong>Jordyn Van Aswegen</strong>, started this
-            business in 2024 during her 2nd year at university while studying
-            Digital Art and Game Design. She began baking as a way to get back
-            to her roots and to make some extra money as a university student.
-          </p>
-          <p>
-            Our small team which is mostly a mix of Jordyn and her unpaid
-            interns (family) loves to mix family recipes with modern flavours
-            and can design everything from classic sugar cookies to bold party
-            centrepieces. We pride ourselves on friendly service, clear
-            communication, and delicious results.
-          </p>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <section class="team-wrapper">
-      <h2 class="meet-the-team">Meet the Team!</h2>
-
-      <section class="team-section">
-        <button class="team-prev" aria-label="Previous">&#10094;</button>
-
-        <div class="team-carousel">
-          <div class="team-grid">
-            <!-- Team Member 1 -->
-            <div class="team-member">
-              <h3 class="team-role">The Owner</h3>
-              <img
-                src="../assets/images/Jordyn.png"
-                alt="Owner Jordyn"
-                class="team-photo"
-              />
-              <h4 class="team-name">Jordyn Tayla</h4>
-              <p class="team-description">
-                Founder and creative heart behind Tay's Gourmet Treats. Jordyn
-                ensures every design and flavour meets the sweetest standards.
-              </p>
-            </div>
-
-            <!-- Team Member 2 -->
-            <div class="team-member">
-              <h3 class="team-role">The PA</h3>
-              <img
-                src="../assets/images/Seth.png"
-                alt="Personal Assistant Seth"
-                class="team-photo"
-              />
-              <h4 class="team-name">Seth Oswald</h4>
-              <p class="team-description">
-                Handles scheduling, customer communication, and keeps the
-                kitchen (and Jordyn) on track daily.
-              </p>
-            </div>
-
-            <!-- Team Member 3 -->
-            <div class="team-member">
-              <h3 class="team-role">Chocolatier</h3>
-              <img
-                src="../assets/images/Maya.png"
-                alt="Chocolatier Maya"
-                class="team-photo"
-              />
-              <h4 class="team-name">Maya Kamaldien</h4>
-              <p class="team-description">
-                Our chocolate expert who crafts silky smooth fillings,
-                decorations, and sweet experiments.
-              </p>
-            </div>
-
-            <!-- Team Member 4 -->
-            <div class="team-member">
-              <h3 class="team-role">The QA</h3>
-              <img
-                src="../assets/images/Madie.png"
-                alt="Quality Control Madison"
-                class="team-photo"
-              />
-              <h4 class="team-name">Madison Kamaldien</h4>
-              <p class="team-description">
-                Taste-tester and perfectionist ensuring every treat meets Tay's
-                delicious standards.
-              </p>
-            </div>
+    <!-- Main content -->
+    <main>
+      <!-- About section -->
+      <section class="about-wrapper" aria-labelledby="about-title">
+        <h2 id="about-title" class="about-title">About Tay's</h2>
+        <div class="about-bg-pattern"></div>
+        <div class="about-container">
+          <figure class="about-image-wrapper">
+            <img
+              class="about-image"
+              src="../assets/images/StoreFront.png"
+              alt="Tay's Gourmet Treats Storefront"
+            />
+            <img
+              class="about-image-fg"
+              src="../assets/images/Posing.png"
+              alt="Jordyn, owner of Tay's Gourmet Treats, leaning against a counter"
+            />
+          </figure>
+          <div class="about-text">
+            <p>
+              Tay's Gourmet Treats started at the kitchen table with a whisk, a
+              recipe book, and a very patient mum. We believe treats taste
+              better with a story, that's why every cake is hand-decorated and
+              every cookie is made to feel like a hug.
+            </p>
+            <p>
+              Our owner, <strong>Jordyn Van Aswegen</strong>, started this
+              business in 2024 during her 2nd year at university while studying
+              Digital Art and Game Design. She began baking as a way to get back
+              to her roots and to make some extra money as a university student.
+            </p>
+            <p>
+              Our small team which is mostly a mix of Jordyn and her unpaid
+              interns (family) loves to mix family recipes with modern flavours
+              and can design everything from classic sugar cookies to bold party
+              centrepieces. We pride ourselves on friendly service, clear
+              communication, and delicious results.
+            </p>
           </div>
         </div>
-
-        <button class="team-next" aria-label="Next">&#10095;</button>
       </section>
-    </section>
-    <section class="manifesto-wrapper">
-      <h2 class="manifesto-title">Manifesto</h2>
-      <div class="manifesto-container">
-        <div class="manifesto-text">
-          <p>
-            At Tay’s Gourmet Treats, we believe that every celebration deserves
-            something beautiful, personal, and unforgettable. What began in 2024
-            as a student’s side project — armed with a whisk, a dream, and a
-            love for design — has grown into a heartfelt mission to make life’s
-            sweetest moments even sweeter.
-          </p>
 
-          <p>
-            We create Bento Cakes and Themed Cakes that don’t just look good —
-            they feel right. Every treat is designed to match the soul and
-            aesthetic of your event, bringing together artistry, taste, and
-            story in every slice.
-          </p>
+      <!-- Team section -->
+      <section class="team-wrapper" aria-labelledby="team-title">
+        <h2 id="team-title" class="meet-the-team">Meet the Team!</h2>
 
-          <p><strong>We believe in:</strong></p>
-          <ul>
-            <li>
-              <strong>Quality without compromise:</strong> Every ingredient,
-              every detail, and every swirl of frosting reflects our promise of
-              excellence.
-            </li>
-            <li>
-              <strong>Creativity with purpose:</strong> Each cake tells a story
-              — your story — expressed through color, texture, and design.
-            </li>
-            <li>
-              <strong>Empowerment through creation:</strong> Tay’s isn’t just
-              about baking; it’s about inspiring others to find joy and pride in
-              what they make, share, and celebrate.
-            </li>
-            <li>
-              <strong>Community and connection:</strong> Though we began as an
-              at-home bakery, our dream is to grow into a storefront where
-              creativity, kindness, and good taste live side by side.
-            </li>
-          </ul>
+        <section class="team-section" aria-label="Team members carousel">
+          <button class="team-prev" aria-label="Previous team member">
+            &#10094;
+          </button>
 
-          <p>
-            We’re still small, but our ambitions are big. We see a future where
-            Tay’s Gourmet Treats becomes a household name — a place where every
-            person feels welcome, every flavor has a story, and every order
-            carries a touch of love and craftsmanship.
-          </p>
+          <div class="team-carousel">
+            <div class="team-grid">
+              <!-- Team Member 1 -->
+              <article class="team-member">
+                <h3 class="team-role">The Owner</h3>
+                <img
+                  src="../assets/images/Jordyn.png"
+                  alt="Owner Jordyn"
+                  class="team-photo"
+                />
+                <h4 class="team-name">Jordyn Tayla</h4>
+                <p class="team-description">
+                  Founder and creative heart behind Tay's Gourmet Treats. Jordyn
+                  ensures every design and flavour meets the sweetest standards.
+                </p>
+              </article>
 
-          <p>
-            Because to us, baking isn’t just about sugar and flour. It’s about
-            creating moments — the kind you can taste, share, and remember.
-          </p>
+              <!-- Team Member 2 -->
+              <article class="team-member">
+                <h3 class="team-role">The PA</h3>
+                <img
+                  src="../assets/images/Seth.png"
+                  alt="Personal Assistant Seth"
+                  class="team-photo"
+                />
+                <h4 class="team-name">Seth Oswald</h4>
+                <p class="team-description">
+                  Handles scheduling, customer communication, and keeps the
+                  kitchen (and Jordyn) on track daily.
+                </p>
+              </article>
 
-          <p>
-            <strong>Tay’s Gourmet Treats</strong><br />Handcrafted with heart.
-            Shared with joy.
-          </p>
+              <!-- Team Member 3 -->
+              <article class="team-member">
+                <h3 class="team-role">Chocolatier</h3>
+                <img
+                  src="../assets/images/Maya.png"
+                  alt="Chocolatier Maya"
+                  class="team-photo"
+                />
+                <h4 class="team-name">Maya Kamaldien</h4>
+                <p class="team-description">
+                  Our chocolate expert who crafts silky smooth fillings,
+                  decorations, and sweet experiments.
+                </p>
+              </article>
+
+              <!-- Team Member 4 -->
+              <article class="team-member">
+                <h3 class="team-role">The QA</h3>
+                <img
+                  src="../assets/images/Madie.png"
+                  alt="Quality Control Madison"
+                  class="team-photo"
+                />
+                <h4 class="team-name">Madison Kamaldien</h4>
+                <p class="team-description">
+                  Taste-tester and perfectionist ensuring every treat meets
+                  Tay's delicious standards.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <button class="team-next" aria-label="Next team member">
+            &#10095;
+          </button>
+        </section>
+      </section>
+
+      <!-- Manifesto section -->
+      <section class="manifesto-wrapper" aria-labelledby="manifesto-title">
+        <h2 id="manifesto-title" class="manifesto-title">Manifesto</h2>
+        <div class="manifesto-container">
+          <div class="manifesto-text">
+            <p>
+              At Tay's Gourmet Treats, we believe that every celebration
+              deserves something beautiful, personal, and unforgettable. What
+              began in 2024 as a student's side project — armed with a whisk, a
+              dream, and a love for design — has grown into a heartfelt mission
+              to make life's sweetest moments even sweeter.
+            </p>
+
+            <p>
+              We create Bento Cakes and Themed Cakes that don't just look good —
+              they feel right. Every treat is designed to match the soul and
+              aesthetic of your event, bringing together artistry, taste, and
+              story in every slice.
+            </p>
+
+            <p><strong>We believe in:</strong></p>
+            <ul>
+              <li>
+                <strong>Quality without compromise:</strong> Every ingredient,
+                every detail, and every swirl of frosting reflects our promise
+                of excellence.
+              </li>
+              <li>
+                <strong>Creativity with purpose:</strong> Each cake tells a
+                story — your story — expressed through color, texture, and
+                design.
+              </li>
+              <li>
+                <strong>Empowerment through creation:</strong> Tay's isn't just
+                about baking; it's about inspiring others to find joy and pride
+                in what they make, share, and celebrate.
+              </li>
+              <li>
+                <strong>Community and connection:</strong> Though we began as an
+                at-home bakery, our dream is to grow into a storefront where
+                creativity, kindness, and good taste live side by side.
+              </li>
+            </ul>
+
+            <p>
+              We're still small, but our ambitions are big. We see a future
+              where Tay's Gourmet Treats becomes a household name — a place
+              where every person feels welcome, every flavor has a story, and
+              every order carries a touch of love and craftsmanship.
+            </p>
+
+            <p>
+              Because to us, baking isn't just about sugar and flour. It's about
+              creating moments — the kind you can taste, share, and remember.
+            </p>
+
+            <p>
+              <strong>Tay's Gourmet Treats</strong><br />Handcrafted with heart.
+              Shared with joy.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <div id="site-footer"></div>
+    <!-- Footer -->
+    <footer id="site-footer"></footer>
 
     <!-- Scripts at the end of body -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
