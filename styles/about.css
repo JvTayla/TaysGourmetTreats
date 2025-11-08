@@ -1,4 +1,3 @@
-/* about.css - YOUR COMPLETE ORIGINAL CSS WITH TEAM CAROUSEL ADDED */
 .about-wrapper {
   position: relative;
   padding: 2em;
@@ -26,7 +25,7 @@
 }
 
 .about-container {
-  max-width: 80%;
+  max-width: 75%;
   left: 20%;
   position: relative;
   display: flex;
@@ -35,9 +34,8 @@
   gap: 3rem;
 }
 .about-text {
-  max-width: 60%;
   left: -5%;
-
+  z-index: -1;
   position: relative;
 }
 
@@ -45,7 +43,7 @@
   position: absolute;
   width: 30em;
   aspect-ratio: 1 / 1;
-  left: 0%;
+  left: -6%;
   bottom: 10%;
   transform: translateX(-50%);
   border-radius: 50%;
@@ -169,46 +167,127 @@ h4 {
   right: -2em;
 }
 
+/* MANIFESTO STYLES - UPDATED AND INTEGRATED */
 .manifesto-wrapper {
-  background-color: #ff5da4;
-  padding: 60px 20px;
-  margin: 40px auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  font-family: "Glacial Indifference", sans-serif;
+  background-color: #ff4f9a;
   color: #fff;
-}
-
-.manifesto-title {
+  padding: 80px 40px;
+  border-radius: 10px;
+  max-width: 90%;
+  margin: 80px auto;
+  font-family: "Glacial Indifference", sans-serif;
   text-align: center;
 }
 
-.manifesto-container {
-  display: flex;
-  justify-content: center;
+.manifesto-title {
+  font-family: "Fredoka", sans-serif;
+  font-size: 4.5rem;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.manifesto-text {
+.manifesto-content {
   max-width: 80%;
+  margin: 0 auto;
+  text-align: left;
   line-height: 1.8;
+  font-size: 1em;
+}
+
+.manifesto-content p {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+.values-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: "Fredoka", sans-serif;
+  margin: 0.2em;
+  color: #fff;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 1.5em;
+  margin-bottom: 2.5em;
+}
+
+.value-box {
+  background-color: #fff;
+  color: #000000;
+  border-radius: 20px;
+  padding: 1.8em;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+
+.value-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.value-box h4 {
+  font-family: "Fredoka", sans-serif;
+  color: #bb004e;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.6em;
+}
+
+.value-box p {
   font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-.manifesto-text p {
-  margin-bottom: 20px;
+.closing-text {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
-.manifesto-text ul {
-  padding-left: 20px;
-  margin-bottom: 20px;
+.tagline {
+  text-align: center;
+  margin-top: 2.5em;
+  font-size: 1.25rem;
+  font-family: "Fredoka", sans-serif;
+  color: #fff;
+}
+.signature {
+  font-family: "Brittany Signature", sans-serif;
+  text-align: center;
+  margin-top: 2.5em;
+  font-size: 1.25rem;
+
+  color: #fff;
 }
 
-.manifesto-text li {
-  margin-bottom: 12px;
+@media (max-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.manifesto-text strong {
-  color: #ffd1e0;
+@media (max-width: 768px) {
+  .manifesto-wrapper {
+    padding: 60px 25px;
+  }
+
+  .manifesto-title {
+    font-size: 2.3rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .value-box {
+    text-align: center;
+  }
 }
 
 /* Large Desktop */
@@ -220,7 +299,7 @@ h4 {
     width: 35em;
   }
   .about-image-fg {
-    right: 18em;
+    right:15em;
   }
 }
 
@@ -233,15 +312,20 @@ h4 {
   .about-image-wrapper {
     width: 28em;
     bottom: 20%;
-    left: -5%;
+    left: -5em;
+  }
+  .about-image {
+    width: 90%;
+    left: 1em;
+    bottom: 4em;
   }
   .about-image-fg {
-    width: 55%;
-    right: 12em;
-    bottom: -0.8em;
+    width: 40%;
+    right: 17em;
+    bottom: 5em;
   }
   .about-text {
-    width: 75%;
+    width: 70%;
     padding: 2em 2.5em;
   }
   .about-text p {
@@ -405,7 +489,6 @@ h4 {
     max-width: 250px;
   }
   .about-text {
-    left: 0;
     padding: 1em;
   }
   .about-text p {

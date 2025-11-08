@@ -244,9 +244,10 @@ p {
 }
 
 .nav-logo-circle {
+  transform: none !important; /* Disable GSAP transforms temporarily */
   position: absolute;
-  width: 230px;
-  height: 230px;
+  width: 230px !important;
+  height: 230px !important;
   background-color: #ffe8f4;
   border-radius: 50%;
 

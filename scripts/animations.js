@@ -236,21 +236,8 @@ class TayAnimations {
       },
     });
 
-    // Team members slide up when the team section comes into view
-    gsap.from(".team-member", {
-      y: 100,
-      opacity: 0,
-      stagger: 0.15,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: ".team-wrapper",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-    });
-
     // Manifesto text fades in line by line
-    gsap.from(".manifesto-text p, .manifesto-text li", {
+    gsap.from(".manifesto-content p", {
       y: 30,
       opacity: 0,
       stagger: 0.1,
