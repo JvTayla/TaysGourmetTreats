@@ -14,7 +14,20 @@ body {
     var(--white) 100%
   );
 }
+.order-form .container,
+.product-form {
+  max-width: 90% !important;
+  margin: 0 auto !important;
+}
 
+.form-section {
+  max-width: 100% !important;
+}
+
+/* Also make sure the form containers aren't stretching full width */
+.container {
+  max-width: 65% !important;
+}
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -790,20 +803,22 @@ body {
   .package-card,
   .sizing-guide,
   .customization-options {
+    align-self: center;
+    left: 50px;
+    max-width: 80%;
     margin: 0 10px;
   }
 }
 
 .gallery-cta {
-  background: var(--pink-lighter);
-  padding: 40px 0;
-
+  background: #ffffff;
+  padding: 30px 0px 20px 0px;
   border-radius: 15px;
 }
 
 .gallery-cta-content {
   text-align: center;
-  max-width: 1400px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -1007,6 +1022,7 @@ body {
   color: var(--gray-medium);
   margin-bottom: 25px;
   font-style: italic;
+  font-size: 1em;
 }
 
 /* Package Image Styles */
@@ -1137,16 +1153,20 @@ body {
   margin: 20px 0;
   border-left: 4px solid var(--pink-bright);
 }
+.availability-section p {
+  font-size: 1em;
+}
 
 .availability-header {
   display: flex;
-  justify-content: between;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 15px;
 }
 
 .availability-badge {
   background: var(--pink-bright);
+
   color: white;
   padding: 5px 10px;
   border-radius: 15px;
@@ -1264,6 +1284,7 @@ body {
 
 .summary-item {
   display: flex;
+  max-width: none !important;
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
@@ -1482,9 +1503,10 @@ body {
 
 .additional-products h3 {
   color: var(--pink-dark);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: center;
   font-family: "Fredoka", sans-serif;
+  text-transform: capitalize;
 }
 
 .additional-options {
@@ -1700,7 +1722,7 @@ body {
 /* Circular Progress Indicator */
 .progress-circle-container {
   position: fixed;
-  right: 10%;
+  right: 2%;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1000;
@@ -1761,7 +1783,7 @@ body {
 @media (max-width: 768px) {
   .progress-circle-container {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     top: auto;
     right: 20px;
     transform: none;

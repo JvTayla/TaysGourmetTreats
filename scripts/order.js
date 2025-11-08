@@ -173,18 +173,6 @@ function clearFieldError(field) {
 // MAIN INITIALIZATION - Rest of the code follows...
 // =============================================
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Fire up all the ordering systems when the page loads
-  initProductTabs();
-  initOrderForm();
-  initCakeForm();
-  initCupcakeForm();
-  initCookieForm();
-  initAdditionalProducts();
-  initFileUploadGuidance();
-
-  console.log("🎂 Tay's Gourmet Treats Order System loaded successfully!");
-});
 function initCakeForm() {
   // Fire up all the cake-specific systems
   initPackageSelection();

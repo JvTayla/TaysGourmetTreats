@@ -40,9 +40,9 @@ class TayAnimations {
       case "Gallery":
         this.animateGalleryPage();
         break;
-      case "Order":
+      /* case "Order":
         this.animateOrderPage();
-        break;
+        break;*/
       case "Events":
         this.animateEventsPage();
         break;
@@ -343,8 +343,8 @@ class TayAnimations {
   // ORDER PAGE ANIMATIONS - The ordering experience
   // =============================================
 
-  animateOrderPage() {
-    // Progress circle spins and scales in
+  //animateOrderPage() {
+  /*Progress circle spins and scales in
     gsap.from(".progress-circle", {
       scale: 0,
       rotation: -180,
@@ -352,7 +352,7 @@ class TayAnimations {
       ease: "back.out(1.7)",
     });
   }
-
+*/
   // Shake animation for invalid fields
   shakeInvalidField(field) {
     gsap.to(field, {
