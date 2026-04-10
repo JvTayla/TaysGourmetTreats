@@ -1,0 +1,3 @@
+name = "taysgourmettreats"
+assets.directory = "."
+upload_batch_size = 10  # Smaller chunks
