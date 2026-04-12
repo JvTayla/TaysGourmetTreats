@@ -61,16 +61,7 @@ function initAnimations() {
     },
   });
 
-  // Floating sprinkles - continuous bouncy animation
-  gsap.to(".floating-sprinkle", {
-    y: -20,
-    rotation: 360,
-    duration: 2,
-    repeat: -1, // Loop forever
-    yoyo: true,
-    stagger: 0.5,
-    ease: "sine.inOut",
-  });
+  // Sprinkle animation handled by animations.js to avoid conflicts
 }
 
 // Blog opening function - UPDATED WITH CORRECT LINKS
