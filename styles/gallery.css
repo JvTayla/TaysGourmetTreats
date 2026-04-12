@@ -709,3 +709,212 @@ span.PIN_1762638347476_embed_grid.PIN_1762638347476_c3 {
     background-size: 10em 10em;
   }
 }
+
+
+/* ===========================
+   CUSTOMER REVIEWS SECTION
+   =========================== */
+#customer-reviews {
+  background: linear-gradient(135deg, #d83d7f 0%, #ac1b57 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 4em 1em;
+}
+
+#customer-reviews::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("../assets/images/RepeatingBackground1.png") repeat;
+  background-size: 18em 18em;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+.reviews-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reviews-header h2 {
+  font-family: "Brittany Signature", sans-serif;
+  font-size: 3.5em;
+  color: #ffffff;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 0.2em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.reviews-header p {
+  font-family: "Glacial Indifference", sans-serif;
+  font-size: 1em;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2.5em;
+}
+
+.reviews-carousel-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.review-nav-btn {
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.4);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.8em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.review-nav-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.1);
+}
+
+.reviews-carousel {
+  flex: 1;
+  max-width: 600px;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-slide {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 2.5em 2em;
+  width: 100%;
+}
+
+.review-avatar-wrap {
+  margin-bottom: 1em;
+}
+
+.review-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,0.6);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.review-stars {
+  margin-bottom: 0.8em;
+}
+
+.star {
+  font-size: 1.4em;
+  color: rgba(255,255,255,0.3);
+}
+
+.star.filled {
+  color: #FFD700;
+}
+
+.review-text {
+  font-family: "Glacial Indifference", sans-serif;
+  font-size: 1em;
+  color: #ffffff;
+  line-height: 1.7;
+  margin-bottom: 1em;
+  font-style: italic;
+}
+
+.review-name {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1em;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+}
+
+.review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.5em;
+  margin-bottom: 2.5em;
+}
+
+.review-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.review-dot.active {
+  background: #ffffff;
+  transform: scale(1.3);
+}
+
+.review-cta {
+  margin-top: 0.5em;
+}
+
+.review-cta p {
+  font-family: "Glacial Indifference", sans-serif;
+  font-size: 0.95em;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0.8em;
+}
+
+.review-btn {
+  display: inline-block;
+  background: #ffffff;
+  color: #d83d7f;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 0.7em 2em;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.review-btn:hover {
+  background: #fff0f7;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  color: #ac1b57;
+}
+
+/* Reviews Responsive */
+@media (max-width: 768px) {
+  .reviews-header h2 { font-size: 2.5em; }
+  .review-nav-btn { width: 40px; height: 40px; font-size: 1.4em; }
+  .review-slide { padding: 1.8em 1.2em; }
+  .reviews-carousel { min-height: 220px; }
+  .review-text { font-size: 0.9em; }
+}
+
+@media (max-width: 480px) {
+  .reviews-header h2 { font-size: 2em; }
+  .reviews-carousel-wrap { gap: 0.5em; }
+  .review-nav-btn { width: 35px; height: 35px; font-size: 1.2em; }
+  .review-slide { padding: 1.5em 1em; }
+  .review-avatar { width: 65px; height: 65px; }
+}

@@ -111,6 +111,16 @@ class TayAnimations {
   }
 
   animateGalleryPage() {
+    // Animate reviews section
+    gsap.from("#customer-reviews .review-slide", {
+      y: 50, opacity: 0, duration: 0.9, ease: "power3.out",
+      scrollTrigger: { trigger: "#customer-reviews", start: "top 80%", once: true },
+    });
+    gsap.from(".review-cta", {
+      y: 30, opacity: 0, duration: 0.7, delay: 0.3,
+      scrollTrigger: { trigger: "#customer-reviews", start: "top 70%", once: true },
+    });
+
     const galleryGrid = document.querySelector(".gallery-grid");
     if (galleryGrid) {
       gsap.from(".gallery-grid .gallery-item", {
