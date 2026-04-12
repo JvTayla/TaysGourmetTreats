@@ -2,16 +2,16 @@
 class Navigation {
   constructor() {
     this.navData = [
-      { name: "Home", path: "/TaysGourmetTreats/index.html" },
-      { name: "About Us", path: "/TaysGourmetTreats/About-Us/index.html" },
-      { name: "Gallery", path: "/TaysGourmetTreats/Gallery/index.html" },
-      { name: "Order", path: "/TaysGourmetTreats/Order/index.html" },
-      { name: "Events", path: "/TaysGourmetTreats/Events/index.html" },
+      { name: "Home", path: "/index.html" },
+      { name: "About Us", path: "/About-Us/index.html" },
+      { name: "Gallery", path: "/Gallery/index.html" },
+      { name: "Order", path: "/Order/index.html" },
+      { name: "Events", path: "/Events/index.html" },
       {
         name: "Kiddies Corner",
-        path: "/TaysGourmetTreats/Kiddies-Corner/index.html",
+        path: "/Kiddies-Corner/index.html",
       },
-      { name: "Contact Us", path: "/TaysGourmetTreats/Contact-Us/index.html" },
+      { name: "Contact Us", path: "/Contact-Us/index.html" },
     ];
     this.init();
   }
@@ -51,12 +51,12 @@ class Navigation {
           (page) => `
                 <li>
                     <a href="${page.path}" class="${
-            page.name === currentPage ? "active" : ""
-          }">
+                      page.name === currentPage ? "active" : ""
+                    }">
                         ${page.name}
                     </a>
                 </li>
-            `
+            `,
         )
         .join("");
       mainNav.innerHTML = desktopLinks;
@@ -70,12 +70,12 @@ class Navigation {
           (page) => `
                 <li>
                     <a href="${page.path}" class="${
-            page.name === currentPage ? "active" : ""
-          }">
+                      page.name === currentPage ? "active" : ""
+                    }">
                         ${page.name}
                     </a>
                 </li>
-            `
+            `,
         )
         .join("");
       mobileNav.innerHTML = mobileLinks;
