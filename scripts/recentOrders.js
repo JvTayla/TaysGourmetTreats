@@ -9,12 +9,24 @@ document.addEventListener("DOMContentLoaded", () => {
       alt: "Birthday Classical Chocolate Cake with Purple Butterflies 7 Inch Cake",
     },
     {
-      src: "assets/images/orders/recent-order2.jpg", 
+      src: "assets/images/orders/recent-order2.jpg",
       alt: "22nd Classical Chocolate Bento Cake with Champagne and Gold accents 4 Inch Cake",
     },
     {
-      src: "assets/images/orders/recent-order3.jpg",
-      alt: "Baby Shower Chocolate cake with Barbie font and pink and black",
+      src: "../assets/images/orders/recent-order3.jpg",
+      alt: "",
+    },
+    {
+      src: "../assets/images/orders/recent-order5.jpg",
+      alt: "",
+    },
+    {
+      src: "../assets/images/orders/recent-order6.jpg",
+      alt: "",
+    },
+    {
+      src: "../assets/images/orders/recent-order7.jpg",
+      alt: "",
     },
   ];
 
@@ -30,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Update the carousel display with current images
   function updateCarousel() {
-    const leftIndex = (currentIndex - 1 + recentOrders.length) % recentOrders.length;
+    const leftIndex =
+      (currentIndex - 1 + recentOrders.length) % recentOrders.length;
     const rightIndex = (currentIndex + 1) % recentOrders.length;
 
     // Update all three images
@@ -49,11 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Previous button - go to the previous image
   prevButton.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + recentOrders.length) % recentOrders.length;
+    currentIndex =
+      (currentIndex - 1 + recentOrders.length) % recentOrders.length;
     updateCarousel();
   });
 
-  // Next button - go to the next image  
+  // Next button - go to the next image
   nextButton.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % recentOrders.length;
     updateCarousel();
@@ -61,7 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Click on side images to navigate - left image goes back, right image goes forward
   leftImage.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + recentOrders.length) % recentOrders.length;
+    currentIndex =
+      (currentIndex - 1 + recentOrders.length) % recentOrders.length;
     updateCarousel();
   });
 
@@ -73,7 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Keyboard navigation - left/right arrows also work
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
-      currentIndex = (currentIndex - 1 + recentOrders.length) % recentOrders.length;
+      currentIndex =
+        (currentIndex - 1 + recentOrders.length) % recentOrders.length;
       updateCarousel();
     }
     if (e.key === "ArrowRight") {
