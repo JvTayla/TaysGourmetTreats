@@ -10,7 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       src: "../assets/images/orders/recent-order3.jpg",
-      alt: "Baby Shower Chocolate cake with Barbie font and pink and black",
+      alt: "",
+    },
+    {
+      src: "../assets/images/orders/recent-order5.jpg",
+      alt: "",
+    },
+    {
+      src: "../assets/images/orders/recent-order6.jpg",
+      alt: "",
+    },
+    {
+      src: "../assets/images/orders/recent-order7.jpg",
+      alt: "",
     },
   ];
 
